@@ -2,7 +2,7 @@ Plover - 专注于模块化的NodeJs Web框架
 ====
 
 [![Build Status](https://travis-ci.org/alibaba/plover.svg?branch=master)](https://travis-ci.org/alibaba/plover)
-[![Coverage Status](https://coveralls.io/repos/alibaba/plover/badge.svg)](https://coveralls.io/r/alibaba/plover)
+[![Coverage Status](https://coveralls.io/repos/github/alibaba/plover/badge.svg?branch=master)](https://coveralls.io/github/alibaba/plover?branch=master)
 
 
 Plover是一个专注于 **模块化方式构建web应用** 的NodeJs MVC web框架。不同于其它web框架，它提供完整的应用和模块化模型可以让复杂的业务功能可以方便地抽象成多个模块的方式进行独立开发，让应用可以像搭积目的方式拼装模块而成。
