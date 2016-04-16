@@ -1,0 +1,44 @@
+{
+  "name": "plover",
+  "version": "1.7.0",
+  "description": "专注于模块化的NodeJs Web框架",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint lib test",
+    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks --timeout 10000 test/",
+    "cov": "istanbul cover _mocha --report lcovonly -- --require should --recursive --bail --check-leaks --timeout 10000 test/ -R spec",
+    "ci": "npm run lint && npm run test && npm run cov",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -o CHANGELOG.md -s"
+  },
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "resolve-from": "~2.0.0"
+  },
+  "devDependencies": {
+    "conventional-changelog-cli": "~1.1.1",
+    "eslint": "~2.8.0",
+    "eslint-config-bce": "~1.2.0",
+    "istanbul": "~0.4.1",
+    "koa-bodyparser": "~2.0.1",
+    "koa-session": "~3.3.1",
+    "mocha": "~2.3.4",
+    "should": "~8.3.1",
+    "sinon": "~1.17.2",
+    "supertest": "~1.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alibaba/plover.git"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "author": "bencode@163.com",
+  "license": "Apache License",
+  "bugs": {
+    "url": "https://github.com/alibaba/plover/issues"
+  },
+  "homepage": "https://github.com/alibaba/plover#readme"
+}
