@@ -6,8 +6,9 @@
   "scripts": {
     "lint": "eslint lib test",
     "test": "mocha --require should --reporter spec --recursive --bail --check-leaks --timeout 10000 test/",
-    "cov": "istanbul cover _mocha --report lcovonly -- --require should --recursive --bail --check-leaks --timeout 10000 test/ -R spec",
-    "ci": "npm run lint && npm run test && npm run cov",
+    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks --timeout 10000 test/ -R spec",
+    "travis": "istanbul cover _mocha --report lcovonly -- --require should --recursive --bail --check-leaks --timeout 10000 test/ -R spec",
+    "ci": "npm run lint && npm run test && npm run travis",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -o CHANGELOG.md -s"
   },
   "files": [
