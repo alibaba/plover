@@ -1,8 +1,9 @@
 Plover - 专注于模块化的NodeJs Web框架
 ====
 
-[![Build Status](https://travis-ci.org/alibaba/plover.svg?branch=master)](https://travis-ci.org/alibaba/plover)
-[![Coverage Status](https://coveralls.io/repos/github/alibaba/plover/badge.svg?branch=master)](https://coveralls.io/github/alibaba/plover?branch=master)
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![Test coverage][coveralls-image]][coveralls-url]
 
 
 Plover是一个专注于 **模块化方式构建web应用** 的NodeJs MVC web框架。不同于其它web框架，它提供完整的应用和模块化模型可以让复杂的业务功能可以方便地抽象成多个模块的方式进行独立开发，让应用可以像搭积目的方式拼装模块而成。
@@ -20,3 +21,16 @@ Plover专注于 **模块化** ，为 **快速构建web应用** 提供最佳方�
 
 关于commit规范请参考[Angular Commit规范](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit-message-format)  
 关于lint规范请参考[eslint-config-bce](https://github.com/bencode/eslint-config-bce/blob/master/.eslintrc)  
+
+
+## 相关资源
+
+- plover相关模块和插件[plover-modules](https://github.com/plover-modules/)
+
+
+[npm-image]: https://img.shields.io/npm/v/plover.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/plover
+[travis-image]: https://img.shields.io/travis/plover-modules/plover/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/plover-modules/plover
+[coveralls-image]: https://img.shields.io/codecov/c/github/plover-modules/plover.svg?style=flat-square
+[coveralls-url]: https://codecov.io/github/plover-modules/plover?branch=master
