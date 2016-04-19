@@ -1,0 +1,7 @@
+{
+  "name": "test",
+  "plover": {
+    "plugin": "app.js"
+  }
+}
+
