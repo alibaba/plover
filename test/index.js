@@ -138,6 +138,43 @@ describe('application', function() {
   });
 
 
+  it('plover核心可以由Components自由组织', function() {
+    class Core {
+      constructor(app) {
+        this.server = app.server;
+        this.exports = ['callback', 'addMiddleware'];
+      }
+
+      callback() {
+        return this.server.callback();
+      }
+
+      addMiddleware(mw) {
+        this.server.use(mw);
+      }
+    }
+
+    class Plugin {
+    }
+
+    class MyPlover extends plover.Application {
+      $prepareComponents() {
+        return [Core, Plugin];
+      }
+    }
+
+    const app = new MyPlover({ applicationRoot: root });
+
+    app.addMiddleware(function* () {
+      this.body = 'hello world';
+    });
+
+    return request(app.callback())
+        .get('/')
+        .expect('hello world');
+  });
+
+
   it('application启动后会输出模块列表日志(for coverage)', function(done) {
     const path = pathUtil.join(__dirname, 'fixtures/index-mods');
     plover({ applicationRoot: path, env: 'test' });  // 测试环境不打印
