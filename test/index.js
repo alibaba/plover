@@ -27,6 +27,9 @@ describe('application', function() {
     const settings = { applicationRoot: root };
     const app = plover(settings);
     app.settings.applicationRoot.should.equal(root);
+
+    // 中间件上下文可以取得settings对象
+    app.context.settings.should.equal(app.settings);
   });
 
 
@@ -41,6 +44,9 @@ describe('application', function() {
 
     app.config.urls.should
         .equal(require(pathUtil.join(configRoot, 'urls')));
+
+    // 中间件上下文中可以取得config对象
+    app.context.config.should.equal(app.config);
   });
 
 
@@ -64,13 +70,27 @@ describe('application', function() {
   });
 
 
-  it('可以使用外部koa app对象', function() {
+  it('可以集成到原有koa应用', function() {
     const app = koa();
     const papp = plover(app, {
       applicationRoot: root
     });
 
     papp.server.should.be.equal(app);
+  });
+
+
+  it('集成到其它koa应用时, 如果存在自定义config，则不会被覆盖', function() {
+    const app = koa();
+    const config = {};
+    app.context.config = config;
+
+    const papp = plover(app, {
+      applicationRoot: root,
+      configRoot: configRoot
+    });
+
+    papp.context.config.should.equal(config);
   });
 
 
