@@ -20,6 +20,9 @@ describe('application', function() {
   it('可以使用plover()构造应用', function() {
     const app = plover({ applicationRoot: root });
     app.server.should.be.instanceof(require('koa/lib/application'));
+
+    // 中间件上下文中可以取得moduleResolver
+    app.context.moduleResolver.should.equal(app.moduleResolver);
   });
 
 
