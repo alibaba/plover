@@ -18,7 +18,7 @@ describe('core/action-context', function() {
     }
   };
 
-  ActionContext.refine(app);
+  //ActionContext.refine(app);
 
 
   it('可以使用koa相关属性', function() {
@@ -106,30 +106,30 @@ describe('core/action-context', function() {
   });
 
 
-  it('可以使用settings, config和services', function() {
-    const services = {
-      offerSerivce: {},
-      cacheService: {}
-    };
+  // it('可以使用settings, config和services', function() {
+  //   const services = {
+  //     offerSerivce: {},
+  //     cacheService: {}
+  //   };
 
-    const ctx = {
-      services: {
-        $get: function(name) {
-          return services[name];
-        }
-      }
-    };
+  //   const ctx = {
+  //     services: {
+  //       $get: function(name) {
+  //         return services[name];
+  //       }
+  //     }
+  //   };
 
-    const rd = { ctx: ctx };
-    const ac = new ActionContext(navigator, rd);
+  //   const rd = { ctx: ctx };
+  //   const ac = new ActionContext(navigator, rd);
 
-    ac.moduleResolver.should.equal(app.moduleResolver);
-    ac.settings.should.equal(app.settings);
-    ac.config.should.equal(app.config);
+  //   ac.moduleResolver.should.equal(app.moduleResolver);
+  //   ac.settings.should.equal(app.settings);
+  //   ac.config.should.equal(app.config);
 
-    ac.offerSerivce.should.equal(services.offerSerivce);
-    ac.cacheService.should.equal(services.cacheService);
-  });
+  //   ac.offerSerivce.should.equal(services.offerSerivce);
+  //   ac.cacheService.should.equal(services.cacheService);
+  // });
 
 
   it('使用type, view和layout', function() {

@@ -1,0 +1,3 @@
+<h1>{{name}}</h1>
+<div>version: {{version}}</div>
+<div>{{desc}}</div>

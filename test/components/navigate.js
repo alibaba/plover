@@ -10,7 +10,6 @@ const jsonp = require('jsonp-body');
 const Logger = require('plover-logger');
 
 const NavigateComponent = require('../../lib/components/navigate');
-const ActionContext = require('../../lib/core/action-context');
 const Navigator = require('../../lib/core/navigator');
 
 
@@ -57,12 +56,10 @@ describe('components/navigate', function() {
 
   before(function() {
     stubNavigate();
-    sinon.stub(ActionContext, 'refine');    // prevent refine
   });
 
   after(function() {
     Navigator.prototype.navigate.restore();
-    ActionContext.refine.restore();
   });
 
 
