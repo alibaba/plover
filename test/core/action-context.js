@@ -8,19 +8,6 @@ const ActionContext = require('../../lib/core/action-context');
 describe('core/action-context', function() {
   const navigator = {};
 
-  const app = {
-    moduleResolver: {},
-    settings: {},
-    config: {},
-    services: {
-      offerSerivce: {},
-      cacheService: {}
-    }
-  };
-
-  //ActionContext.refine(app);
-
-
   it('可以使用koa相关属性', function() {
     const ctx = {
       request: {},
@@ -104,32 +91,6 @@ describe('core/action-context', function() {
 
     rd.data.urls.should.equal(ctx.data.urls);
   });
-
-
-  // it('可以使用settings, config和services', function() {
-  //   const services = {
-  //     offerSerivce: {},
-  //     cacheService: {}
-  //   };
-
-  //   const ctx = {
-  //     services: {
-  //       $get: function(name) {
-  //         return services[name];
-  //       }
-  //     }
-  //   };
-
-  //   const rd = { ctx: ctx };
-  //   const ac = new ActionContext(navigator, rd);
-
-  //   ac.moduleResolver.should.equal(app.moduleResolver);
-  //   ac.settings.should.equal(app.settings);
-  //   ac.config.should.equal(app.config);
-
-  //   ac.offerSerivce.should.equal(services.offerSerivce);
-  //   ac.cacheService.should.equal(services.cacheService);
-  // });
 
 
   it('使用type, view和layout', function() {
