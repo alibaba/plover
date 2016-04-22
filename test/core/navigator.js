@@ -16,7 +16,6 @@ describe('core/navigator', function() {
 
   describe('渲染页面', function() {
     const app = plover({ applicationRoot: root });
-    app.addEngine('art', require('plover-arttemplate'));
     const agent = request.agent(app.callback());
 
     it('正常渲染一个页面', function() {
@@ -69,6 +68,41 @@ describe('core/navigator', function() {
       return request(this.app.callback())
         .get('/service.json?id=456')
         .expect({ id: '456', name: 'product-456' });
+    });
+  });
+
+
+  it('使用filter', function() {
+    const app = plover({
+      applicationRoot: root,
+      filters: ['./lib/filters/box.js']
+    });
+
+    return request(app.callback())
+      .get('/index?layout=false')
+      .expect(equal('index-with-filter.html'));
+  });
+
+
+  describe('通过route设置layout', function() {
+    const app = plover({
+      applicationRoot: root,
+      routes: {
+        '/:_plover_module/bare': '_:view?_plover_layout=false',
+        '/:_plover_module/mobile': '_:view?_plover_layout=layouts:mobile'
+      }
+    });
+
+    it('使用路由关闭layout', function() {
+      return request(app.callback())
+        .get('/index/bare')
+        .expect(equal('index-with-layout-false.html'));
+    });
+
+    it('使用路由设置layout', function() {
+      return request(app.callback())
+        .get('/index/mobile')
+        .expect(equal('index-with-layout-mobile.html'));
     });
   });
 });

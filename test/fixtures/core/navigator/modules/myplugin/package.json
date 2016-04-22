@@ -1,0 +1,6 @@
+{
+  "name": "myplugin",
+  "plover": {
+    "plugin": "lib/plugin"
+  }
+}
