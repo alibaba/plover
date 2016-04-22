@@ -12,3 +12,8 @@ exports.view = function() {
     desc: 'nodejs webframework'
   });
 };
+
+
+exports.banner = function() {
+  this.render();
+};

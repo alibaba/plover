@@ -93,16 +93,21 @@ describe('core/navigator', function() {
       }
     });
 
+    const agent = request.agent(app.callback());
+
     it('使用路由关闭layout', function() {
-      return request(app.callback())
-        .get('/index/bare')
+      return agent.get('/index/bare')
         .expect(equal('index-with-layout-false.html'));
     });
 
     it('使用路由设置layout', function() {
-      return request(app.callback())
-        .get('/index/mobile')
+      return agent.get('/index/mobile')
         .expect(equal('index-with-layout-mobile.html'));
+    });
+
+    it('coverage for inner view', function() {
+      return agent.get('/index?banner=true')
+        .expect(equal('index-with-banner.html'));
     });
   });
 });
