@@ -8,17 +8,6 @@ const ActionContext = require('../../lib/core/action-context');
 describe('core/action-context', function() {
   const navigator = {};
 
-  const app = {
-    moduleResolver: {},
-    settings: {},
-    config: {},
-    services: {
-      offerSerivce: {},
-      cacheService: {}
-    }
-  };
-
-
   it('可以使用koa相关属性', function() {
     const ctx = {
       request: {},
