@@ -30,7 +30,7 @@ Plover专注于 **模块化** ，为 **快速构建web应用** 提供最佳方�
 
 [npm-image]: https://img.shields.io/npm/v/plover.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/plover
-[travis-image]: https://img.shields.io/travis/plover-modules/plover/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/plover-modules/plover
-[coveralls-image]: https://img.shields.io/codecov/c/github/plover-modules/plover.svg?style=flat-square
-[coveralls-url]: https://codecov.io/github/plover-modules/plover?branch=master
+[travis-image]: https://img.shields.io/travis/alibaba/plover/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/alibaba/plover
+[coveralls-image]: https://img.shields.io/codecov/c/github/alibaba/plover.svg?style=flat-square
+[coveralls-url]: https://codecov.io/github/alibaba/plover?branch=master
