@@ -14,7 +14,7 @@ const util = require('../util');
 
 
 describe('core/navigator', function() {
-  const root = pathUtil.join(__dirname, '../fixtures/core/navigator');
+  const root = pathUtil.join(__dirname, '../fixtures/core/app');
   const app = plover({ applicationRoot: root, env: 'production' });
   const agent = request.agent(app.callback());
 
@@ -195,6 +195,6 @@ describe('core/navigator', function() {
 
 
 function equal(path) {
-  path = pathUtil.join('core/navigator/expects/' + path);
+  path = 'core/app/expects/' + path;
   return util.htmlEqual(util.fixture(path));
 }
