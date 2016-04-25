@@ -1,0 +1,12 @@
+{{app.view('header', { title: 'Books' })}}
+
+<ul>
+  {{each items as item }}
+  <li>{{app.control('elements/item', { item: item })}}</li>
+  {{/each}}
+</ul>
+
+{{app.control('not-found:view')}}
+
+{{app.control('elements/footer')}}
+

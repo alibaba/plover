@@ -1,0 +1,2 @@
+<div>Name: {{item.name}}</div>
+<div>Price: {{formatPrice(item.price)}}</div>
