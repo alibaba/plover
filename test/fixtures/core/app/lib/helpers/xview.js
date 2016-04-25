@@ -1,10 +1,10 @@
 'use strict';
 
 
-exports.$ = function($) {
-  $.emptyClass = function(v) {
+exports.$proto = {
+  emptyClass: function(v) {
     return v ? '' : 'empty';
-  };
+  }
 };
 
 
