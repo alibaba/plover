@@ -12,7 +12,7 @@ const util = require('../util');
 describe('core/helper-container', function() {
   const root = pathUtil.join(__dirname, '../fixtures/core/app');
 
-  it('添加helper', function() {
+  it('use helper', function() {
     const app = plover({
       applicationRoot: root,
       helpers: {
