@@ -19,8 +19,8 @@ exports.htmlEqual = function(html) {
 
 
 /*
- * 标签之间的多个空格或空行变成一个
+ * 去掉标签之前和之后的空格
  */
 function trimSpace(html) {
-  return html.trim().replace(/(>\s)\s+/g, '$1').replace(/\s+(\s<)/g, '$1');
+  return html.trim().replace(/>\s+/g, '>').replace(/\s+</g, '<');
 }
