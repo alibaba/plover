@@ -3,15 +3,7 @@
   <div>{{xview.formatPrice(123)}}</div>
 </div>
 
-<div class="offer {{$.emptyClass('abc')}}">
+<div class="offer {{emptyClass('abc')}}">
   <a href="{{urlHelper.getOfferUrl(456)}}">offer</a>
   <div>{{xview.formatPrice(456)}}</div>
 </div>
-
-<div class="offer {{$.emptyClass('abc')}}">
-  <a href="{{$.urlHelper.getOfferUrl(456)}}">offer</a>
-  <div>{{xview.formatPrice(456)}}</div>
-</div>
-
-
-

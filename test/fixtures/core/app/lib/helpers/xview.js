@@ -1,8 +1,8 @@
 'use strict';
 
 
-exports.$ = function($) {
-  $.emptyClass = function(v) {
+exports.$init = function() {
+  this.emptyClass = function(v) {
     return v ? '' : 'empty';
   };
 };
