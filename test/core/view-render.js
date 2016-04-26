@@ -2,7 +2,9 @@
 
 
 const pathUtil = require('path');
+const sinon = require('sinon');
 const request = require('supertest');
+const Logger = require('plover-logger')
 
 const util = require('../util');
 const plover = require('../../');
@@ -12,6 +14,20 @@ describe('core/view-render', function() {
   const root = pathUtil.join(__dirname, '../fixtures/core/app');
   const app = plover({ applicationRoot: root });
   const agent = request.agent(app.callback());
+
+  beforeEach(function() {
+    sinon.stub(Logger.prototype, 'error');
+  });
+
+  afterEach(function() {
+    if (this.expectError) {
+      Logger.prototype.error.called.should.be.true();
+      const e = Logger.prototype.error.args[0][0];
+      e.message.match(this.expectError);
+      this.expectError = null;
+    }
+    Logger.prototype.error.restore();
+  });
 
   it('render children', function() {
     return agent.get('/child')
@@ -26,12 +42,14 @@ describe('core/view-render', function() {
 
 
   it('view render error', function() {
+    this.expectError = /some error happen/;
     return agent.get('/child/renderError')
       .expect(500);
   });
 
 
   it('render child error', function() {
+    this.expectError = /some error happen/;
     return agent.get('/child/renderChildError')
       .expect(200);
   });
@@ -47,6 +65,7 @@ describe('core/view-render', function() {
     });
 
     it('render child error', function() {
+      this.expectError = /some error happen/;
       return pagent.get('/child/renderChildError')
         .expect(200);
     });
