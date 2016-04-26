@@ -55,6 +55,19 @@ describe('core/view-render', function() {
   });
 
 
+  it('render other module view', function() {
+    return agent.get('/index/offer')
+      .expect(equal('index-offer.html'));
+  });
+
+
+  it('engine not found', function() {
+    this.expectError = /render engine not exists: xml/;
+    return agent.get('/index/engine-not-found')
+      .expect(500);
+  });
+
+
   describe('env production', function() {
     const myapp = plover({ applicationRoot: root, env: 'production' });
     const pagent = request.agent(myapp.callback());
@@ -70,6 +83,29 @@ describe('core/view-render', function() {
         .expect(200);
     });
   });
+
+
+  describe('with controller filter', function() {
+    it('general render', function() {
+      return agent.get('/filter')
+        .expect('<div>filter</div>\n');
+    });
+
+    it('beforeRender break with body', function() {
+      return agent.get('/filter?break=true&body=true')
+        .expect('break in beforeRender');
+    });
+
+    it('beforeRender break with not found', function() {
+      return agent.get('/filter?break=true')
+        .expect(404);
+    });
+
+    it('filter body in after render', function() {
+      return agent.get('/filter?filterAfter=true')
+        .expect('after:<div>filter</div>\n');
+    });
+  });
 });
 
 
@@ -77,3 +113,4 @@ function equal(path) {
   path = 'core/app/expects/' + path;
   return util.htmlEqual(util.fixture(path));
 }
+

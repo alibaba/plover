@@ -1,0 +1,4 @@
+<div class="offer">
+  <div class="name">{{offer.name}}</div>
+  <div class="price">{{offer.price}}</div>
+</div>

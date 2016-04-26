@@ -3,8 +3,8 @@
 
 exports.afterRender = function() {
   const route = this.route;
-  this.content =
+  this.body =
 `<div class="${route.module}-${route.action}">
-  ${this.content}
+  ${this.body}
 </div>`;
 };
