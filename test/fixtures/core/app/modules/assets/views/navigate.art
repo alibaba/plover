@@ -1,0 +1,10 @@
+{{= content}}
+
+<ul>
+{{each myassets.css as item}}
+  <li>{{item.url}}</li>
+{{/each}}
+{{each myassets.js as item}}
+  <li>{{item.url}}</li>
+{{/each}}
+</ul>

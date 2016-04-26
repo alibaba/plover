@@ -42,10 +42,11 @@ describe('core/helper-container', function() {
   });
 
 
-  // it('navigate with transform assets', function() {
-  //   return request(app.callback())
-  //     .get('/helper/navigate')
-  // });
+  it('navigate with transform assets', function() {
+    return request(app.callback())
+      .get('/assets/navigate')
+      .expect(equal('assets-navigate.html'));
+  });
 });
 
 

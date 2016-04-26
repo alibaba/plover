@@ -21,8 +21,15 @@ class AssetsHelper {
     });
   }
 
-  transform() {
-    // do nothing
+  transform(assets) {
+    const fn = function(item) {
+      return { url: getUrl(item) };
+    };
+    for (const group in assets) {
+      const bag = assets[group];
+      bag.css = bag.css.map(fn);
+      bag.js = bag.js.map(fn);
+    }
   }
 }
 
@@ -43,9 +50,7 @@ function createTag(self, type, fn) {
       }
 
       const tags = list.map(item => {
-        const route = item.route;
-        const url = `/${route.module}/${route.action}`;
-        return fn(url);
+        return fn(getUrl(item));
       });
 
       return { content: tags.join('\n') };
@@ -53,4 +58,10 @@ function createTag(self, type, fn) {
   });
 
   return self.viewRender.renderAsync(self.rd, defer, 'asserts-' + type);
+}
+
+
+function getUrl(item) {
+  const route = item.route;
+  return `/${route.module}/${route.action}`;
 }
