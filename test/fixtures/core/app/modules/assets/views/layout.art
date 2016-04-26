@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    {{= assets.cssTag()}}
+  </head>
+  <body>
+  {{content}}
+  {{= assets.jsTag()}}
+  </body>
+</html>
+

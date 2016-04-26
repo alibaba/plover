@@ -29,6 +29,7 @@ describe('core/view-render', function() {
     Logger.prototype.error.restore();
   });
 
+
   it('render children', function() {
     return agent.get('/child')
       .expect(equal('child.html'));

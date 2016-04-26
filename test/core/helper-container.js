@@ -16,7 +16,8 @@ describe('core/helper-container', function() {
     helpers: {
       urlHelper: './lib/helpers/url-helper',
       xview: './lib/helpers/xview',
-      cms: './lib/helpers/cms'
+      cms: './lib/helpers/cms',
+      assets: './lib/helpers/assets'
     }
   });
 
@@ -32,6 +33,19 @@ describe('core/helper-container', function() {
       .get('/helper/async')
       .expect(equal('helper-async.html'));
   });
+
+
+  it('with assets', function() {
+    return request(app.callback())
+      .get('/assets')
+      .expect(equal('assets.html'));
+  });
+
+
+  // it('navigate with transform assets', function() {
+  //   return request(app.callback())
+  //     .get('/helper/navigate')
+  // });
 });
 
 
