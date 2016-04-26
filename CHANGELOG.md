@@ -1,3 +1,14 @@
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/alibaba/plover/compare/v2.0.0...v2.0.1) (2016-04-26)
+
+
+### Features
+
+* 恢复helper.$扩展helper的方式 ([515420b](https://github.com/alibaba/plover/commit/515420b))
+* 重构helpers，不再支持helper $ ([0816fb7](https://github.com/alibaba/plover/commit/0816fb7))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2016-04-26)
 
