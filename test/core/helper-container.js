@@ -47,6 +47,22 @@ describe('core/helper-container', function() {
       .get('/assets/navigate')
       .expect(equal('assets-navigate.html'));
   });
+
+
+  it('disable assets', function() {
+    const myapp = plover({
+      applicationRoot: root,
+      helpers: {
+        assets: './lib/helpers/assets'
+      },
+      assets: {
+        disableAutowire: true
+      }
+    });
+    return request(myapp.callback())
+      .get('/assets')
+      .expect(equal('assets-disable-autowaire.html'));
+  });
 });
 
 
