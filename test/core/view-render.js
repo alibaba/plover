@@ -4,7 +4,7 @@
 const pathUtil = require('path');
 const sinon = require('sinon');
 const request = require('supertest');
-const Logger = require('plover-logger')
+const Logger = require('plover-logger');
 
 const util = require('../util');
 const plover = require('../../');
