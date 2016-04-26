@@ -42,3 +42,19 @@ exports.layoutNotFound = function() {
   this.layout = 'notfound';
   this.render();
 };
+
+
+exports.offer = function() {
+  this.layout = false;
+  this.view = 'elements:offer';
+  const offer = {
+    name: 'p1',
+    price: 456
+  };
+  this.render({ offer: offer });
+};
+
+
+exports['engine-not-found'] = function() {
+  this.render();
+};

@@ -1,0 +1,6 @@
+'use strict';
+
+
+exports.view = function() {
+  this.body = new Buffer('hello world');
+};

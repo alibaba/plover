@@ -191,6 +191,14 @@ describe('core/navigator', function() {
         .expect(404);
     });
   });
+
+
+  describe('数据类型相当', function() {
+    it('渲染Buffer', function() {
+      return agent.get('/buffer')
+        .expect('hello world');
+    });
+  });
 });
 
 
