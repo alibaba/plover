@@ -1,0 +1,40 @@
+<a name="2.0.0"></a>
+# 2.0.0 (2016-04-26)
+
+
+### Bug Fixes
+
+* add startup component sto default components set ([744f469](https://github.com/alibaba/plover/commit/744f469))
+
+### Features
+
+* 中间件上下文可以取得moduleResolver ([964e6a0](https://github.com/alibaba/plover/commit/964e6a0))
+* **components:** add router component ([406ebc0](https://github.com/alibaba/plover/commit/406ebc0))
+* 初始化仓库，迁移util工具模块 ([8bf94aa](https://github.com/alibaba/plover/commit/8bf94aa))
+* 完成基础功能和组织形式 ([0421cfa](https://github.com/alibaba/plover/commit/0421cfa))
+* 将config放到中间件上下文 ([805435d](https://github.com/alibaba/plover/commit/805435d))
+* **components:** add service component ([8c6b8eb](https://github.com/alibaba/plover/commit/8c6b8eb))
+* 提供$proto方式扩展helper，去掉原来的$方式，性能可以更好 ([6b78669](https://github.com/alibaba/plover/commit/6b78669))
+* **components:** add core component ([6d3f89b](https://github.com/alibaba/plover/commit/6d3f89b))
+* **components:** add navigate component ([62be1ee](https://github.com/alibaba/plover/commit/62be1ee))
+* **components:** add plugin component ([ab7e567](https://github.com/alibaba/plover/commit/ab7e567))
+* **components:** add startup component ([443b6a6](https://github.com/alibaba/plover/commit/443b6a6))
+* **core:** add action-runner ([55bffce](https://github.com/alibaba/plover/commit/55bffce))
+* **core:** add ActionContext ([686f6a9](https://github.com/alibaba/plover/commit/686f6a9))
+* **core:** add helper-container ([e6e28f9](https://github.com/alibaba/plover/commit/e6e28f9))
+* **core:** add navigator ([1a10b84](https://github.com/alibaba/plover/commit/1a10b84))
+* **core:** add render-helper ([6c63bec](https://github.com/alibaba/plover/commit/6c63bec))
+* **core:** add view-render ([86d241c](https://github.com/alibaba/plover/commit/86d241c))
+* **helper:** add app helper ([f37f6ef](https://github.com/alibaba/plover/commit/f37f6ef))
+* **util:** add invoker ([5fa6ef2](https://github.com/alibaba/plover/commit/5fa6ef2))
+* **util:** add route-cache ([c5d9c54](https://github.com/alibaba/plover/commit/c5d9c54))
+* **util:** add router ([a28a75e](https://github.com/alibaba/plover/commit/a28a75e))
+* **util:** add util/config module ([92ba0a5](https://github.com/alibaba/plover/commit/92ba0a5))
+* **util:** add util/error-handler ([2e70f0e](https://github.com/alibaba/plover/commit/2e70f0e))
+
+### Performance Improvements
+
+* 优化view-render构造render-context流程 ([7df049f](https://github.com/alibaba/plover/commit/7df049f))
+
+
+
