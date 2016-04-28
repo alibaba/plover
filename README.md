@@ -27,7 +27,7 @@ Plover专注于 **模块化** ，为 **快速构建web应用** 提供最佳方�
 
 
 - [示例应用](https://github.com/plover-modules/examples)
-- plover相关模块和插件[plover-modules](https://github.com/plover-modules/)
+- [plover-modules](https://github.com/plover-modules/)
 
 
 [npm-image]: https://img.shields.io/npm/v/plover.svg?style=flat-square
