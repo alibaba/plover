@@ -1,3 +1,13 @@
+<a name="2.0.2"></a>
+## [2.0.2](https://github.com/alibaba/plover/compare/v2.0.1...v2.0.2) (2016-05-03)
+
+
+### Features
+
+* add moduleResolver to koa app ([2dbc979](https://github.com/alibaba/plover/commit/2dbc979))
+
+
+
 <a name="2.0.1"></a>
 ## [2.0.1](https://github.com/alibaba/plover/compare/v2.0.0...v2.0.1) (2016-04-26)
 
