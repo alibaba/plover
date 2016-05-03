@@ -21,8 +21,9 @@ describe('application', function() {
     const app = plover({ applicationRoot: root });
     app.server.should.be.instanceof(require('koa/lib/application'));
 
-    // 中间件上下文中可以取得moduleResolver
+    // koa app和koa context可以取得moduleResolver
     app.context.moduleResolver.should.equal(app.moduleResolver);
+    app.server.moduleResolver.should.equal(app.moduleResolver);
   });
 
 
