@@ -1,3 +1,13 @@
+<a name="2.0.3"></a>
+## [2.0.3](https://github.com/alibaba/plover/compare/v2.0.2...v2.0.3) (2016-05-05)
+
+
+### Bug Fixes
+
+* 修复加载控制器失败时，未打印出具体控制器文件地址信息的问题 ([95f217d](https://github.com/alibaba/plover/commit/95f217d))
+
+
+
 <a name="2.0.2"></a>
 ## [2.0.2](https://github.com/alibaba/plover/compare/v2.0.1...v2.0.2) (2016-05-03)
 
