@@ -157,6 +157,17 @@ describe('core/navigator', function() {
   });
 
 
+  it('controller语法错误', function() {
+    const thisApp = plover({ applicationRoot: root, env: 'development' });
+    const path = pathUtil.join(root, 'modules/syntax-error/index.js');
+    return request(thisApp.callback()).get('/syntax-error')
+      .expect(res => {
+        const expect = 'load controller error: ' + path;
+        (res.text.indexOf(expect) > 0).should.be.true();
+      });
+  });
+
+
   describe('Action返回result', function() {
     it('this.navigate()', function() {
       return agent.get('/index/navigate')
