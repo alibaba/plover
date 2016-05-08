@@ -1,6 +1,6 @@
 {
   "name": "plover",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "专注于模块化的NodeJs Web框架",
   "main": "lib/index.js",
   "scripts": {
@@ -35,8 +35,8 @@
     "yield-cache": "~1.1.2"
   },
   "devDependencies": {
-    "conventional-changelog-cli": "~1.1.1",
-    "eslint": "~2.8.0",
+    "conventional-changelog-cli": "~1.2.0",
+    "eslint": "~2.9.0",
     "eslint-config-bce": "~1.2.0",
     "istanbul": "~0.4.1",
     "koa-bodyparser": "~2.0.1",

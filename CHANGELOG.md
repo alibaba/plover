@@ -1,3 +1,13 @@
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/alibaba/plover/compare/v2.0.3...v2.1.0) (2016-05-08)
+
+
+### Features
+
+* app.listen support hostname param ([4ab57e0](https://github.com/alibaba/plover/commit/4ab57e0))
+
+
+
 <a name="2.0.3"></a>
 ## [2.0.3](https://github.com/alibaba/plover/compare/v2.0.2...v2.0.3) (2016-05-05)
 
