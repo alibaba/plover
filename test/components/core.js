@@ -39,14 +39,9 @@ describe('components/core', function() {
     });
 
 
-    it('使用listen可以快速启动应用', function(done) {
+    it('使用listen可以快速启动应用', function() {
       const app = plover(settings);
-      sinon.stub(app.server, 'listen');
-      app.listen(1234);
-      app.ready(() => {
-        app.server.listen.called.should.be.true();
-        done();
-      });
+      return app.listen(1234);
     });
   });
 
@@ -176,7 +171,7 @@ describe('components/core', function() {
 
 
   describe('环境相关', function() {
-    it('开发环境时，异常会打印在页面上', function() {
+    it('开发环境时，常会打印在页面上', function() {
       const app = plover(settings);
 
       app.addMiddleware(function* () {
