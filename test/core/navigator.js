@@ -126,7 +126,7 @@ describe('core/navigator', function() {
   });
 
 
-  it('Controller可以是个类，目前是做了简单处理，后续好好规划下Controller特性', function() {
+  it('es6 class as controller', function() {
     return agent.get('/es6-class/getData.json')
       .expect({ name: 'plover' });
   });
