@@ -1,3 +1,13 @@
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/alibaba/plover/compare/v2.1.1...v2.2.0) (2016-06-17)
+
+
+### Bug Fixes
+
+* 优化模块的加载，添加cache ([843511d](https://github.com/alibaba/plover/commit/843511d))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/alibaba/plover/compare/v2.0.3...v2.1.0) (2016-05-08)
 
