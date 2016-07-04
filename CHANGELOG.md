@@ -1,3 +1,14 @@
+<a name="2.3.0"></a>
+# [2.3.0](https://github.com/alibaba/plover/compare/v2.2.1...v2.3.0) (2016-07-04)
+
+
+### Performance Improvements
+
+* improve performance for render children ([d1f20c2](https://github.com/alibaba/plover/commit/d1f20c2))
+* 使用plover-util/lib/assign代替Object.assign提升性能 ([87c6b1b](https://github.com/alibaba/plover/commit/87c6b1b))
+
+
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/alibaba/plover/compare/v2.1.1...v2.2.0) (2016-06-17)
 
