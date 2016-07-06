@@ -1,0 +1,5 @@
+<ul>
+  <% books.forEach(function(name, index) { %>
+  <%- app.control('elements/book-item', { index: index, name: name }) %>
+  <% }) %>
+</ul>

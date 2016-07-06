@@ -10,3 +10,4 @@
 
 {{app.control('elements/footer')}}
 
+{{app.view('panel')}}

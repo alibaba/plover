@@ -28,6 +28,20 @@ exports.header = function() {
 };
 
 
+exports.panel = function() {
+  this.render();
+};
+
+
+exports.books = function* () {
+  yield sleep(10);
+  const data = {
+    books: ['book a', 'book b', 'book c']
+  };
+  this.render(data);
+};
+
+
 exports['view-not-found'] = function() {
   this.render();
 };
@@ -45,4 +59,11 @@ exports.renderChildError = function() {
 
 function formatPrice(v) {
   return v + '元';
+}
+
+
+function sleep(time) {
+  return new Promise(resolve => {
+    setTimeout(resolve, time);
+  });
 }
