@@ -6,7 +6,7 @@ const request = require('supertest');
 
 const plover = require('../../');
 
-const util = require('../util');
+const equal = require('../util').equalWith;
 
 
 describe('core/helper-container', function() {
@@ -64,9 +64,3 @@ describe('core/helper-container', function() {
       .expect(equal('assets-disable-autowaire.html'));
   });
 });
-
-
-function equal(path) {
-  path = 'core/app/expects/' + path;
-  return util.htmlEqual(util.fixture(path));
-}

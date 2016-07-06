@@ -6,8 +6,8 @@ const sinon = require('sinon');
 const request = require('supertest');
 const Logger = require('plover-logger');
 
-const util = require('../util');
 const plover = require('../../');
+const equal = require('../util').equalWith;
 
 
 describe('core/view-render', function() {
@@ -108,10 +108,3 @@ describe('core/view-render', function() {
     });
   });
 });
-
-
-function equal(path) {
-  path = 'core/app/expects/' + path;
-  return util.htmlEqual(util.fixture(path));
-}
-
