@@ -46,10 +46,6 @@ describe('util/error-handler', function() {
   });
 
 
-  it('非异常对象出错应该也可以', function() {
-  });
-
-
   it('不处理500以下的错误', function() {
     const app = koa();
     app.use(errorHandler());
