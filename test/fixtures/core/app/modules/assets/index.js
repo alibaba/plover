@@ -7,6 +7,11 @@ exports.view = function() {
 };
 
 
+exports.child = function() {
+  this.render();
+};
+
+
 exports.layout = function() {
   this.render();
 };
