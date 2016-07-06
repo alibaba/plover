@@ -57,7 +57,7 @@ function createTag(self, type, fn) {
     });
   });
 
-  return self.viewRender.renderAsync(self.rd, defer, 'asserts-' + type);
+  return self.viewRender.renderAsync(self.rd, defer, 'assets-' + type);
 }
 
 
