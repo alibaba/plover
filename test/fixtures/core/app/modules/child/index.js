@@ -14,7 +14,6 @@ exports.view = function() {
     }
   ];
 
-
   this.render({
     items: items,
     formatPrice: formatPrice

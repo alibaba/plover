@@ -69,6 +69,12 @@ describe('core/view-render', function() {
   });
 
 
+  it('support engine that return promise', function() {
+    return agent.get('/engine/returnPromise')
+      .expect('Hello\n');
+  });
+
+
   describe('env production', function() {
     const myapp = plover({ applicationRoot: root, env: 'production' });
     const pagent = request.agent(myapp.callback());

@@ -21,6 +21,7 @@ describe('core/helper-container', function() {
     }
   });
 
+
   it('use helper', function() {
     return request(app.callback())
       .get('/helper')
@@ -38,6 +39,13 @@ describe('core/helper-container', function() {
   it('with assets', function() {
     return request(app.callback())
       .get('/assets')
+      .expect(equal('assets.html'));
+  });
+
+
+  it('render assets use layoutejs', function() {
+    return request(app.callback())
+      .get('/assets?layoutejs=true')
       .expect(equal('assets.html'));
   });
 

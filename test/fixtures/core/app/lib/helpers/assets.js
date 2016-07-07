@@ -1,6 +1,9 @@
 'use strict';
 
 
+const SafeString = require('plover-util/lib/safe-string')
+
+
 class AssetsHelper {
   constructor(rd, viewRender) {
     this.rd = rd;
@@ -72,12 +75,13 @@ function createTag(self, type, fn) {
       if (assets.default) {
         list = list.concat(assets.default[type]);
       }
+      console.log(assets.layout);
 
       const tags = list.map(item => {
         return fn(getUrl(item));
       });
 
-      return { content: tags.join('\n') };
+      return { content: new SafeString(tags.join('\n')) };
     });
   });
 
