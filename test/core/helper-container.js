@@ -46,7 +46,7 @@ describe('core/helper-container', function() {
   it('render assets use layoutejs', function() {
     return request(app.callback())
       .get('/assets?layoutejs=true')
-      .expect(equal('assets.html'));
+      .expect(equal('assets-layoutejs.html'));
   });
 
 
