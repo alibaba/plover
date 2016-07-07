@@ -56,6 +56,12 @@ exports.renderChildError = function() {
 };
 
 
+exports['not-found'] = function* () {
+  yield sleep(10);
+  return false;
+};
+
+
 function formatPrice(v) {
   return v + '元';
 }
