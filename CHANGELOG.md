@@ -1,3 +1,13 @@
+<a name="2.5.0"></a>
+# [2.5.0](https://github.com/alibaba/plover/compare/v2.3.0...v2.5.0) (2016-07-11)
+
+
+### Performance Improvements
+
+* 对异步渲染引擎的支持 ([12594be](https://github.com/alibaba/plover/commit/12594be))
+
+
+
 <a name="2.3.0"></a>
 # [2.3.0](https://github.com/alibaba/plover/compare/v2.2.1...v2.3.0) (2016-07-04)
 
