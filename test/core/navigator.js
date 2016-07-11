@@ -7,7 +7,7 @@ const co = require('co');
 const request = require('supertest');
 
 const plover = require('../../');
-const util = require('../util');
+const equal = require('../util').equalWith;
 
 
 /* eslint max-nested-callbacks: [2, 4] */
@@ -211,9 +211,3 @@ describe('core/navigator', function() {
     });
   });
 });
-
-
-function equal(path) {
-  path = 'core/app/expects/' + path;
-  return util.htmlEqual(util.fixture(path));
-}

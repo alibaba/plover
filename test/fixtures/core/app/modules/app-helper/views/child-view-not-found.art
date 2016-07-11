@@ -1,0 +1,2 @@
+<h1>child view not found</h1>
+{{app.view('not-found')}}

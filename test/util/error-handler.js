@@ -24,15 +24,24 @@ describe('util/error-handler', function() {
     const err = new Error('发生了错误怎么办');
     app.use(errorHandler({ env: 'development' }));
     app.use(function* () {
+      if (this.query.error === 'string') {
+        throw err.message;
+      }
       throw err;
     });
     return co(function* () {
-      yield request(app.callback())
-        .get('/')
+      const agent = request.agent(app.callback());
+      yield agent.get('/')
         .expect(500)
         .expect(/发生了错误怎么办?/);
 
       Logger.prototype.error.calledWith(err).should.be.true();
+      Logger.prototype.error.reset();
+
+      yield agent.get('/?error=string')
+        .expect(500);
+
+      Logger.prototype.error.calledWith(err.message).should.be.true();
     });
   });
 

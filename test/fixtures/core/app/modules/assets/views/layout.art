@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>{{title}}</title>
+    {{assets.css('/layout-lib.css')}}
+    {{assets.js('/layout-lib.js')}}
     {{= assets.cssTag()}}
   </head>
   <body>

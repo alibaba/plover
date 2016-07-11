@@ -6,8 +6,8 @@ const sinon = require('sinon');
 const request = require('supertest');
 const Logger = require('plover-logger');
 
-const util = require('../util');
 const plover = require('../../');
+const equal = require('../util').equalWith;
 
 
 describe('core/view-render', function() {
@@ -69,6 +69,12 @@ describe('core/view-render', function() {
   });
 
 
+  it('support engine that return promise', function() {
+    return agent.get('/engine/returnPromise')
+      .expect('Hello\n');
+  });
+
+
   describe('env production', function() {
     const myapp = plover({ applicationRoot: root, env: 'production' });
     const pagent = request.agent(myapp.callback());
@@ -108,10 +114,3 @@ describe('core/view-render', function() {
     });
   });
 });
-
-
-function equal(path) {
-  path = 'core/app/expects/' + path;
-  return util.htmlEqual(util.fixture(path));
-}
-

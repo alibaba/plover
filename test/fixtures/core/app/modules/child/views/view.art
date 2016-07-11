@@ -8,5 +8,9 @@
 
 {{app.control('not-found:view')}}
 
+{{app.view('child:not-found')}}
+{{app.control('child:not-found')}}
+
 {{app.control('elements/footer')}}
 
+{{app.view('panel')}}

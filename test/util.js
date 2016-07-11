@@ -18,6 +18,12 @@ exports.htmlEqual = function(html) {
 };
 
 
+exports.equalWith = function(path) {
+  path = pathUtil.join('expects', path);
+  return exports.htmlEqual(exports.fixture(path));
+};
+
+
 /*
  * 去掉标签之前和之后的空格
  */

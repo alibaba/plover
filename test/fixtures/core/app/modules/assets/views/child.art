@@ -1,0 +1,5 @@
+{{assets.css('/child-lib.css')}}
+{{assets.js('/child-lib.js')}}
+<div class="child">
+child
+</div>

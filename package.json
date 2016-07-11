@@ -5,9 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint lib test",
-    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks --timeout 5000 test/util/ test/components/ test/core/ test/index.js",
-    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks --timeout 5000 test/util/ test/components/ test/core/ test/index.js -R spec",
-    "travis": "istanbul cover _mocha --report lcovonly -- --require should --recursive --bail --check-leaks --timeout 5000 test/util/ test/components/ test/core/ test/index.js -R spec",
+    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks --timeout 5000 test/util/ test/components/ test/core/ test/helpers test/index.js",
+    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks --timeout 5000 test/util/ test/components/ test/core/ test/helpers test/index.js -R spec",
+    "travis": "istanbul cover _mocha --report lcovonly -- --require should --recursive --bail --check-leaks --timeout 5000 test/util/ test/components/ test/core/ test/helpers test/index.js -R spec",
     "ci": "npm run lint && npm run test && npm run travis",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -o CHANGELOG.md -s"
   },
@@ -35,13 +35,14 @@
   },
   "devDependencies": {
     "conventional-changelog-cli": "~1.2.0",
-    "eslint": "~2.12.0",
+    "eslint": "~3.0.1",
     "eslint-config-bce": "~1.2.0",
     "istanbul": "~0.4.1",
     "koa-bodyparser": "~2.2.0",
     "koa-session": "~3.3.1",
     "mocha": "~2.5.3",
-    "plover-arttemplate": "~1.1.0",
+    "plover-arttemplate": "~2.0.0",
+    "plover-ejs": "~1.0.0",
     "should": "~9.0.2",
     "sinon": "~1.17.3",
     "supertest": "~1.2.0"

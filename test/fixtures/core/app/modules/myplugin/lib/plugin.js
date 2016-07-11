@@ -1,5 +1,9 @@
 'use strict';
 
+
 module.exports = function(app) {
-  app.addEngine('art', require('plover-arttemplate'));
+  require('plover-arttemplate/lib/plugin')(app);
+  require('plover-ejs/lib/plugin')(app);
+  app.addEngine('my', require('./async-engine'));
 };
+

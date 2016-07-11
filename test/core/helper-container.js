@@ -6,7 +6,7 @@ const request = require('supertest');
 
 const plover = require('../../');
 
-const util = require('../util');
+const equal = require('../util').equalWith;
 
 
 describe('core/helper-container', function() {
@@ -20,6 +20,7 @@ describe('core/helper-container', function() {
       assets: './lib/helpers/assets'
     }
   });
+
 
   it('use helper', function() {
     return request(app.callback())
@@ -39,6 +40,13 @@ describe('core/helper-container', function() {
     return request(app.callback())
       .get('/assets')
       .expect(equal('assets.html'));
+  });
+
+
+  it('render assets use layoutejs', function() {
+    return request(app.callback())
+      .get('/assets?layoutejs=true')
+      .expect(equal('assets-layoutejs.html'));
   });
 
 
@@ -64,9 +72,3 @@ describe('core/helper-container', function() {
       .expect(equal('assets-disable-autowaire.html'));
   });
 });
-
-
-function equal(path) {
-  path = 'core/app/expects/' + path;
-  return util.htmlEqual(util.fixture(path));
-}

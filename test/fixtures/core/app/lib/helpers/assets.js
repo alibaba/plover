@@ -1,10 +1,23 @@
 'use strict';
 
 
+const SafeString = require('plover-util/lib/safe-string')
+
+
 class AssetsHelper {
   constructor(rd, viewRender) {
     this.rd = rd;
     this.viewRender = viewRender;
+  }
+
+
+  css(url) {
+    push(this, 'css', url);
+  }
+
+
+  js(url) {
+    push(this, 'js', url);
   }
 
 
@@ -20,6 +33,7 @@ class AssetsHelper {
       return `<script src="${url}"></script>`;
     });
   }
+
 
   transform(assets) {
     const fn = function(item) {
@@ -37,6 +51,19 @@ class AssetsHelper {
 module.exports = AssetsHelper;
 
 
+function push(self, type, url) {
+  const assets = self.rd.assets;
+  const group = self.rd.route.type === 'layout' ? 'layout' : 'default';
+  const bag = assets[group] ||
+      (assets[group] = { css: [], js: [] });
+  const list = bag[type];
+  const last = list[list.length - 1];
+  // 放在autowire节点前面
+  const pos = last && last.autowire ? list.length - 1 : list.length;
+  list.splice(pos, 0, { url: url });
+}
+
+
 function createTag(self, type, fn) {
   const assets = self.rd.assets;
   const defer = new Promise(resolve => {
@@ -48,20 +75,24 @@ function createTag(self, type, fn) {
       if (assets.default) {
         list = list.concat(assets.default[type]);
       }
+      console.log(assets.layout);
 
       const tags = list.map(item => {
         return fn(getUrl(item));
       });
 
-      return { content: tags.join('\n') };
+      return { content: new SafeString(tags.join('\n')) };
     });
   });
 
-  return self.viewRender.renderAsync(self.rd, defer, 'asserts-' + type);
+  return self.viewRender.renderAsync(self.rd, defer, 'assets-' + type);
 }
 
 
 function getUrl(item) {
+  if (item.url) {
+    return item.url;
+  }
   const route = item.route;
   return `/${route.module}/${route.action}`;
 }

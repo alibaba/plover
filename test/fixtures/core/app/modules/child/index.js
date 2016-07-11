@@ -14,7 +14,6 @@ exports.view = function() {
     }
   ];
 
-
   this.render({
     items: items,
     formatPrice: formatPrice
@@ -25,6 +24,20 @@ exports.view = function() {
 exports.header = function() {
   const title = this.query.title;
   this.render({ title: title });
+};
+
+
+exports.panel = function() {
+  this.render();
+};
+
+
+exports.books = function* () {
+  yield sleep(10);
+  const data = {
+    books: ['book a', 'book b', 'book c']
+  };
+  this.render(data);
 };
 
 
@@ -43,6 +56,19 @@ exports.renderChildError = function() {
 };
 
 
+exports['not-found'] = function* () {
+  yield sleep(10);
+  return false;
+};
+
+
 function formatPrice(v) {
   return v + '元';
+}
+
+
+function sleep(time) {
+  return new Promise(resolve => {
+    setTimeout(resolve, time);
+  });
 }

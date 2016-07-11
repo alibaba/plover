@@ -1,1 +1,4 @@
+{{assets.css('/view-lib.css')}}
+{{assets.js('/view-lib.js')}}
 <h1>Assets</h1>
+{{app.view('child')}}

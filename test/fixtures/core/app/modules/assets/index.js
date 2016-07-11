@@ -2,7 +2,12 @@
 
 
 exports.view = function() {
-  this.layout = 'layout';
+  this.layout = this.query.layoutejs ? 'layoutejs' : 'layout';
+  this.render();
+};
+
+
+exports.child = function() {
   this.render();
 };
 
@@ -10,6 +15,9 @@ exports.view = function() {
 exports.layout = function() {
   this.render();
 };
+
+
+exports.layoutejs = exports.layout;
 
 
 exports.navigate = function* () {
