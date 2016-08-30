@@ -171,7 +171,7 @@ describe('components/core', function() {
 
 
   describe('环境相关', function() {
-    it('开发环境时，常会打印在页面上', function() {
+    it('开发环境时，异常会打印在页面上', function() {
       const app = plover(settings);
 
       app.addMiddleware(function* () {
@@ -189,7 +189,7 @@ describe('components/core', function() {
 
         // 500及以上 错误异常会打在页面上
         yield agent.get('/')
-            .expect(/^<pre>\[Error: some error happen\]\n/);
+            .expect(/^<pre>Error: some error happen\n/);
 
         // 其他的正常返回到浏览器端
         yield agent.get('/admin').expect(401);
