@@ -189,7 +189,7 @@ describe('components/core', function() {
 
         // 500及以上 错误异常会打在页面上
         yield agent.get('/')
-            .expect(/^<pre>Error: some error happen\n/);
+            .expect(/Error: some error happen/);
 
         // 其他的正常返回到浏览器端
         yield agent.get('/admin').expect(401);
