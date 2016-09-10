@@ -121,7 +121,7 @@ describe('util/router', function() {
 
   it('升级path-to-regexp > 1.3.0 后以下规则通不过', function() {
     const router = new Router();
-    router.add('/design/page/:_plover_module/:_plover_action?:extname(\\.html?|\\.shtml?)?', '_/_');
+    router.add('/design/page/:_plover_module/:_plover_action?:extname(\\.html?|\\.shtml?)?', '_/_'); // eslint-disable-line
     router.route('/design/page/preview.shtml').should.eql({
       module: 'preview',
       action: undefined,
