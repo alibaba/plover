@@ -1,3 +1,13 @@
+<a name="2.5.1"></a>
+## [2.5.1](https://github.com/alibaba/plover/compare/v2.5.0...v2.5.1) (2016-09-10)
+
+
+### Bug Fixes
+
+* 修复升级path-to-regexp到1.3及以上版本原有规则不能正常使用 [#22](https://github.com/alibaba/plover/issues/22) ([35a2b51](https://github.com/alibaba/plover/commit/35a2b51))
+
+
+
 <a name="2.5.0"></a>
 # [2.5.0](https://github.com/alibaba/plover/compare/v2.3.0...v2.5.0) (2016-07-11)
 
