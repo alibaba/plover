@@ -192,5 +192,24 @@ describe('util/router', function() {
 
     (router.route('/123') === null).should.be.ok();
   });
+
+
+  it('for coverage', function() {
+    const router = new Router();
+    router.add('/pages', { module: 'pages', action: 'index', param: {} });
+    router.add('/pages/(\\d+)',
+      { module: 'pages', action: 'show', query: { id: '$1', type: 'test' } });
+
+    router.route('/pages').should
+        .eql({ module: 'pages', action: 'index', param: {}, query: {} });
+
+    router.route('/pages/123').should
+        .eql({ module: 'pages', action: 'show', query: { id: '123', type: 'test' } });
+
+    (() => {
+      router.add('/pages/(\\d+)',
+        { module: 'pages', action: 'show', query: { id: '$2' } });
+    }).should.throw();
+  });
 });
 
