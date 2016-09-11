@@ -4,6 +4,7 @@
 const fs = require('fs');
 const pathUtil = require('path');
 const co = require('co');
+const sinon = require('sinon');
 const request = require('supertest');
 
 const plover = require('../../');
@@ -160,10 +161,15 @@ describe('core/navigator', function() {
   it('controller语法错误', function() {
     const thisApp = plover({ applicationRoot: root, env: 'development' });
     const path = pathUtil.join(root, 'modules/syntax-error/index.js');
+    const Logger = require('plover-logger');
+    sinon.stub(Logger.prototype, 'error');
     return request(thisApp.callback()).get('/syntax-error')
       .expect(res => {
         const expect = 'load controller error: ' + path;
         (res.text.indexOf(expect) > 0).should.be.true();
+
+        Logger.prototype.error.called.should.be.true();
+        Logger.prototype.error.restore();
       });
   });
 
