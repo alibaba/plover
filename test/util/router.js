@@ -142,7 +142,7 @@ describe('util/router', function() {
 
     router.route('/index.html').should.eql({
       module: 'index',
-      action: '',
+      action: undefined,
       query: {
       }
     });
@@ -155,7 +155,7 @@ describe('util/router', function() {
 
     router.route('/offer/').should.eql({
       module: 'offer',
-      action: '',
+      action: undefined,
       query: {}
     });
 
