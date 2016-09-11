@@ -136,9 +136,9 @@ describe('util/router', function() {
     const router = new Router();
     /* eslint-disable */
     router.add(/^\/([a-zA-Z][-\w]*?)(?:\/([a-zA-Z][-\w]*?))?(?:\.(?:html|htm|json|jsonp))?\/?$/,
-        '_/_?_plover_module=$1&_plover_action=$2');
+        { module: '$1', action: '$2' });
     /* eslint-enable */
-    router.add(/^\/$/, 'index/view');
+    router.add(/^\/$/, { module: 'index', action: 'view' });
 
     router.route('/index.html').should.eql({
       module: 'index',
