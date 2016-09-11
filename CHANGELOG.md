@@ -1,3 +1,14 @@
+<a name="2.6.0"></a>
+# [2.6.0](https://github.com/alibaba/plover/compare/v2.5.1...v2.6.0) (2016-09-11)
+
+
+### Features
+
+* improve route ([e342729](https://github.com/alibaba/plover/commit/e342729))
+* route添加method检测 ([8166bbe](https://github.com/alibaba/plover/commit/8166bbe))
+
+
+
 <a name="2.5.1"></a>
 ## [2.5.1](https://github.com/alibaba/plover/compare/v2.5.0...v2.5.1) (2016-09-10)
 

@@ -1,6 +1,6 @@
 {
   "name": "plover",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "description": "专注于模块化的NodeJs Web框架",
   "main": "lib/index.js",
   "scripts": {
