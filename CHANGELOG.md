@@ -1,3 +1,13 @@
+<a name="2.6.1"></a>
+## [2.6.1](https://github.com/alibaba/plover/compare/v2.6.0...v2.6.1) (2016-09-19)
+
+
+### Bug Fixes
+
+* 修复加载子模块前端资源的问题 ([a8de526](https://github.com/alibaba/plover/commit/a8de526))
+
+
+
 <a name="2.6.0"></a>
 # [2.6.0](https://github.com/alibaba/plover/compare/v2.5.1...v2.6.0) (2016-09-11)
 
