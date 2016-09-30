@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+
+<ul class="list">
+  {{=app.control('elements/book-item', { name: 'Hi', index: 126 })}}
+</ul>
+
+
+<div class="show-box">
+  {{app.view('show')}}
+</div>

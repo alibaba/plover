@@ -28,7 +28,12 @@ exports.header = function() {
 
 
 exports.panel = function() {
-  this.render();
+  const slowText = new Promise(resolve => {
+    setTimeout(() => {
+      resolve('slow text')
+    }, 10);
+  });
+  this.render({ slowText: slowText });
 };
 
 
@@ -39,6 +44,12 @@ exports.books = function* () {
   };
   this.render(data);
 };
+
+
+exports.show = function* () {
+  yield sleep(10);
+  this.render();
+}
 
 
 exports['view-not-found'] = function() {

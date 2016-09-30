@@ -1,2 +1,6 @@
 {{app.set('title', title)}}
 <h1>{{title}}</h1>
+
+<div class="container">
+  {{app.control('elements/big', { title: 'Big' })}}
+</div>
