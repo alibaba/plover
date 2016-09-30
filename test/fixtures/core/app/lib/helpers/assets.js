@@ -57,10 +57,7 @@ function push(self, type, url) {
   const bag = assets[group] ||
       (assets[group] = { css: [], js: [] });
   const list = bag[type];
-  const last = list[list.length - 1];
-  // 放在autowire节点前面
-  const pos = last && last.autowire ? list.length - 1 : list.length;
-  list.splice(pos, 0, { url: url });
+  list.push({ url: url });
 }
 
 
@@ -68,15 +65,16 @@ function createTag(self, type, fn) {
   const assets = self.rd.assets;
   const defer = new Promise(resolve => {
     resolve(function() {
-      let list = [];
+      let layoutList = [];
+      let defaultList = [];
       if (assets.layout) {
-        list = list.concat(assets.layout[type]);
+        layoutList = layoutList.concat(assets.layout[type]);
       }
       if (assets.default) {
-        list = list.concat(assets.default[type]);
+        defaultList = defaultList.concat(assets.default[type]);
       }
-      console.log(assets.layout);
 
+      const list = layoutList.concat(defaultList);
       const tags = list.map(item => {
         return fn(getUrl(item));
       });

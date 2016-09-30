@@ -41,7 +41,7 @@
     "koa-bodyparser": "~2.2.0",
     "koa-session": "~3.3.1",
     "mocha": "~3.1.0",
-    "plover-arttemplate": "~2.0.0",
+    "plover-arttemplate": "~3.0.0",
     "plover-ejs": "~1.0.0",
     "should": "~11.1.0",
     "sinon": "~1.17.3",
