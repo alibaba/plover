@@ -22,7 +22,7 @@
     "escape-html": "~1.0.3",
     "is-type-of": "~1.0.0",
     "jsonp-body": "~1.0.0",
-    "koa": "~1.2.0",
+    "koa": "~1.2.4",
     "koa-compose": "~2.4.0",
     "mz": "~2.4.0",
     "output-formatter": "~1.0.1",

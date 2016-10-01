@@ -57,13 +57,23 @@ exports['view-not-found'] = function() {
 };
 
 
+exports.renderChildError = function() {
+  this.render();
+};
+
+
 exports.renderError = function() {
   throw new Error('some error happen');
 };
 
 
-exports.renderChildError = function() {
+exports.renderAsyncChildError = function() {
   this.render();
+};
+
+exports.renderAsyncError = function* () {
+  yield sleep(10);
+  throw new Error('some error happen');
 };
 
 
