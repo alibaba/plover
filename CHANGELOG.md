@@ -1,3 +1,23 @@
+<a name="2.7.0"></a>
+# [2.7.0](https://github.com/alibaba/plover/compare/v2.6.1...v2.7.0) (2016-10-01)
+
+
+### Bug Fixes
+
+* include async ([65c9ee1](https://github.com/alibaba/plover/commit/65c9ee1))
+
+
+### Features
+
+* 完成app.control的性能优化 ([0a36320](https://github.com/alibaba/plover/commit/0a36320))
+
+
+### Performance Improvements
+
+* 优化filters的初始化 ([15dba47](https://github.com/alibaba/plover/commit/15dba47))
+
+
+
 <a name="2.6.1"></a>
 ## [2.6.1](https://github.com/alibaba/plover/compare/v2.6.0...v2.6.1) (2016-09-19)
 
