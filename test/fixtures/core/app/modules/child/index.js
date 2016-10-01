@@ -28,7 +28,12 @@ exports.header = function() {
 
 
 exports.panel = function() {
-  this.render();
+  const slowText = new Promise(resolve => {
+    setTimeout(() => {
+      resolve('slow text')
+    }, 10);
+  });
+  this.render({ slowText: slowText });
 };
 
 
@@ -41,7 +46,18 @@ exports.books = function* () {
 };
 
 
+exports.show = function* () {
+  yield sleep(10);
+  this.render();
+}
+
+
 exports['view-not-found'] = function() {
+  this.render();
+};
+
+
+exports.renderChildError = function() {
   this.render();
 };
 
@@ -51,8 +67,13 @@ exports.renderError = function() {
 };
 
 
-exports.renderChildError = function() {
+exports.renderAsyncChildError = function() {
   this.render();
+};
+
+exports.renderAsyncError = function* () {
+  yield sleep(10);
+  throw new Error('some error happen');
 };
 
 

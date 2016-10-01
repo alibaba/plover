@@ -1,0 +1,8 @@
+<form name="{{name}}">
+  <div>
+    {{app.control('input', { value: 'Hello' })}}
+  </div>
+  <div>
+    {{app.control('select', { name: 'Web' })}}
+  </div>
+</form>

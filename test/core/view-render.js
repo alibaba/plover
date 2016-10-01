@@ -56,6 +56,13 @@ describe('core/view-render', function() {
   });
 
 
+  it('render async child error', function() {
+    this.expectError = /some error happen/;
+    return agent.get('/child/renderAsyncChildError')
+      .expect(200);
+  });
+
+
   it('render other module view', function() {
     return agent.get('/index/offer')
       .expect(equal('index-offer.html'));

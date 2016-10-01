@@ -1,0 +1,5 @@
+<select name="{{name}}" class="{{className}}">
+  {{each options as option}}
+    {{app.control('option', option)}}
+  {{/each}}
+</select>
