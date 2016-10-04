@@ -8,7 +8,7 @@ describe('util/router', function() {
   it('可以路由url', function() {
     const router = new Router();
     router.add('/offer/:offerId(\\d+)(\\.html)?',
-        'offer:view');
+        'offer#view');
 
     router.route('/offer/123').should.eql({
       module: 'offer',
@@ -39,14 +39,24 @@ describe('util/router', function() {
   });
 
 
-  it('也可以使用/分隔action', function() {
+  it('也可以使用/和:分隔action（兼容老版本）', function() {
     const router = new Router();
     router.add('/offer/:id(\\d+)', 'offer/view');
+    router.add('/photos/:id(\\d+)', 'photos:show');
+
     router.route('/offer/123').should.eql({
       module: 'offer',
       action: 'view',
       query: {
         id: '123'
+      }
+    });
+
+    router.route('/photos/10').should.eql({
+      module: 'photos',
+      action: 'show',
+      query: {
+        id: '10'
       }
     });
   });
