@@ -1,3 +1,13 @@
+<a name="2.8.1"></a>
+## [2.8.1](https://github.com/alibaba/plover/compare/v2.8.0...v2.8.1) (2016-10-06)
+
+
+### Bug Fixes
+
+* 修复proxy中间件名称没有设置 ([ede8b2f](https://github.com/alibaba/plover/commit/ede8b2f))
+
+
+
 <a name="2.8.0"></a>
 # [2.8.0](https://github.com/alibaba/plover/compare/v2.7.1...v2.8.0) (2016-10-06)
 
