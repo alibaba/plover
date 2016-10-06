@@ -120,6 +120,29 @@ describe('components/core', function() {
       return request(app.callback())
           .get('/').expect('ignore csrf');
     });
+
+
+    it('使用match/method匹配中间件的访问', function() {
+      const app = plover(settings);
+
+      app.addMiddleware(function* () {
+        this.body = 'hello';
+      }, { match: '/hello/*' });
+
+      app.addMiddleware(function* () {
+        this.body = 'uploaded';
+      }, { match: '/upload', method: 'post' });
+
+      const agent = request.agent(app.callback());
+
+      return co(function* () {
+        yield agent.get('/').expect(404);
+        yield agent.get('/hello/123').expect('hello');
+
+        yield agent.get('/upload').expect(404);
+        yield agent.post('/upload').expect('uploaded');
+      });
+    });
   });
 
 
