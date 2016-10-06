@@ -1,3 +1,13 @@
+<a name="2.8.0"></a>
+# [2.8.0](https://github.com/alibaba/plover/compare/v2.7.1...v2.8.0) (2016-10-06)
+
+
+### Features
+
+* addMiddleware支持method和match配置。 ([68d9f30](https://github.com/alibaba/plover/commit/68d9f30))
+
+
+
 <a name="2.7.0"></a>
 # [2.7.0](https://github.com/alibaba/plover/compare/v2.6.1...v2.7.0) (2016-10-01)
 
