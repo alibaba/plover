@@ -1,3 +1,13 @@
+<a name="2.8.2"></a>
+## [2.8.2](https://github.com/alibaba/plover/compare/v2.8.1...v2.8.2) (2016-10-10)
+
+
+### Bug Fixes
+
+* 修复加载其他模块control资源错误。 ([8d6a29e](https://github.com/alibaba/plover/commit/8d6a29e))
+
+
+
 <a name="2.8.1"></a>
 ## [2.8.1](https://github.com/alibaba/plover/compare/v2.8.0...v2.8.1) (2016-10-06)
 
