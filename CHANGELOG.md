@@ -1,3 +1,13 @@
+<a name="2.8.3"></a>
+## [2.8.3](https://github.com/alibaba/plover/compare/v2.8.2...v2.8.3) (2016-10-15)
+
+
+### Performance Improvements
+
+* 优化control渲染 ([556882a](https://github.com/alibaba/plover/commit/556882a))
+
+
+
 <a name="2.8.2"></a>
 ## [2.8.2](https://github.com/alibaba/plover/compare/v2.8.1...v2.8.2) (2016-10-10)
 
