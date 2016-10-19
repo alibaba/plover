@@ -447,7 +447,7 @@
     //'space-after-function-name': [2, 'never'],
 
     // 语句关键字后要加空格
-    'keyword-spacing': [2],
+    'keyword-spacing': [2, { before: true, after: true }],
 
     // 区块前要加空格
     'space-before-blocks': [2, 'always'],
