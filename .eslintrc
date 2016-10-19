@@ -1,3 +1,504 @@
 {
-  extends: 'eslint-config-bce'
+  // 环境
+  env: {
+    // 运行在nodejs环境
+    node: true,
+    es6: true,
+    mocha: true
+  },
+
+
+  // 规则
+  rules: {
+    // -------可能引起错误-----------
+
+    // 不允许数组或对象尾部多余的逗号
+    'comma-dangle': 2,
+
+    // 不允许条件表达式中使用赋值语句
+    'no-cond-assign': 2,
+
+    // 不允许console
+    'no-console': 2,
+
+    // 不允许条件表达式中使用常量
+    'no-constant-condition': 2,
+
+    // 不允许在正则表达式中使用控制字符
+    'no-control-regex': 2,
+
+    // 不允许使用debugger
+    'no-debugger': 2,
+
+    // 不允许同名参数
+    'no-dupe-args': 2,
+
+    // 不允许对象表达式有重复的key
+    'no-dupe-keys': 2,
+
+    // 不允许case语句条件重复
+    'no-duplicate-case': 2,
+
+    // 不允许正则表达式中存在空集合
+    'no-empty-character-class': 2,
+
+    // 不允许空if/for/while...语句
+    'no-empty': 2,
+
+    // 不允许在catch语句中对e进行赋值
+    'no-ex-assign': 2,
+
+    // 不允许在判断场景下没必要的boolean转换
+    'no-extra-boolean-cast': 2,
+
+    // 不允许没必要的括号
+    // 有时候表达式需要加多余的括号，增加可读性
+    //'no-extra-parens': 2,
+
+    // 不允许没必要的冒号
+    'no-extra-semi': 2,
+
+    // 不允许对申明式函数据定义的标识符进行赋值
+    'no-func-assign': 2,
+
+    // 不允许在块作用域内使用var定义函数作用域变量
+    'no-inner-declarations': 2,
+
+    // 不允许使用错误字符串构造正则表达式(使用new RegExp(...))
+    'no-invalid-regexp': 2,
+
+    // 不允许使用不正规的空白字符
+    'no-irregular-whitespace': 2,
+
+    // 不允许在in的左值中使用非表达式，如!a in b
+    'no-negated-in-lhs': 2,
+
+    'no-obj-calls': 2,
+
+    // 不允许在正则表达式包含长度超过1的空白字符串
+    'no-regex-spaces': 2,
+
+    // 不允许申明有空洞的数组
+    'no-sparse-arrays': 2,
+
+    // 不允许使用到达不了的语句
+    'no-unreachable': 2,
+
+    // 不允许和NaN比较
+    'use-isnan': 2,
+
+    // 不允许无效jsdoc
+    'valid-jsdoc': [2, { requireReturn: false }],
+
+    // 不允许typeof结果值和无效字符串进行比较
+    'valid-typeof': 2,
+
+
+    // ---------最佳实践---------
+
+    // get/set要成对
+    'accessor-pairs': 2,
+
+    // 像使用块作用域那样使用var定义的变量
+    'block-scoped-var': 2,
+
+    // 圈复杂度, 因为七上八下, 超过7函数会比较杂容易出错
+    'complexity': [2, 7],
+
+    // return要一致, 这样不需要，用处不大
+    'consistent-return': 0,
+
+    // if/for等语句必做要有大括号包围
+    'curly': 2,
+
+    // switch语句必须要有default
+    'default-case': 2,
+
+    // 尽可能使用点号表达式
+    'dot-notation': 2,
+
+    // 属性换行时，点号和属性名在一行上, 这样保证chain后一致
+    'dot-location': [2, 'property'],
+
+    // 强制使用===和!==
+    'eqeqeq': 2,
+
+    // 强制for in中进行判断, 这个规则关闭
+    'guard-for-in': 0,
+
+    // 不直接使用alert, confirm等函数
+    'no-alert': 2,
+
+    // 不使用arguments.callee和argument.caller
+    'no-caller': 2,
+
+    // 不使用/=这样的正则式
+    'no-div-regex': 2,
+
+    // 不在return之后使用没必要的else
+    'no-else-return': 2,
+
+    // 不对普通语句使用label
+    'no-labels': 2,
+
+    // 不使用a == null这样的语句
+    'no-eq-null': 2,
+
+    // 不使用eval
+    'no-eval': 2,
+
+    // 不扩展原生对象
+    'no-extend-native': 2,
+
+    // 不对function进行没必要的bind
+    'no-extra-bind': 2,
+
+    // 不允许switch语句fallthrough
+    'no-fallthrough': 2,
+
+    // 不省略浮点数前面的0
+    'no-floating-decimal': 2,
+
+    // 不允许间接使用eval
+    'no-implied-eval': 2,
+
+    // 不允许使用__iterator__
+    'no-iterator': 2,
+
+    // 避免没必要的块语句
+    'no-lone-blocks': 2,
+
+    // for语句内不允许构造function
+    'no-loop-func': 2,
+
+    // 避免表达式中的没必要空格
+    'no-multi-spaces': 2,
+
+    // 不使用多行字符串
+    'no-multi-str': 2,
+
+    // 不覆盖原生对象变量
+    'no-native-reassign': 2,
+
+    // 不使用new Function(...)
+    'no-new-func': 2,
+
+    // 不使用new调用String, Number等原生包装类方法
+    'no-new-wrappers': 2,
+
+    // 不允许孤零零的new构造语句
+    'no-new': 2,
+
+    // 不使用8进制转义，用unicode就好
+    'no-octal-escape': 2,
+
+    // 不使用8进制
+    'no-octal': 2,
+
+    // 不对方法参数进行赋值
+    // 有时候还是需要赋值的，哈哈，这样可以少定义变量
+    // 'no-param-reassign': 2,
+
+    // 不使用process.env
+    'no-process-env': 2,
+
+    // 不使用__proto__
+    'no-proto': 2,
+
+    // 不重复定义
+    'no-redeclare': 2,
+
+    // 不在return语句中进行赋值操作
+    'no-return-assign': 2,
+
+    // 链接href属性不允许使用javascript:ulr形式
+    'no-script-url': 2,
+
+    // 不对自己进行比较
+    'no-self-compare': 2,
+
+    // 不使用逗号操作符
+    'no-sequences': 2,
+
+    // 不throw非标准异常
+    'no-throw-literal': 2,
+
+    // 主要用于&&或||执行一些语句
+    'no-unused-expressions': 0,
+
+    // 不使用void
+    'no-void': 2,
+
+    // TODO或FIXME等注释出警告
+    'no-warning-comments': 1,
+
+    // 不用with语句
+    'no-with': 2,
+
+    // 使用parsetInt时必须指定第二个参数
+    'radix': 2,
+
+    // 不需要全部定义在顶部, 因为这样可读性更好
+    'vars-on-to': 0,
+
+    // inside更符合语义
+    'wrap-iife': [2, 'inside'],
+
+    // 不允许yoda倒装句形式的表达式，比如if ('red' === color)
+    'yoda': 2,
+
+    // 严格模式
+    'strict': 0,
+
+    //----------变量相关---------
+
+    // 支持IE8及之前的浏览器
+    //'no-catch-shadow': 2,
+
+    // 一般来说是错误使用了delete
+    'no-delete-var': 2,
+
+    // label名称和var名不能一样
+    'no-label-var': 2,
+
+    // 不允许重新定义已定义的一些变量，如arguments等
+    'no-shadow-restricted-names': 2,
+
+    // 不允许重新定义外围作用域中已定义的变量
+    'no-shadow': 2,
+
+    // 变量定义需要给个初值
+    'no-undef-init': 2,
+
+    // 不使用未定义的变量
+    'no-undef': 2,
+
+    // 不使用undefined变量
+    // 目前用得比较多，所以这个先关闭
+    'no-undefined': 0,
+
+    // 定义好的变量不用不行
+    'no-unused-vars': 2,
+
+    // 定义之前不能用
+    // TODO 这个规则要重写下，写成function申明除外
+    // 现在暂时先关闭
+    'no-use-before-define': 0,
+
+
+    //----------nodejs-----------
+
+    // 回调函数必须进行异常处理
+    'handle-callback-err': 2,
+
+    // require分好组
+    'no-mixed-requires': 2,
+
+    // require时不能直接使用new
+    'no-new-require': 2,
+
+    // 不使用字符串直接拼接路径
+    'no-path-concat': 2,
+
+    // 不允许使用process.exit退出进程
+    'no-process-exit': 2,
+
+    // 限制使用的模块
+    //'no-restricted-modules': 2,
+
+    // 不使用同步api
+    // 'no-sync': 2,
+
+
+    // ---------书写格式--------
+
+    // 括号语句样式
+    'brace-style': [2, '1tbs', { allowSingleLine: false }],
+
+    // 变量大小写
+    'camelcase': [2, { properties: 'always' }],
+
+    // 逗号后面的空格
+    'comma-spacing': [2, { before: false, after: true }],
+
+    // 逗号在变量后
+    'comma-style': [2, 'last'],
+
+    // 常量属性名左右不要空格
+    'computed-property-spacing': [2, 'never'],
+
+    // 强制使用self作为this的别名
+    // 这条规则挺好的，但是我想方法的第一个参数也可以是self，作为私有方法
+    // 所以只能先关闭了，等待自己实现一个
+    //'consistent-this': [2, self],
+
+    // 文件后面需要有个换行
+    'eol-last': 2,
+
+    // 方法必须有个名称
+    // 这个看需要，匿名函数有时候图的就是方便
+    //'func-names': 2,
+
+    // 方法定义样式，申明式或表达式
+    // 这个也看需要，一般顶层方法用申明式，内层方法用表达式
+    // 后面这个规则也实现一个
+    //'func-style': 2,
+
+    // 缩进2个空格
+    'indent': [2, 2],
+
+    // 对象属性冒号后面加个空格
+    'key-spacing': [2, { beforeColon: false, afterColon: true }],
+
+    // 多行注释得有多行注释的样子
+    'lines-around-comment': 2,
+
+    // 换行符使用unix的
+    'linebreak-style': [2, 'unix'],
+
+    // 回调不超过3层，事不过三
+    'max-nested-callbacks': [2, 3],
+
+    // 类名要大写
+    'new-cap': 2,
+
+    // new构造时要用括号
+    'new-parens': 2,
+
+    // var语句后要加个空行
+    // 这个不需要，因为我喜欢写紧凑型代码
+    // 一般方法内逻辑段落空一行
+    // 方法之间空二行
+    // 类或模块如果在一个文件中的空三行
+    //'newline-after-var': 2,
+
+    // 不使用数组构造函数
+    'no-array-constructor': 2,
+
+    // 不使用continue
+    'no-continue': 2,
+
+    // 还是允许语句后面加注释
+    //'no-inline-comments': 2,
+
+    // 可减化成的else if语句
+    'no-lonely-if': 2,
+
+    // 不混合使用空格或tab
+    'no-mixed-spaces-and-tabs': [2, 'smart-tabs'],
+
+    // 最大空行数为3
+    'no-multiple-empty-lines': [2, { max: 3 }],
+
+    // 嵌套的三元表达式还是允许的
+    //'no-nested-ternary': 2,
+
+    // 不使用new Object()构造
+    'no-new-object': 2,
+
+    // 方法名和括号之间不要空格
+    'no-spaced-func': 2,
+
+    // 三元表达式还是允许的
+    //'no-ternary': 2,
+
+    // 语句后面不要有多余的空格
+    'no-trailing-spaces': 2,
+
+    // 不允许定义下划线的变量
+    // 我们允许在类中使用下划类定义私有字段
+    //'no-underscore-dangle': 2,
+
+    // 避免啰嗦的三元表达式
+    'no-unneeded-ternary': 2,
+
+    // object大括号左右加空格
+    'object-curly-spacing': [2, 'always'],
+
+    // 一个函数只有一个var, 这个没必要
+    // 我比较喜欢一个var一个变量
+    //'one-var': 2,
+
+    //'operator-assignment': 2,
+
+    // 换行必须在操作符之后
+    'operator-linebreak': [2, 'after'],
+
+    // 块前后不加空行, 还是紧凑型作怪
+    'padded-blocks': [2, 'never'],
+
+    // 对象属性名只有必要时才加引号
+    'quote-props': [2, 'as-needed'],
+
+    // 使用单引号字符串，但需要转义时可使用双引号
+    'quotes': [2, 'single', 'avoid-escape'],
+
+    // 语句分号前面不加空格，后面加空格
+    'semi-spacing': [2, { before: false, after: true }],
+
+    // 语句后面要加分号
+    'semi': 2,
+
+    // 不自动，一般按语义来自行组合
+    //'sort-vars': 2,
+
+    // 函数名称和括号之间不要空格
+    // TODO 这个规则有bug，生成器名称后明明没带空格说我带空格
+    //'space-after-function-name': [2, 'never'],
+
+    // 语句关键字后要加空格
+    'keyword-spacing': [2],
+
+    // 区块前要加空格
+    'space-before-blocks': [2, 'always'],
+
+    // 函数名称后面不加空格
+    'space-before-function-paren': [2, 'never'],
+
+    // 调用方法时参数和括号之间不要有空格
+    'space-in-parens': [2, 'never'],
+
+    // 操作符左右要有空格
+    'space-infix-ops': 2,
+
+    // 一元操作符, 符号的后面不加空格，字母的加空格
+    'space-unary-ops': [2, { words: true, nonwords: false }],
+
+    // 注释符后面要有一个空格才开始写，但是*+-除外
+    // TODO 这个规则没达到预期这样工作
+    // 'spaced-comment': [2, 'always', { exceptions: ['*', '-', '+'] }],
+
+    // 正则式直接参于匹配时加括号
+    'wrap-regex': 2,
+
+    // 最大缩进
+    'max-depth': [2, 3],
+
+    // 最大长度
+    'max-len': [2, 90, 2],
+
+    // 最大参数个数
+    'max-params': [2, 4],
+
+    // 最大语句数
+    'max-statements': [2, 20],
+
+    // 不用位操作符
+    'no-bitwise': 2,
+
+    // 不使用++ --, 照理说不应该用的,ruby都不支持了,但是太根深地固了
+    //'no-plusplus': 2,
+
+    //------------es6------------
+
+    // 生成器星星紧挨function后面加个空格
+    'generator-star-spacing': [2, 'after'],
+
+    // 用了const和let就不用var
+    'no-var': 2,
+
+    //'object-shorthand': 2,
+    'prefer-const': 2
+  }
 }
+
