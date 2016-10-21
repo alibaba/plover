@@ -5,9 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks --timeout 5000 packages/plover-logger/test packages/plover-util/test packages/plover-module-resolver/test test/util/ test/components/ test/core/ test/helpers test/index.js",
-    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks --timeout 5000 packages/plover-logger/test packages/plover-util/test packages/plover-module-resolver/test test/util/ test/components/ test/core/ test/helpers test/index.js -R spec",
-    "travis": "istanbul cover _mocha --report lcovonly -- --require should --recursive --bail --check-leaks --timeout 5000 packages/plover-logger/test packages/plover-util/test packages/plover-module-resolver/test test/util/ test/components/ test/core/ test/helpers test/index.js -R spec",
+    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks --timeout 5000 packages/plover-logger/test packages/plover-util/test packages/plover-module-resolver/test packages/plover-router/test test/util/ test/components/ test/core/ test/helpers test/index.js",
+    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks --timeout 5000 packages/plover-logger/test packages/plover-util/test packages/plover-module-resolver/test packages/plover-router/test test/util/ test/components/ test/core/ test/helpers test/index.js -R spec",
+    "travis": "istanbul cover _mocha --report lcovonly -- --require should --recursive --bail --check-leaks --timeout 5000 packages/plover-logger/test packages/plover-util/test packages/plover-module-resolver/test packages/plover-router/test test/util/ test/components/ test/core/ test/helpers test/index.js -R spec",
     "ci": "npm run lint && npm run test && npm run travis",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -o CHANGELOG.md -s"
   },

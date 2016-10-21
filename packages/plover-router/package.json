@@ -1,0 +1,24 @@
+{
+  "name": "plover-router",
+  "version": "1.0.2",
+  "description": "为Plover应用提供Restful形式API。",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "inflection": "~1.10.0"
+  },
+  "plover": {
+    "plugin": "lib/plugin.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alibaba/plover.git"
+  },
+  "author": "bencode@163.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/alibaba/plover/issues"
+  },
+  "homepage": "https://github.com/alibaba/plover#readme"
+}
