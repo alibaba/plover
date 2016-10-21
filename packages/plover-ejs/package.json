@@ -20,7 +20,7 @@
     "url": "git+https://github.com/alibaba/plover.git"
   },
   "author": "bencode@163.com",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "git+https://github.com/alibaba/plover.git"
   },

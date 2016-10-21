@@ -23,7 +23,7 @@
     "level": 1
   },
   "author": "bencode@163.com",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/alibaba/plover/issues"
   },

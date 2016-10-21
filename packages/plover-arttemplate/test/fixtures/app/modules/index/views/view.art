@@ -1,0 +1,6 @@
+<div>
+  {{title}}
+  <ul>
+    <li>item</li>
+  </ul>
+</div>

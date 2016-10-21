@@ -1,0 +1,31 @@
+{
+  "name": "plover-arttemplate",
+  "version": "3.0.0",
+  "description": "接入[artTemplate](https://github.com/aui/artTemplate)",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "art-template-for-plover": "~3.6.0",
+    "escape-html": "~1.0.3",
+    "is-type-of": "^1.0.0"
+  },
+  "devDependencies": {
+    "plover": "~2.6.1",
+    "plover-util": "~1.4.0"
+  },
+  "plover": {
+    "plugin": "lib/plugin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alibaba/plover/issues"
+  },
+  "author": "bencode@163.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/alibaba/plover/issues"
+  },
+  "homepage": "https://github.com/alibaba/plover#readme"
+}

@@ -17,7 +17,7 @@ const sleep = require('./fixtures/app/lib/sleep');
 
 
 
-describe('plugin', function() {
+describe('plover-benchmark/lib/plugin', function() {
   const root = pathUtil.join(__dirname, 'fixtures/app');
 
   it('run with benchmark', function() {
