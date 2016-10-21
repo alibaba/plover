@@ -4,7 +4,7 @@
 const router = require('../lib/router');
 
 
-describe('router', () => {
+describe('plover-router/lib/router', () => {
   it('http verb route', () => {
     const config = (r) => {
       r.get('/', 'home#index');

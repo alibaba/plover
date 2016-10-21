@@ -7,7 +7,7 @@ const plugin = require('../lib/plugin');
 const co = require('co');
 
 
-describe('plugin', () => {
+describe('plover-router/lib/plugin', () => {
   it('config routes', () => {
     const settings = {
       applicationRoot: __dirname
