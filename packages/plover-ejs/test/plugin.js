@@ -8,7 +8,7 @@ const plover = require('plover');
 const plugin = require('../lib/plugin');
 
 
-describe('plugin', function() {
+describe('plover-ejs/lib/plugin', function() {
   it('use ejs', function() {
     const root = pathUtil.join(__dirname, 'fixtures/app');
     const app = plover({
