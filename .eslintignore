@@ -1,2 +1,3 @@
-test/fixtures/
-
+**/test/fixtures/
+coverage/
+**/node_modules/
