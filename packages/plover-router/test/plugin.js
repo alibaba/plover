@@ -1,8 +1,7 @@
 'use strict';
 
 
-const plover = require('../../../');
-
+const plover = require('plover');
 const request = require('supertest');
 const plugin = require('../lib/plugin');
 const co = require('co');
