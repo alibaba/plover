@@ -1,0 +1,31 @@
+{
+  "name": "plover-benchmark",
+  "version": "1.1.0",
+  "description": "提供性能监控工具，以及记录模块渲染时间",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "output-formatter": "~1.0.2",
+    "plover-logger": "~1.4.1"
+  },
+  "devDependencies": {
+    "plover": "~2.8.3",
+    "plover-arttemplate": "~3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alibaba/plover.git"
+  },
+  "plover": {
+    "plugin": "lib/plugin",
+    "level": 1
+  },
+  "author": "bencode@163.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alibaba/plover/issues"
+  },
+  "homepage": "https://github.com/alibaba/plover#readme"
+}
