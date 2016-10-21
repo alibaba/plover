@@ -2,5 +2,5 @@ language: node_js
 node_js:
   - "6"
   - "4"
-script: "npm install && npm run packages-install && npm run ci"
+script: "npm run packages-install && npm run ci"
 after_script: "npm install codecov && cat ./coverage/lcov.info | codecov"
