@@ -1,0 +1,28 @@
+{
+  "name": "plover-ejs",
+  "version": "1.1.0",
+  "description": "[ejs](https://github.com/mde/ejs) template plugin for plover application",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "peerDependencies": {
+    "ejs": "2.x"
+  },
+  "devDependencies": {
+    "plover": "~2.8.3"
+  },
+  "plover": {
+    "plugin": "lib/plugin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alibaba/plover.git"
+  },
+  "author": "bencode@163.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "git+https://github.com/alibaba/plover.git"
+  },
+  "homepage": "https://github.com/alibaba/plover#readme"
+}

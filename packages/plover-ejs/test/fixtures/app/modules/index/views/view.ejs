@@ -1,0 +1,11 @@
+<%
+var list = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+%>
+
+<ul>
+  <% list.forEach(function(item, index) { %>
+  <li <% if (index % 2) { %>class="odd"<% } %> >
+    <%= item %>
+  </li>
+  <% }) %>
+</ul>
