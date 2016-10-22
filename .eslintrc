@@ -229,7 +229,6 @@
     // 不使用void
     'no-void': 2,
 
-    // TODO或FIXME等注释出警告
     'no-warning-comments': 1,
 
     // 不用with语句
@@ -281,8 +280,6 @@
     'no-unused-vars': 2,
 
     // 定义之前不能用
-    // TODO 这个规则要重写下，写成function申明除外
-    // 现在暂时先关闭
     'no-use-before-define': 0,
 
 
@@ -443,7 +440,6 @@
     //'sort-vars': 2,
 
     // 函数名称和括号之间不要空格
-    // TODO 这个规则有bug，生成器名称后明明没带空格说我带空格
     //'space-after-function-name': [2, 'never'],
 
     // 语句关键字后要加空格
@@ -465,7 +461,6 @@
     'space-unary-ops': [2, { words: true, nonwords: false }],
 
     // 注释符后面要有一个空格才开始写，但是*+-除外
-    // TODO 这个规则没达到预期这样工作
     // 'spaced-comment': [2, 'always', { exceptions: ['*', '-', '+'] }],
 
     // 正则式直接参于匹配时加括号
