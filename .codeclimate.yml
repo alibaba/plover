@@ -9,4 +9,9 @@ engines:
       - javascript
   fixme:
     enabled: true
-
+ratings:
+  paths:
+  - lib/**
+  - packages/*/lib/**
+exclude_paths:
+- "**/fixtures/**/*"
