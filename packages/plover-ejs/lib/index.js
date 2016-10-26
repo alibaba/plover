@@ -8,10 +8,9 @@ exports.compile = function(source, settings) {
   const debug = settings.development;
 
   const opts = Object.assign({
-    compileDebug: !!debug
+    compileDebug: !!debug,
+    rmWhitespace: !debug
   }, settings.ejs);
 
-  const fn = ejs.compile(source, opts);
-
-  return fn;
+  return ejs.compile(source, opts);
 };
