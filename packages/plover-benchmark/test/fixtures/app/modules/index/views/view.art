@@ -1,5 +1,0 @@
-Hello
-
-{{each $range(5) as index}}
-{{app.view('item')}}
-{{/each}}
