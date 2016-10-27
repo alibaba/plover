@@ -12,6 +12,5 @@ engines:
 ratings:
   paths:
   - lib/**
-  - packages/*/lib/**
 exclude_paths:
 - "**/fixtures/**/*"

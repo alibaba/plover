@@ -5,12 +5,11 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks --timeout 5000 packages/plover-logger/test packages/plover-util/test packages/plover-module-resolver/test packages/plover-router/test packages/plover-ejs/test packages/plover-benchmark/test packages/plover-arttemplate/test test/util/ test/components/ test/core/ test/helpers test/index.js",
-    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks --timeout 5000 packages/plover-logger/test packages/plover-util/test packages/plover-module-resolver/test packages/plover-router/test packages/plover-ejs/test packages/plover-benchmark/test packages/plover-arttemplate/test test/util/ test/components/ test/core/ test/helpers test/index.js -R spec",
-    "travis": "istanbul cover _mocha --report lcovonly -- --require should --recursive --bail --check-leaks --timeout 5000 packages/plover-logger/test packages/plover-util/test packages/plover-module-resolver/test packages/plover-router/test packages/plover-ejs/test packages/plover-benchmark/test packages/plover-arttemplate/test test/util/ test/components/ test/core/ test/helpers test/index.js -R spec",
+    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks --timeout 5000 test/util/ test/components/ test/core/ test/helpers test/index.js",
+    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks --timeout 5000 test/util/ test/components/ test/core/ test/helpers test/index.js",
+    "travis": "istanbul cover _mocha --report lcovonly -- --require should --recursive --bail --check-leaks --timeout 5000 test/util/ test/components/ test/core/ test/helpers test/index.js",
     "ci": "npm run lint && npm run test && npm run travis",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -o CHANGELOG.md -s",
-    "packages-install": "cd packages/plover-arttemplate && npm install; cd ../../packages/plover-benchmark && npm install; cd ../../packages/plover-ejs && npm install; cd ../../packages/plover-logger && npm install; cd ../../packages/plover-module-resolver && npm install; cd ../../packages/plover-router && npm install; cd ../../packages/plover-util npm install"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -o CHANGELOG.md -s"
   },
   "files": [
     "lib"
