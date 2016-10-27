@@ -1,6 +1,0 @@
-{
-  "name": "app-lib",
-  "dependencies": {
-    "other-item": "1.0.0"
-  }
-}
