@@ -1,3 +1,18 @@
+<a name="2.8.4"></a>
+## [2.8.4](https://github.com/alibaba/plover/compare/v2.8.3...v2.8.4) (2016-10-29)
+
+
+### Features
+
+* remote whitespace in production env for default. ([0aa34c9](https://github.com/alibaba/plover/commit/0aa34c9))
+
+
+### Performance Improvements
+
+* 优化include传递空对象数据时不需要产生state。 ([031f12e](https://github.com/alibaba/plover/commit/031f12e))
+
+
+
 <a name="2.8.3"></a>
 ## [2.8.3](https://github.com/alibaba/plover/compare/v2.8.2...v2.8.3) (2016-10-15)
 
