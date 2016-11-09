@@ -1,0 +1,6 @@
+{
+  "name": "invalid-json",
+  "dependencies": {
+    "a": "1.1.1",
+  }
+}

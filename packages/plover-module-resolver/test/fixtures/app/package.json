@@ -1,0 +1,11 @@
+{
+  "name": "app",
+  "dependencies": {
+    "@ali/coo": "1.0.0",
+    "ignore": "1.0.0",
+    "item": "1.0.0",
+    "not": "1.0.0",
+    "offer": "1.0.0",
+    "not-exists": "2.0.0"
+  }
+}
