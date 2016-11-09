@@ -1,0 +1,24 @@
+{
+  "name": "plover-module-resolver",
+  "version": "1.6.5",
+  "description": "【核心模块】 plover模块加载和解析器。",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "debug": "~2.2.0",
+    "resolve-from": "~2.0.0",
+    "semver": "~5.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alibaba/plover.git"
+  },
+  "author": "bencode@163.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/alibaba/plover/issues"
+  },
+  "homepage": "https://github.com/alibaba/plover#readme"
+}
