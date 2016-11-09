@@ -1,0 +1,22 @@
+{
+  "name": "plover-logger",
+  "version": "1.4.3",
+  "description": "【核心模块】提供统一的日志接口，让使用者不用关心日志实现，方便日志实现切换。",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "debug": "~2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alibaba/plover.git"
+  },
+  "author": "bencode@163.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/alibaba/plover/issues"
+  },
+  "homepage": "https://github.com/alibaba/plover#readme"
+}
