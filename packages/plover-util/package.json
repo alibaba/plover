@@ -1,0 +1,22 @@
+{
+  "name": "plover-util",
+  "version": "1.5.1",
+  "description": "【核心模块】有些在核心中使用的工具模块，但在插件中也要使用，所以独立出来。",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "is-type-of": "~1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alibaba/plover.git"
+  },
+  "author": "bencode@163.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/alibaba/plover/issues"
+  },
+  "homepage": "https://github.com/alibaba/plover#readme"
+}
