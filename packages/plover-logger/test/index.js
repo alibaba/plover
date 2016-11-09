@@ -4,6 +4,7 @@
 const util = require('util');
 const sinon = require('sinon');
 
+global[Symbol.for('plover-logger')] = null;
 const Logger = require('..');
 
 const createLogger = Logger;
