@@ -212,7 +212,7 @@ describe('core/navigator', function() {
       const myapp = plover({
         applicationRoot: root,
         env: 'production',
-        defaultLayout: 'layouts:index'
+        defaultLayout: 'layouts#index'
       });
       return request(myapp.callback())
           .get('/index')
