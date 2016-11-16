@@ -175,6 +175,20 @@ describe('core/action-runner', function() {
       ret.should.eql({ content: 'hello world' });
     });
   });
+
+
+  it('work with arrow function', function() {
+    const controller = {};
+    controller.view = (ctx) => {
+      ctx.body = 'hello';
+    };
+
+    return co(function* () {
+      const ctx = {};
+      yield runAction(controller, ctx);
+      ctx.body.should.equal('hello');
+    });
+  });
 });
 
 
