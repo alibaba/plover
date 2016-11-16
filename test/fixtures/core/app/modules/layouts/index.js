@@ -6,6 +6,11 @@ exports.view = function() {
 };
 
 
+exports.index = function() {
+  this.render();
+};
+
+
 exports.mobile = function() {
   this.render();
 };

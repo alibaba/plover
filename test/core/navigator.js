@@ -207,6 +207,17 @@ describe('core/navigator', function() {
       return agent.get('/index?layout=layouts:invalid')
         .expect(404);
     });
+
+    it('settings.defaultLayout', function() {
+      const myapp = plover({
+        applicationRoot: root,
+        env: 'production',
+        defaultLayout: 'layouts:index'
+      });
+      return request(myapp.callback())
+          .get('/index')
+          .expect(equal('index-with-default-layout.html'));
+    });
   });
 
 
