@@ -1,3 +1,14 @@
+<a name="2.9.0"></a>
+# [2.9.0](https://github.com/alibaba/plover/compare/v2.8.4...v2.9.0) (2016-11-16)
+
+
+### Features
+
+* action和filter支持arrow function. ([bb0a023](https://github.com/alibaba/plover/commit/bb0a023))
+* 可以通过配置设置默认布局。 ([2410873](https://github.com/alibaba/plover/commit/2410873))
+
+
+
 <a name="2.8.4"></a>
 ## [2.8.4](https://github.com/alibaba/plover/compare/v2.8.3...v2.8.4) (2016-10-29)
 
