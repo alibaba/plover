@@ -27,6 +27,7 @@ Plover专注于 **模块化** ，为 **快速构建web应用** 提供最佳方�
 
 
 - [开发文档](https://github.com/ploverjs/guides)
+- [examples](https://github.com/ploverjs/examples)
 - [ploverjs](https://github.com/ploverjs)
 
 
