@@ -2,11 +2,22 @@
   "name": "plover-router",
   "version": "1.1.0",
   "description": "为Plover应用提供Restful形式API。",
+  "scripts": {
+    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks test/",
+    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks test/ -R spec"
+  },
   "files": [
     "lib"
   ],
   "dependencies": {
     "inflection": "~1.10.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "mocha": "^3.1.0",
+    "plover-test-mate": "^1.1.0",
+    "should": "^11.1.0",
+    "sinon": "^1.17.6"
   },
   "plover": {
     "plugin": "lib/plugin.js"

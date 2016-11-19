@@ -3,5 +3,5 @@ node_js:
   - "7"
   - "6"
   - "4"
-script: "npm run ci"
+script: "./ci.sh"
 after_script: "npm install codecov && cat ./coverage/lcov.info | codecov"
