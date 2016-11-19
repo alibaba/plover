@@ -12,7 +12,7 @@
     "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks test/ -R spec"
   },
   "dependencies": {
-    "debug": "~2.2.0",
+    "debug": "~2.3.2",
     "resolve-from": "~2.0.0",
     "semver": "~5.3.0"
   },
