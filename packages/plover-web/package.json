@@ -12,9 +12,9 @@
     "lib"
   ],
   "dependencies": {
-    "debug": "~2.2.0",
+    "debug": "~2.3.2",
     "iconv-lite": "~0.4.13",
-    "koa-bodyparser": "~2.2.0",
+    "koa-bodyparser": "~2.3.0",
     "koa-conditional-get": "~1.0.3",
     "koa-csrf": "~2.5.0",
     "koa-etag": "~2.1.1",
@@ -23,7 +23,7 @@
     "koa-redis": "~2.1.2",
     "koa-response-time": "~1.0.2",
     "koa-session": "~3.4.0",
-    "path-to-regexp": "~1.6.0",
+    "path-to-regexp": "~1.7.0",
     "plover-logger": "~1.4.0",
     "qs": "~6.3.0"
   },
