@@ -1,0 +1,53 @@
+{
+  "name": "plover-web",
+  "version": "1.2.0",
+  "description": "【插件】集成常用web中间件，提供通用web功能。",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint lib test",
+    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks test/",
+    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks test/"
+  },
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "debug": "~2.2.0",
+    "iconv-lite": "~0.4.13",
+    "koa-bodyparser": "~2.2.0",
+    "koa-conditional-get": "~1.0.3",
+    "koa-csrf": "~2.5.0",
+    "koa-etag": "~2.1.1",
+    "koa-favicon": "~1.2.1",
+    "koa-generic-session": "~1.11.3",
+    "koa-redis": "~2.1.2",
+    "koa-response-time": "~1.0.2",
+    "koa-session": "~3.4.0",
+    "path-to-regexp": "~1.6.0",
+    "plover-logger": "~1.4.0",
+    "qs": "~6.3.0"
+  },
+  "devDependencies": {
+    "co": "^4.6.0",
+    "istanbul": "^0.4.1",
+    "koa": "^1.2.0",
+    "koa-rewrite": "^1.1.1",
+    "mocha": "^3.1.0",
+    "plover": "^2.8.4",
+    "should": "^11.1.0",
+    "supertest": "^2.0.0"
+  },
+  "plover": {
+    "plugin": "lib/plugin.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alibaba/plover.git"
+  },
+  "author": "bencode@163.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/alibaba/plover/issues"
+  },
+  "homepage": "https://github.com/alibaba/plover#readme"
+}
