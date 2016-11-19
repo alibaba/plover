@@ -3,5 +3,5 @@ node_js:
   - "7"
   - "6"
   - "4"
-script: "find packages -maxdepth 1 -type d -execdir npm install \\; && npm run ci"
+script: "find packages -maxdepth 1 -type d -execdir npm install {} + && npm run ci"
 after_script: "npm install codecov && cat ./coverage/lcov.info | codecov"
