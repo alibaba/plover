@@ -33,6 +33,11 @@ describe('plover-web/plugin', function() {
   });
 
 
+  it('static', function() {
+    return agent.get('/ok.txt').expect('ok!\n');
+  });
+
+
   it('not setting.web', function() {
     const myapp = plover({ applicationRoot: __dirname });
     plugin(myapp);
@@ -52,9 +57,11 @@ describe('plover-web/plugin', function() {
 
 
 function hello(app) {
-  app.addMiddleware(function* () {
+  app.addMiddleware(function* (next) {
     if (this.path === '/hello') {
       this.body = 'hello';
+    } else {
+      yield* next;
     }
   });
 }
