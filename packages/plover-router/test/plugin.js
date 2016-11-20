@@ -6,11 +6,11 @@ const co = require('co');
 
 
 describe('plover-route/lib/plugin', () => {
-  const app = mm({
-    applicationRoot: __dirname
-  });
-
   it('config routes', () => {
+    const app = mm({
+      applicationRoot: __dirname
+    });
+
     app.config.routes = (r) => {
       r.get('/profile', 'users#show');
       r.use('/hello', function* () {
@@ -36,5 +36,16 @@ describe('plover-route/lib/plugin', () => {
 
       yield app.get('/hello').expect('hello');
     });
+  });
+
+
+  it('routes not config', () => {
+    const app = mm({
+      applicationRoot: __dirname
+    });
+
+    app.use(require('../lib/plugin'));
+
+    (true).should.be.ok();
   });
 });

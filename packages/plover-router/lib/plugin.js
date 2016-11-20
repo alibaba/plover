@@ -6,7 +6,7 @@ const router = require('./router');
 
 
 module.exports = function(app) {
-  const fn = app.config.routes;
+  const fn = app.config.routes || function() {};
   assert(typeof fn === 'function', 'config.routes should be typeof function.');
 
   const info = router(fn);
