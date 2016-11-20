@@ -13,6 +13,7 @@ module.exports = {
     }
   },
 
+
   web: {
     keys: ['17e6b6bc6129097383dcad4fa1602233'],
 
@@ -22,6 +23,8 @@ module.exports = {
     etag: {},
 
     bodyParser: {},
+
+    static: {},
 
     outputCharset: true
   }

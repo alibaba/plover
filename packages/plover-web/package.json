@@ -23,6 +23,7 @@
     "koa-redis": "~2.1.2",
     "koa-response-time": "~1.0.2",
     "koa-session": "~3.4.0",
+    "koa-static": "^2.0.0",
     "path-to-regexp": "~1.7.0",
     "plover-logger": "~1.4.0",
     "qs": "~6.3.0"
@@ -34,6 +35,7 @@
     "koa-rewrite": "^1.1.1",
     "mocha": "^3.1.0",
     "plover": "^2.8.4",
+    "plover-test-mate": "^1.1.0",
     "should": "^11.1.0",
     "supertest": "^2.0.0"
   },

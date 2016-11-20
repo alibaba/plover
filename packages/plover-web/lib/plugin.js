@@ -1,5 +1,6 @@
 'use strict';
 
+const pathUtil = require('path');
 
 const debug = require('debug')('plover-web:plugin');
 
@@ -43,6 +44,8 @@ function installKoaUtillity(app, config) {
 
   // 默认开启body parser
   install(app, 'koa-bodyparser', config.bodyParser || {});
+
+  config.static && installStatic(app, config.static);
 }
 
 
@@ -69,4 +72,15 @@ function installSecurityHeaders(app) {
   const opts = (app.settings.security || {}).headers || {};
   const mw = require('./security/security-headers')(opts);
   app.addMiddleware(mw, 0);
+}
+
+
+function installStatic(app, config) {
+  const root = config.root ||
+      pathUtil.join(app.settings.applicationRoot, 'public');
+
+  const opts = Object.assign({}, config);
+  const mw = require('koa-static')(root, opts);
+  // after navigate
+  app.addMiddleware(mw, 4);
 }
