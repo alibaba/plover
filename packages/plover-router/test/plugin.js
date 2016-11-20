@@ -6,7 +6,6 @@ const co = require('co');
 
 
 describe('plover-route/lib/plugin', () => {
-
   it('config routes', () => {
     const app = mm({
       applicationRoot: __dirname
@@ -48,5 +47,5 @@ describe('plover-route/lib/plugin', () => {
     app.use(require('../lib/plugin'));
 
     (true).should.be.ok();
-  })
+  });
 });
