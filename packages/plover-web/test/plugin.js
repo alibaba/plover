@@ -38,6 +38,12 @@ describe('plover-web/plugin', function() {
   });
 
 
+  it('compress', function() {
+    return agent.get('/big.txt')
+        .expect('Content-Encoding', 'gzip');
+  });
+
+
   it('not setting.web', function() {
     const myapp = plover({ applicationRoot: __dirname });
     plugin(myapp);

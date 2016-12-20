@@ -15,6 +15,7 @@
     "debug": "~2.3.2",
     "iconv-lite": "~0.4.13",
     "koa-bodyparser": "~2.3.0",
+    "koa-compress": "~1.0.9",
     "koa-conditional-get": "~1.0.3",
     "koa-csrf": "~2.5.0",
     "koa-etag": "~2.1.1",
