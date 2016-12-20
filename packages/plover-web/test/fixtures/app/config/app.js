@@ -26,7 +26,16 @@ module.exports = {
 
     static: {},
 
-    outputCharset: true
+    outputCharset: true,
+
+    compress: {
+      enable: true,
+      filter: function(contentType) {
+        return (/text/i.test(contentType));
+      },
+      threshold: 20,
+      flush: require('zlib').Z_SYNC_FLUSH
+    }
   }
 };
 

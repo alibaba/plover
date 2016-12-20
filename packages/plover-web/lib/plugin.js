@@ -41,6 +41,7 @@ function installKoaUtillity(app, config) {
   install(app, 'koa-response-time', config.rtime);
   install(app, 'koa-conditional-get', config.conditional);
   install(app, 'koa-etag', config.etag);
+  install(app, 'koa-compress', config.compress);
 
   // 默认开启body parser
   install(app, 'koa-bodyparser', config.bodyParser || {});
