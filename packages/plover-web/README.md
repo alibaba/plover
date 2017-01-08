@@ -113,7 +113,7 @@ this.query
 -> { a: ['1', '2'] }
 ```
 
-这在实际使用中很容易出现问题，比如不小心多加个同名参数，页面很可能就500了，所以框架优化了此特性。  
+这在实际使用中很容易出现问题，比如不小心多加个同名参数，页面很可能就500了，所以框架优化了此特性，
 针对以上场景总是会返回最后一个参数值。
 
 ```js
@@ -130,12 +130,12 @@ this.query
 -> { a: ['1', '2'] }
 ```
 
-更复杂的嵌套类型也是支持的，具体的序列化细节可参考[qs](https://github.com/koajs/qs)，这样就和POST请求时参数的解析保持一致了，因为后者就是使用`qs`库来解析的。
+更复杂的嵌套类型也是支持的，具体的序列化细节可参考[qs](https://github.com/koajs/qs)，这样就和POST请求时参数的解析逻辑保持一致了，因为后者就是使用`qs`库来解析的。
 
 
 ## csrftoken
 
-框架集成了[koa-csrf](https://github.com/koajs/csrf)。默认情况下，对`POST/PUT/DELETE`等更新类请求会要求验证csrftoken; 即提交域中必须包含正确的`_csrf`字段才能正确访问页面。
+框架集成了[koa-csrf](https://github.com/koajs/csrf)。默认情况下对`POST/PUT/DELETE`等更新类请求会要求验证csrftoken; 即提交域中必须包含正确的`_csrf`字段才能正确访问页面。
 
 特殊情况时，可通过配置来忽略或强制csrftoken的校验。
 
@@ -149,7 +149,7 @@ this.query
         '/api/*'
       ],
 
-      // 以下请求即使是get请求也要校验csrf token
+      // 以下请求即使是get类型也要校验csrf token
       match: [
         '/update.jsonp'
       ]
@@ -158,7 +158,7 @@ this.query
 }
 ```
 
-如果配置还不满足需求时，可以在中间件或控制器中调用api来校验csrftoken。
+如果配置还不满足需求时，可以在中间件或控制器中调用`assertCsrf`来校验csrftoken。
 
 ```js
 module.exports = function() {
@@ -173,7 +173,7 @@ module.exports = function() {
 
 ## http安全头
 
-默认对页面添加以下HTTP安全头
+默认对页面添加以下HTTP安全头：
 
 ```
 X-XSS-Protection:       1; mode=block
