@@ -6,6 +6,8 @@ const router = require('./router');
 
 
 module.exports = function(app) {
+  app.addMiddleware(require('./method'), { after: 'koa-bodyparser' });
+
   const fn = app.config.routes || function() {};
   assert(typeof fn === 'function', 'config.routes should be typeof function.');
 
