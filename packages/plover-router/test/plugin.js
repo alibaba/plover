@@ -70,7 +70,7 @@ describe('plover-route/lib/plugin', () => {
 
     return co(function* () {
       yield app.agent.post('/update')
-        .send({ '_method': 'put' })
+        .send({ _method: 'put' })
         .expect('PUT');
     });
   });
