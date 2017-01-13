@@ -18,6 +18,7 @@ describe('plover-route/lib/plugin', () => {
       });
     };
 
+    app.use('plover-web');
     app.use(require('../lib/plugin'));
 
     app.addMiddleware(function* () {
@@ -25,7 +26,6 @@ describe('plover-route/lib/plugin', () => {
         this.body = this.route;
       }
     });
-
 
     return co(function* () {
       yield app.get('/profile').expect({
@@ -44,8 +44,34 @@ describe('plover-route/lib/plugin', () => {
       applicationRoot: __dirname
     });
 
+    app.use('plover-web');
     app.use(require('../lib/plugin'));
 
     (true).should.be.ok();
+  });
+
+
+  it('put with _method', () => {
+    const app = mm({
+      applicationRoot: __dirname,
+      web: {
+        csrf: {
+          ignore: ['/*']
+        }
+      }
+    });
+
+    app.use('plover-web');
+    app.use(require('../lib/plugin'));
+
+    app.addMiddleware(function* () {
+      this.body = this.method;
+    });
+
+    return co(function* () {
+      yield app.agent.post('/update')
+        .send({ _method: 'put' })
+        .expect('PUT');
+    });
   });
 });
