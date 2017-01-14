@@ -15,6 +15,7 @@ module.exports = function(app) {
   installKoaUtillity(app, config);
 
   require('./web/session')(app, config.session);
+  require('./web/flash')(app);
 
   if (config.outputCharset) {
     installOutputCharset(app, config);
