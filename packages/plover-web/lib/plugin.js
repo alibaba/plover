@@ -15,7 +15,7 @@ module.exports = function(app) {
   installKoaUtillity(app, config);
 
   require('./web/session')(app, config.session);
-  require('./web/flash')(app);
+  installFlash(app);
 
   if (config.outputCharset) {
     installOutputCharset(app, config);
@@ -70,6 +70,12 @@ function installOutputCharset(app, config) {
 }
 
 
+function installFlash(app) {
+  const mw = require('./web/flash')(app);
+  app.addMiddleware(mw, 0);
+}
+
+
 function installSecurityHeaders(app) {
   const opts = (app.settings.security || {}).headers || {};
   const mw = require('./security/security-headers')(opts);
@@ -86,3 +92,4 @@ function installStatic(app, config) {
   // after navigate
   app.addMiddleware(mw, 4);
 }
+
