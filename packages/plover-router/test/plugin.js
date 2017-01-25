@@ -8,15 +8,14 @@ const co = require('co');
 describe('plover-route/lib/plugin', () => {
   it('config routes', () => {
     const app = mm({
-      applicationRoot: __dirname
+      applicationRoot: __dirname,
+      routes: (r) => {
+        r.get('/profile', 'users#show');
+        r.use('/hello', function* () {
+          this.body = 'hello';
+        });
+      }
     });
-
-    app.config.routes = (r) => {
-      r.get('/profile', 'users#show');
-      r.use('/hello', function* () {
-        this.body = 'hello';
-      });
-    };
 
     app.use('plover-web');
     app.use(require('../lib/plugin'));
