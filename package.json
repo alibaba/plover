@@ -1,6 +1,6 @@
 {
   "name": "plover",
-  "version": "2.9.1",
+  "version": "2.10.0",
   "description": "专注于模块化的NodeJs Web框架",
   "main": "lib/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "jsonp-body": "~1.0.0",
     "koa": "~1.2.4",
     "koa-compose": "~2.5.1",
-    "mz": "~2.5.0",
+    "mz": "~2.6.0",
     "output-formatter": "~1.0.1",
     "path-to-regexp": "~1.2.1",
     "plover-logger": "~1.4.0",

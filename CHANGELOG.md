@@ -1,3 +1,25 @@
+<a name="2.10.0"></a>
+# [2.10.0](https://github.com/alibaba/plover/compare/v2.9.0...v2.10.0) (2017-01-27)
+
+
+### Bug Fixes
+
+* [plover-router] routes not config npe. ([a424766](https://github.com/alibaba/plover/commit/a424766))
+* [plover-web] fix add flash middleware error ([ff9d1eb](https://github.com/alibaba/plover/commit/ff9d1eb))
+* addRoute missing options ([e5fb3d8](https://github.com/alibaba/plover/commit/e5fb3d8))
+
+
+### Features
+
+* [plover-web] add flash middleware ([4513ce7](https://github.com/alibaba/plover/commit/4513ce7))
+* add koa-compress ([f65a2e2](https://github.com/alibaba/plover/commit/f65a2e2))
+* add koa-static to packages plover-web. ([2871ee0](https://github.com/alibaba/plover/commit/2871ee0))
+* plover-router namespace with options ([c657a88](https://github.com/alibaba/plover/commit/c657a88))
+* render json with array data. ([d8199f8](https://github.com/alibaba/plover/commit/d8199f8))
+* 通过POST传递参数_method实现put/patch等请求 ([d000046](https://github.com/alibaba/plover/commit/d000046))
+
+
+
 <a name="2.9.0"></a>
 # [2.9.0](https://github.com/alibaba/plover/compare/v2.8.4...v2.9.0) (2016-11-16)
 
