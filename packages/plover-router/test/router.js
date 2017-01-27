@@ -18,12 +18,12 @@ describe('plover-route/lib/router', () => {
 
     const routes = router(config).routes;
     routes.should.eql([
-      { match: '/', to: 'home#index', verb: 'get' },
-      { match: '/profile', to: 'users#edit', verb: 'get' },
-      { match: '/loginout', to: 'session#delete', verb: 'post' },
-      { match: '/photos/:id', to: 'photos#update', verb: 'put' },
-      { match: '/photos/:id', to: 'photos#update', verb: 'patch' },
-      { match: '/photos/:id', to: 'photos#delete', verb: 'delete' }
+      { match: '/', to: { module: 'home', action: 'index' }, verb: 'get' },
+      { match: '/profile', to: { module: 'users', action: 'edit' }, verb: 'get' },
+      { match: '/loginout', to: { module: 'session', action: 'delete' }, verb: 'post' },
+      { match: '/photos/:id', to: { module: 'photos', action: 'update' }, verb: 'put' },
+      { match: '/photos/:id', to: { module: 'photos', action: 'update' }, verb: 'patch' },
+      { match: '/photos/:id', to: { module: 'photos', action: 'delete' }, verb: 'delete' }
     ]);
   });
 
@@ -122,7 +122,7 @@ describe('plover-route/lib/router', () => {
     routes.should.eql([
       {
         match: '/admin/users/:id',
-        to: 'users#show',
+        to: { module: 'users', action: 'show' },
         verb: 'get'
       },
       {
