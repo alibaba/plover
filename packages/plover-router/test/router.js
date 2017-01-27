@@ -116,6 +116,10 @@ describe('plover-route/lib/router', () => {
         r.get('/users/:id', 'users#show');
         r.resources('photos', { only: ['index', 'show'] });
       });
+
+      r.namespace('api', { type: 'json' }, () => {
+        r.resources('books', { only: ['index', 'show'] });
+      });
     };
 
     const routes = router(config).routes;
@@ -133,6 +137,16 @@ describe('plover-route/lib/router', () => {
       {
         match: '/admin/photos/:id',
         to: { module: 'photos', action: 'show' },
+        verb: 'get'
+      },
+      {
+        match: '/api/books',
+        to: { module: 'books', action: 'index', type: 'json' },
+        verb: 'get'
+      },
+      {
+        match: '/api/books/:id',
+        to: { module: 'books', action: 'show', type: 'json' },
         verb: 'get'
       }
     ]);
