@@ -20,8 +20,8 @@ const VERBS = [
  * @param {Function} fn  - 定义
  * @return {Object}      - 描述路由和中间件的数据结构
  * {
- *  routes: [...]
- *  middlewares: [...]
+ *  routes: [{ match, to, verb }, ...]
+ *  middlewares: [{ match, middleware, options }, ...]
  * }
  */
 module.exports = function(fn) {
@@ -29,20 +29,32 @@ module.exports = function(fn) {
   const middlewares = [];
 
   const states = [];
-
   const router = {};
 
+
+  /*
+   * get(match, to)
+   * post(match, to)
+   * ...
+   */
   VERBS.forEach(verb => {
     router[verb] = function(match, to) {
       const item = {
-        match: withState(states, match),
-        to: to,
+        match: withStateMatch(states, match),
+        to: withStateOptions(states, parseRule(to)),
         verb: verb
       };
       routes.push(item);
     };
   });
 
+
+  /*
+   * resouces(name, [options], [block])
+   *
+   * @param {Object} options
+   * - only: {Array}
+   */
   router.resources = function(name, options, block) {
     if (typeof options === 'function') {
       block = options;
@@ -79,12 +91,24 @@ module.exports = function(fn) {
     }
   };
 
-  router.namespace = function(name, block) {
-    pushState(states, name);
+
+  /*
+   * namespace(name, [options], block)
+   */
+  router.namespace = function(name, options, block) {
+    if (typeof options === 'function') {
+      block = options;
+      options = null;
+    }
+    pushState(states, name, options);
     block();
     popState(states);
   };
 
+
+  /*
+   * use([match], middleware, options)
+   */
   router.use = function(match, middleware, options) {
     if (typeof match === 'function') {
       options = middleware;
@@ -93,7 +117,7 @@ module.exports = function(fn) {
     }
 
     const item = {
-      match: withState(states, match),
+      match: withStateMatch(states, match),
       middleware: middleware,
       options: options || {}
     };
@@ -107,9 +131,21 @@ module.exports = function(fn) {
 };
 
 
-function pushState(states, value) {
-  const state = join(states[0], value);
-  states.unshift(state);
+const rRule = /^([^#:]+)[#:](.+)$/;
+function parseRule(rule) {
+  if (typeof rule === 'string') {
+    const match = rRule.exec(rule);
+    rule = { module: match[1], action: match[2] };
+  }
+  return rule;
+}
+
+
+function pushState(states, match, options) {
+  const current = states[0] || {};
+  match = join(current.match, match);
+  options = Object.assign({}, current.options, options);
+  states.unshift({ match: match, options: options });
 }
 
 
@@ -118,9 +154,9 @@ function popState(states) {
 }
 
 
-function withState(states, match) {
-  const current = states[0];
-  return match ? join(current, match) : current;
+function withStateMatch(states, match) {
+  const current = states[0] || {};
+  return match ? join(current.match, match) : current.match;
 }
 
 
@@ -130,4 +166,10 @@ function join(parent, name) {
     return parent + name;
   }
   return parent + '/' + name;
+}
+
+
+function withStateOptions(states, options) {
+  const current = states[0] || {};
+  return Object.assign({}, current.options, options);
 }

@@ -201,6 +201,18 @@ describe('core/action-context', function() {
     });
 
 
+    it('type = json with array data', function() {
+      const rd = {
+        ctx: {},
+        data: {}
+      };
+      const ac = new ActionContext(navigator, rd);
+      ac.type = 'json';
+      ac.render([1, 2, 3]);
+      rd.data.should.eql([1, 2, 3]);
+    });
+
+
     it('可以传递额外的参数', function() {
       const rd = {
         ctx: {},

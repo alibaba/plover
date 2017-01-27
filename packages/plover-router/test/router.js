@@ -18,12 +18,12 @@ describe('plover-route/lib/router', () => {
 
     const routes = router(config).routes;
     routes.should.eql([
-      { match: '/', to: 'home#index', verb: 'get' },
-      { match: '/profile', to: 'users#edit', verb: 'get' },
-      { match: '/loginout', to: 'session#delete', verb: 'post' },
-      { match: '/photos/:id', to: 'photos#update', verb: 'put' },
-      { match: '/photos/:id', to: 'photos#update', verb: 'patch' },
-      { match: '/photos/:id', to: 'photos#delete', verb: 'delete' }
+      { match: '/', to: { module: 'home', action: 'index' }, verb: 'get' },
+      { match: '/profile', to: { module: 'users', action: 'edit' }, verb: 'get' },
+      { match: '/loginout', to: { module: 'session', action: 'delete' }, verb: 'post' },
+      { match: '/photos/:id', to: { module: 'photos', action: 'update' }, verb: 'put' },
+      { match: '/photos/:id', to: { module: 'photos', action: 'update' }, verb: 'patch' },
+      { match: '/photos/:id', to: { module: 'photos', action: 'delete' }, verb: 'delete' }
     ]);
   });
 
@@ -116,13 +116,17 @@ describe('plover-route/lib/router', () => {
         r.get('/users/:id', 'users#show');
         r.resources('photos', { only: ['index', 'show'] });
       });
+
+      r.namespace('api', { type: 'json' }, () => {
+        r.resources('books', { only: ['index', 'show'] });
+      });
     };
 
     const routes = router(config).routes;
     routes.should.eql([
       {
         match: '/admin/users/:id',
-        to: 'users#show',
+        to: { module: 'users', action: 'show' },
         verb: 'get'
       },
       {
@@ -133,6 +137,16 @@ describe('plover-route/lib/router', () => {
       {
         match: '/admin/photos/:id',
         to: { module: 'photos', action: 'show' },
+        verb: 'get'
+      },
+      {
+        match: '/api/books',
+        to: { module: 'books', action: 'index', type: 'json' },
+        verb: 'get'
+      },
+      {
+        match: '/api/books/:id',
+        to: { module: 'books', action: 'show', type: 'json' },
         verb: 'get'
       }
     ]);
