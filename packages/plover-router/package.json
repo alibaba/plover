@@ -1,6 +1,6 @@
 {
   "name": "plover-router",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "为Plover应用提供Restful形式API。",
   "scripts": {
     "test": "mocha --require should --reporter spec --recursive --bail --check-leaks test/",
