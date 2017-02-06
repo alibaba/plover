@@ -1,6 +1,6 @@
 {
   "name": "plover-web",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "【插件】集成常用web中间件，提供通用web功能。",
   "main": "index.js",
   "scripts": {
