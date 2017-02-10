@@ -140,6 +140,11 @@ describe('plover-module-resolver', function() {
 
     info = resolver.resolve('offer');
     info.path.should.be.equal(pathUtil.join(root, 'modules/offer'));
+
+    info = resolver.resolve('less');
+    info.should.not.be.empty();
+
+    (resolver.resolve('webpack') === undefined).should.be.true();
   });
 
 

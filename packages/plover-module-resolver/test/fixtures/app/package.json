@@ -7,5 +7,9 @@
     "not": "1.0.0",
     "offer": "1.0.0",
     "not-exists": "2.0.0"
+  },
+  "devDependencies": {
+    "less": "2.0.0",
+    "webpack": "1.0.0"
   }
 }
