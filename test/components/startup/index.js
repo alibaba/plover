@@ -43,7 +43,11 @@ function getSettings() {
     },
 
     filters: [
-      './lib/filters/box.js'
+      './lib/filters/box.js',
+      {
+        module: './lib/filters/api.js',
+        match: '/api'
+      }
     ],
 
     helpers: {

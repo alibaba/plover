@@ -12,7 +12,7 @@
     "lib"
   ],
   "dependencies": {
-    "debug": "~2.3.2",
+    "debug": "~2.6.1",
     "iconv-lite": "~0.4.13",
     "koa-bodyparser": "~2.3.0",
     "koa-compress": "~1.0.9",
@@ -20,7 +20,7 @@
     "koa-csrf": "~2.5.0",
     "koa-etag": "~2.1.1",
     "koa-favicon": "~1.2.1",
-    "koa-generic-session": "~1.11.3",
+    "koa-generic-session": "~1.11.5",
     "koa-response-time": "~1.0.2",
     "koa-session": "~3.4.0",
     "koa-static": "^2.0.0",
@@ -36,8 +36,8 @@
     "mocha": "^3.1.0",
     "plover": "^2.8.4",
     "plover-test-mate": "^1.1.0",
-    "should": "^11.1.0",
-    "supertest": "^2.0.0"
+    "should": "^11.2.0",
+    "supertest": "^3.0.0"
   },
   "plover": {
     "plugin": "lib/plugin.js"

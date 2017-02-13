@@ -80,9 +80,19 @@ describe('core/navigator', function() {
       filters: ['./lib/filters/box.js']
     });
 
-    return request(thisApp.callback())
-      .get('/index?layout=false')
-      .expect(equal('index-with-filter.html'));
+    const filter = require(pathUtil.join(root, './lib/filters/api.js'));
+    thisApp.addFilter(filter, { match: '/api/*' });
+
+    const thisAgent = request.agent(thisApp.callback());
+
+    return co(function* () {
+      yield thisAgent.get('/index?layout=false')
+        .expect(equal('index-with-filter.html'));
+
+      yield thisAgent.get('/api/offer')
+        .expect('X-API', '112233')
+        .expect({ id: 123, name: 'test offer' });
+    });
   });
 
 
@@ -221,10 +231,11 @@ describe('core/navigator', function() {
   });
 
 
-  describe('数据类型相当', function() {
+  describe('数据类型', function() {
     it('渲染Buffer', function() {
       return agent.get('/buffer')
-        .expect('hello world');
+        .expect(200)
+        .expect(new Buffer('hello world'));
     });
   });
 });
