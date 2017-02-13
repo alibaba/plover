@@ -43,13 +43,15 @@ describe('components/navigate', function() {
     app.filters[0].should.eql({
       name: 'TestFilter',
       filter: TestFilter,
-      level: 2
+      options: {
+        level: 2
+      }
     });
 
     app.filters[1].should.eql({
       name: 'XViewFilter',
       filter: XViewFilter,
-      level: 3
+      options: {}
     });
   });
 
