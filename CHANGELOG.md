@@ -1,3 +1,19 @@
+<a name="2.11.0"></a>
+# [2.11.0](https://github.com/alibaba/plover/compare/v2.10.0...v2.11.0) (2017-02-13)
+
+
+### Bug Fixes
+
+* 修复devDeps中的模块不能被加载的问题 ([b217358](https://github.com/alibaba/plover/commit/b217358))
+
+
+### Features
+
+* [plover-web] remove deps `koa-redius`. ([2e620a1](https://github.com/alibaba/plover/commit/2e620a1))
+* filter支持路径过滤 ([ed6c9f9](https://github.com/alibaba/plover/commit/ed6c9f9))
+
+
+
 <a name="2.10.0"></a>
 # [2.10.0](https://github.com/alibaba/plover/compare/v2.9.0...v2.10.0) (2017-01-27)
 
