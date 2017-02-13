@@ -14,12 +14,27 @@ const Navigator = require('../../lib/core/navigator');
 
 
 describe('components/navigate', function() {
-  it('允许应用添加渲染相关的各种部件', function() {
-    const app = {
-      proto: {},
-      addMiddleware: sinon.spy()
-    };
+  before(function() {
+    stubNavigate();
+  });
 
+  after(function() {
+    Navigator.prototype.navigate.restore();
+  });
+
+
+  it('addEngine(ext, engine)', function() {
+    const app = mockApp();
+    const nav = new NavigateComponent(app);
+
+    const engine = { compile: () => {} };
+    nav.addEngine('art', engine);
+    app.engines.art.should.equal(engine);
+  });
+
+
+  it('addHelper(name, helper)', function() {
+    const app = mockApp();
     const nav = new NavigateComponent(app);
 
     const engine = { compile: () => {} };
@@ -33,6 +48,12 @@ describe('components/navigate', function() {
     AssetsHelper.startup.args[0][0].should.be.equal(app.proto);
 
     app.helpers.assets.should.equal(AssetsHelper);
+  });
+
+
+  it('addFilter(filter, options)', function() {
+    const app = mockApp();
+    const nav = new NavigateComponent(app);
 
     const TestFilter = { $name: 'TestFilter' };
     nav.addFilter(TestFilter, 2);
@@ -40,7 +61,21 @@ describe('components/navigate', function() {
     const XViewFilter = { $name: 'XViewFilter' };
     nav.addFilter(XViewFilter);
 
+    const MediaFilter = { $name: 'MediaFilter' };
+    nav.addFilter(MediaFilter, { before: 'TestFilter' });
+
+    // prepare filter
+    app.start();
+
     app.filters[0].should.eql({
+      name: 'MediaFilter',
+      filter: MediaFilter,
+      options: {
+        before: 'TestFilter'
+      }
+    });
+
+    app.filters[1].should.eql({
       name: 'TestFilter',
       filter: TestFilter,
       options: {
@@ -48,20 +83,11 @@ describe('components/navigate', function() {
       }
     });
 
-    app.filters[1].should.eql({
+    app.filters[2].should.eql({
       name: 'XViewFilter',
       filter: XViewFilter,
       options: {}
     });
-  });
-
-
-  before(function() {
-    stubNavigate();
-  });
-
-  after(function() {
-    Navigator.prototype.navigate.restore();
   });
 
 
@@ -149,17 +175,27 @@ describe('components/navigate', function() {
 });
 
 
-function createAgent(o) {
+function mockApp() {
   const app = koa();
-  const papp = Object.assign({
+  const mws = [];
+  return {
     settings: {},
     services: {},
     proto: {},
     addMiddleware: function(fn) {
-      const mw = fn();
-      app.use(mw);
-    }
-  }, o);
+      mws.push(fn);
+    },
+    start: function() {
+      mws.forEach(fn => app.use(fn()));
+    },
+    server: app
+  };
+}
+
+
+function createAgent(o) {
+  const papp = Object.assign(mockApp(), o);
+  const app = papp.server;
 
   app.use(function* (next) {
     if (this.query.module) {
@@ -173,6 +209,7 @@ function createAgent(o) {
   });
 
   new NavigateComponent(papp); // eslint-disable-line
+  papp.start();
 
   app.use(function* () {
     this.body = this.path;
