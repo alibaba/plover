@@ -231,10 +231,11 @@ describe('core/navigator', function() {
   });
 
 
-  describe('数据类型相当', function() {
+  describe('数据类型', function() {
     it('渲染Buffer', function() {
       return agent.get('/buffer')
-        .expect('hello world');
+        .expect(200)
+        .expect(new Buffer('hello world'));
     });
   });
 });
