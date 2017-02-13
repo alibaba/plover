@@ -6,6 +6,7 @@ const koa = require('koa');
 const sinon = require('sinon');
 const request = require('supertest');
 const jsonp = require('jsonp-body');
+const pathToRegexp = require('path-to-regexp');
 
 const Logger = require('plover-logger');
 
@@ -55,11 +56,14 @@ describe('components/navigate', function() {
     const app = mockApp();
     const nav = new NavigateComponent(app);
 
+    const DefaultFilter = { $name: 'DefaultFilter' };
+    nav.addFilter(DefaultFilter);
+
     const TestFilter = { $name: 'TestFilter' };
     nav.addFilter(TestFilter, 2);
 
     const XViewFilter = { $name: 'XViewFilter' };
-    nav.addFilter(XViewFilter);
+    nav.addFilter(XViewFilter, { match: '/api' });
 
     const MediaFilter = { $name: 'MediaFilter' };
     nav.addFilter(MediaFilter, { before: 'TestFilter' });
@@ -70,6 +74,7 @@ describe('components/navigate', function() {
     app.filters[0].should.eql({
       name: 'MediaFilter',
       filter: MediaFilter,
+      match: null,
       options: {
         before: 'TestFilter'
       }
@@ -78,15 +83,26 @@ describe('components/navigate', function() {
     app.filters[1].should.eql({
       name: 'TestFilter',
       filter: TestFilter,
+      match: null,
       options: {
         level: 2
       }
     });
 
     app.filters[2].should.eql({
+      name: 'DefaultFilter',
+      filter: DefaultFilter,
+      match: null,
+      options: {}
+    });
+
+    app.filters[3].should.eql({
       name: 'XViewFilter',
       filter: XViewFilter,
-      options: {}
+      match: pathToRegexp('/api'),
+      options: {
+        match: '/api'
+      }
     });
   });
 
