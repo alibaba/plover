@@ -4,7 +4,6 @@
   "description": "【插件】集成常用web中间件，提供通用web功能。",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint lib test",
     "test": "mocha --require should --reporter spec --recursive --bail --check-leaks test/",
     "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks test/"
   },
@@ -12,7 +11,7 @@
     "lib"
   ],
   "dependencies": {
-    "debug": "~2.6.1",
+    "debug": "~2.6.3",
     "iconv-lite": "~0.4.13",
     "koa-bodyparser": "~2.3.0",
     "koa-compress": "~1.0.9",
@@ -25,7 +24,7 @@
     "koa-session": "~3.4.0",
     "koa-static": "^2.0.0",
     "path-to-regexp": "~1.7.0",
-    "plover-logger": "~1.4.0",
+    "plover-logger": "~1.4.4",
     "qs": "~6.3.0"
   },
   "devDependencies": {
@@ -34,9 +33,9 @@
     "koa": "^1.2.0",
     "koa-rewrite": "^1.1.1",
     "mocha": "^3.1.0",
-    "plover": "^2.8.4",
+    "plover": "^2.11.0",
     "plover-test-mate": "^1.1.0",
-    "should": "^11.2.0",
+    "should": "^11.2.1",
     "supertest": "^3.0.0"
   },
   "plover": {
