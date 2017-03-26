@@ -4,7 +4,6 @@
   "description": "专注于模块化的NodeJs Web框架",
   "scripts": {
     "lint": "eslint .",
-    "plato": "plato -r -e .platolintrc -d plato $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
     "test": "mocha --require should --reporter spec --recursive --bail --check-leaks --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
     "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
     "travis": "istanbul cover _mocha --report lcovonly -- --require should --recursive --bail --check-leaks --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
@@ -19,7 +18,6 @@
     "eslint-config-bce": "^1.3.0",
     "istanbul": "^0.4.1",
     "mocha": "^3.2.0",
-    "plato": "^1.7.0",
     "should": "^11.2.1"
   },
   "author": "bencode@163.com",
