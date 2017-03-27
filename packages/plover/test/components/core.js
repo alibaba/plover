@@ -10,7 +10,7 @@ const antsort = require('antsort');
 const plover = require('../../');
 
 
-/* eslint no-console: 0, max-nested-callbacks: [2, 4] */
+/* eslint no-console: 0, max-nested-callbacks: [2, 4], consistent-return: 0 */
 
 
 describe('components/core', function() {
@@ -51,29 +51,38 @@ describe('components/core', function() {
     it('添加中间件', function() {
       const app = plover(settings);
 
-      app.addMiddleware(function* (next) {
-        if (this.url === '/a') {
-          this.body = 'hello world a';
+      app.addMiddleware(async (ctx, next) => {
+        if (ctx.url === '/a') {
+          ctx.body = 'hello world a';
         } else {
-          yield* next;
+          await next();
         }
       });
 
       app.addMiddleware(function() {
-        return function* (next) {
-          if (this.url === '/b') {
-            this.body = 'hello world b';
+        return (ctx, next) => {
+          if (ctx.url === '/b') {
+            ctx.body = 'hello world b';
           } else {
-            yield* next;
+            return next();
           }
         };
       });
+
+      app.addMiddleware((ctx, next) => {
+        if (ctx.url === '/c') {
+          ctx.body = 'hello world c';
+        } else {
+          return next();
+        }
+      }, { bare: true });
 
       const agent = request(app.callback());
 
       return co(function* () {
         yield agent.get('/a').expect('hello world a');
         yield agent.get('/b').expect('hello world b');
+        yield agent.get('/c').expect('hello world c');
       });
     });
 
@@ -81,15 +90,17 @@ describe('components/core', function() {
     it('设置中间件级别', function() {
       const app = plover(settings);
 
-      app.addMiddleware(function* (next) {
-        this.list = [];
-        yield* next;
-        this.body = this.list.join(' ');
+      app.addMiddleware(async (ctx, next) => {
+        ctx.list = [];
+        await next();
+        ctx.body = ctx.list.join(' ');
       }, 0);
 
-      app.addMiddleware(function* (next) {
-        this.list.push('Hello');
-        yield* next;
+      app.addMiddleware(function() {
+        return (ctx, next) => {
+          ctx.list.push('Hello');
+          return next();
+        };
       }, 2);
 
       app.addMiddleware(function* (next) {

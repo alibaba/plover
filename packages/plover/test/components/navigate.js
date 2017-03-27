@@ -212,22 +212,22 @@ function createAgent(o) {
   const papp = Object.assign(mockApp(), o);
   const app = papp.server;
 
-  app.use(function* (next) {
-    if (this.query.module) {
-      this.route = {
-        module: this.query.module,
-        action: this.query.action,
-        type: this.query.type
+  app.use((ctx, next) => {
+    if (ctx.query.module) {
+      ctx.route = {
+        module: ctx.query.module,
+        action: ctx.query.action,
+        type: ctx.query.type
       };
     }
-    yield next;
+    return next();
   });
 
   new NavigateComponent(papp); // eslint-disable-line
   papp.start();
 
-  app.use(function* () {
-    this.body = this.path;
+  app.use(ctx => {
+    ctx.body = ctx.path;
   });
 
   return request.agent(app.callback());
@@ -235,7 +235,7 @@ function createAgent(o) {
 
 
 function stubNavigate() {
-  sinon.stub(Navigator.prototype, 'navigate', function* (route) {
+  sinon.stub(Navigator.prototype, 'navigate').callsFake(function* (route) {
     if (route.module === 'notfound') {
       return null;
     }

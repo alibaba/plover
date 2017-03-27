@@ -23,8 +23,8 @@ describe('util/error-handler', function() {
     const app = new Koa();
     const err = new Error('发生了错误怎么办');
     app.use(errorHandler({ env: 'development' }));
-    app.use(function* () {
-      if (this.query.error === 'string') {
+    app.use(ctx => {
+      if (ctx.query.error === 'string') {
         throw err.message;
       }
       throw err;
@@ -49,8 +49,8 @@ describe('util/error-handler', function() {
   it('不处理500以下的错误', function() {
     const app = new Koa();
     app.use(errorHandler());
-    app.use(function* () {
-      this.throw(400, '不允许进入');
+    app.use(ctx => {
+      ctx.throw(400, '不允许进入');
     });
 
     return request(app.callback())
@@ -62,7 +62,7 @@ describe('util/error-handler', function() {
   it('非开发环境不会打印具体错误', function() {
     const app = new Koa();
     app.use(errorHandler());
-    app.use(function* () {
+    app.use(() => {
       throw new Error('出现了一个粗心大意的错误');
     });
     return request(app.callback())

@@ -103,9 +103,9 @@ function createServiceComponent(self) {
 
     ServiceContainer.refine(services, proto);
 
-    return function* ServiceComponent(next) {
-      this.services = new ServiceContainer(this);
-      yield* next;
+    return async function ServiceComponent(ctx, next) {
+      ctx.services = new ServiceContainer(ctx);
+      return next();
     };
   };
 }

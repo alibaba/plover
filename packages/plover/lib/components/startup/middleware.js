@@ -1,10 +1,7 @@
 'use strict';
 
 
-const assert = require('assert');
 const compose = require('koa-compose');
-const lang = require('plover-util/lib/lang');
-
 const util = require('../../util/util');
 
 
@@ -31,18 +28,8 @@ module.exports = function(app) {
 function loadMiddlewares(app, root, mws, options) {
   mws = mws.map(path => {
     let mw = util.loadModule(root, path);
-    assert(typeof mw === 'function',
-      'middleware should be function: ' + path);
-
-    if (!lang.isGeneratorFunction(mw)) {
-      mw = mw(app.config, app.server, app);
-    }
-
-    assert(lang.isGeneratorFunction(mw),
-        'generator function required: ' + path);
-
+    mw = util.convertMiddleware(app, mw, options);
     mw.$name = path;
-
     return mw;
   });
 
@@ -57,5 +44,6 @@ function loadMiddlewares(app, root, mws, options) {
     middleware = mws[0];
   }
 
+  options = Object.assign({ bare: true }, options);
   app.addMiddleware(middleware, options);
 }

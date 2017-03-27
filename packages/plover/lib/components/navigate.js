@@ -5,6 +5,7 @@ const assert = require('assert');
 const jsonp = require('jsonp-body');
 const antsort = require('antsort');
 const pathToRegexp = require('path-to-regexp');
+const co = require('co');
 
 const RouteInfo = require('plover-util/lib/route-info');
 
@@ -116,20 +117,20 @@ function createNavigateComponent(self) {
 
     app.filters = prepareFilters(app.filters);
 
-    return function* NavigateComponent(next) {
-      if (!this.route) {
-        yield* next;
+    return async function NavigateComponent(ctx, next) {
+      if (!ctx.route) {
+        await next();
         return;
       }
 
-      const route = RouteInfo.regular(this.route);
+      const route = RouteInfo.regular(ctx.route);
       route.root = route;
       route.parent = null;
 
-      const navigator = new Navigator(self.app, this);
-      const result = yield* navigator.navigate(route);
+      const navigator = new Navigator(self.app, ctx);
+      const result = await co(navigator.navigate(route));
       if (result) {
-        setResponse(self.app, this, result);
+        setResponse(self.app, ctx, result);
       }
     };
   };

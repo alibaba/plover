@@ -106,8 +106,8 @@ describe('application', function() {
     };
 
     const app = p.server;
-    app.use(function* () {
-      this.body = this.sayHello();
+    app.use(ctx => {
+      ctx.body = ctx.sayHello();
     });
 
     return request(app.callback()).get('/').expect('hello');
@@ -169,8 +169,8 @@ describe('application', function() {
 
     const app = new MyPlover({ applicationRoot: root });
 
-    app.addMiddleware(function* () {
-      this.body = 'hello world';
+    app.addMiddleware(ctx => {
+      ctx.body = 'hello world';
     });
 
     return request(app.callback())

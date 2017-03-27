@@ -5,8 +5,8 @@ const http = require('http');
 const assert = require('assert');
 const antsort = require('antsort');
 const pathToRegexp = require('path-to-regexp');
-const lang = require('plover-util/lib/lang');
-
+const compose = require('koa-compose');
+const util = require('../util/util');
 
 const logger = require('plover-logger')('plover:components/core');
 
@@ -74,7 +74,6 @@ class Core {
    * @return {Middleware} - 中间件
    */
   middleware() {
-    const compose = require('koa-compose');
     this.start();
     return compose(this.app.server.middleware);
   }
@@ -127,6 +126,8 @@ class Core {
    *   - papp: plover实例对象
    *
    * @param {Object|Number} options - 配置，如果是Number则相当于 { level: options }
+   *   - bare    默认情况下如果是function会对中间件先进行一次初始化
+   *             如果传了bare为true，则不作处理，用于支持koa 2普通函数作为中间件
    *   - level   點认为3
    *   - before  用于对中间件进行精确排序
    *   - after
@@ -154,22 +155,14 @@ module.exports = Core;
 
 function prepareMiddlewares(app, middlewares) {
   return middlewares.map(item => {
-    let mw = item.middleware;
-    // 中间件是普通function时，需要初始化
-    // 接口形式是middleware(config, koaapp, ploverapp)
-    if (!lang.isGeneratorFunction(mw)) {
-      mw = mw(app.config, app.server, app.proto);
-    }
-
-    let name = mw.$name || item.middleware.$name || mw.name;
     const options = item.options;
+    let mw = util.convertMiddleware(app, item.middleware, options);
     if (options.match || options.method) {
       mw = createProxy(mw, options);
-      name = mw.$name;
     }
 
     const o = {
-      name: name,
+      name: mw.$name || mw.name,
       module: mw,
       before: options.before,
       after: options.after,
@@ -197,16 +190,14 @@ function createProxy(mw, options) {
 
   logger.info('create proxy middleware: %s -> %s', re, name);
 
-  const result = function* (next) {
-    if (!re || re.test(this.path)) {
-      if (!options.method || match(this, options.method)) {
-        logger.debug('%s matches %s', this.path, name);
-        yield* mw.call(this, next);
-        return;
+  const result = (ctx, next) => {
+    if (!re || re.test(ctx.path)) {
+      if (!options.method || match(ctx, options.method)) {
+        logger.debug('%s matches %s', ctx.path, name);
+        return mw(ctx, next);
       }
     }
-
-    yield* next;
+    return next();
   };
 
   result.$name = name;

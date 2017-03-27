@@ -1,6 +1,9 @@
+/**
+ * function that return async function
+ */
 module.exports = function() {
-  return function* Hello() {
-    this.body = 'hello';
+  return async (ctx) => {
+    ctx.body = 'hello';
   };
 };
 

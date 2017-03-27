@@ -1,6 +1,10 @@
+/**
+ * function that return regular function
+ */
 module.exports = function() {
-  return function* () {
-    this.body = this.body + ' & c';
-  };
+  return (ctx, next) => {
+    ctx.body = ctx.body + ' & c';
+    return next();
+  }
 };
 

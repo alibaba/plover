@@ -79,13 +79,14 @@ describe('components/startup/middleware', function() {
         modules: [
           './lib/middlewares/a.js',
           pathUtil.join(fixtureRoot, 'lib/middlewares/b.js'),
-          pathUtil.join(fixtureRoot, 'lib/middlewares/c.js')
+          pathUtil.join(fixtureRoot, 'lib/middlewares/c.js'),
+          './lib/middlewares/d.js'
         ],
-        match: '/a-b-c'
+        match: '/a-b-c-d'
       }
     ]);
 
-    return test(p, '/a-b-c', 'a & b & c');
+    return test(p, '/a-b-c-d', 'a & b & c & d');
   });
 
 
@@ -134,11 +135,7 @@ function test(p, url, method, body) {
     body = method;
     method = 'get';
   }
-
-  return new Promise(function(resolve) {
-    request(p.callback())[method](url)
-      .expect(body)
-      .end(resolve);
-  });
+  return request(p.callback())[method](url)
+    .expect(body);
 }
 
