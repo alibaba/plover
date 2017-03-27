@@ -3,6 +3,7 @@ node_js:
   - 7.6
   - 6
   - 4
+cache: yarn
 script:
   - ./ci.sh
 after_script:
