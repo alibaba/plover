@@ -5,7 +5,7 @@ const assert = require('assert');
 const pathUtil = require('path');
 const fs = require('fs');
 
-const is = require('is-type-of');
+const lang = require('plover-util/lib/lang');
 const assign = require('plover-util/lib/assign');
 const RouteInfo = require('plover-util/lib/route-info');
 const SafeString = require('plover-util/lib/safe-string');
@@ -185,7 +185,7 @@ function* renderContent(self, rd, view) {
   rd.states.shift();
   assert(rd.states.length === 0, 'rd.states should empty');
 
-  if (content && is.promise(content)) {
+  if (content && lang.isPromise(content)) {
     content = yield content;
   }
 
@@ -270,7 +270,7 @@ function* beforeRender(self, rd, ctx) {
 
   const fn = rd.module.beforeRender;
   if (fn) {
-    return is.generatorFunction(fn) ?
+    return lang.isGeneratorFunction(fn) ?
         yield* fn.call(ctx) : fn.call(ctx);
   }
 
@@ -284,7 +284,7 @@ function* beforeRender(self, rd, ctx) {
 function* afterRender(self, rd, ctx) {
   const fn = rd.module.afterRender;
   if (fn) {
-    const ret = is.generatorFunction(fn) ?
+    const ret = lang.isGeneratorFunction(fn) ?
         yield* fn.call(ctx) : fn.call(ctx);
     if (ret === false) {
       return false;
@@ -337,7 +337,7 @@ function tryTransformAssets(rd) {
 /* eslint max-params: [2, 5] */
 function processIncludeResult(self, rd, view, data, content) {
   const url = view.route.url;
-  if (is.promise(content)) {
+  if (lang.isPromise(content)) {
     if (rd.async) {
       logger.debug('include[promise]: %s, %o', url, data);
       return content.then(output => {

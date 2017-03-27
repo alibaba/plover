@@ -3,7 +3,6 @@
 
 const util = require('../util/util');
 
-
 const logger = require('plover-logger')('plover:components/service');
 
 

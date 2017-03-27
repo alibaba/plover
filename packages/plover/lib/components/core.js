@@ -4,8 +4,8 @@
 const http = require('http');
 const assert = require('assert');
 const antsort = require('antsort');
-const is = require('is-type-of');
 const pathToRegexp = require('path-to-regexp');
+const lang = require('plover-util/lib/lang');
 
 
 const logger = require('plover-logger')('plover:components/core');
@@ -157,7 +157,7 @@ function prepareMiddlewares(app, middlewares) {
     let mw = item.middleware;
     // 中间件是普通function时，需要初始化
     // 接口形式是middleware(config, koaapp, ploverapp)
-    if (!is.generatorFunction(mw)) {
+    if (!lang.isGeneratorFunction(mw)) {
       mw = mw(app.config, app.server, app.proto);
     }
 

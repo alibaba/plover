@@ -3,7 +3,7 @@
 
 const assert = require('assert');
 const compose = require('koa-compose');
-const is = require('is-type-of');
+const lang = require('plover-util/lib/lang');
 
 const util = require('../../util/util');
 
@@ -34,11 +34,11 @@ function loadMiddlewares(app, root, mws, options) {
     assert(typeof mw === 'function',
       'middleware should be function: ' + path);
 
-    if (!is.generatorFunction(mw)) {
+    if (!lang.isGeneratorFunction(mw)) {
       mw = mw(app.config, app.server, app);
     }
 
-    assert(is.generatorFunction(mw),
+    assert(lang.isGeneratorFunction(mw),
         'generator function required: ' + path);
 
     mw.$name = path;

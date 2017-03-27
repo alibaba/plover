@@ -1,8 +1,7 @@
 'use strict';
 
 
-const is = require('is-type-of');
-
+const lang = require('plover-util/lib/lang');
 
 const logger = require('plover-logger')('plover:util/invoker');
 
@@ -26,7 +25,7 @@ exports.filter = function* filter(list, method, context, reverse) {
     if (fn && (!item.match || item.match.test(ctx.path))) {
       const name = item.name || item.filter.name || '';
       logger.debug('%s.%s', name, method);
-      const result = is.generatorFunction(fn) ?
+      const result = lang.isGeneratorFunction(fn) ?
         yield* fn.call(context, context) : fn.call(context, context);
 
       if (exports.isSuccess(result)) {
