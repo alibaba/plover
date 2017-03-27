@@ -11,8 +11,8 @@ describe('plover-route/lib/plugin', () => {
       applicationRoot: __dirname,
       routes: (r) => {
         r.get('/profile', 'users#show');
-        r.use('/hello', function* () {
-          this.body = 'hello';
+        r.use('/hello', ctx => {
+          ctx.body = 'hello';
         });
       }
     });
@@ -20,11 +20,11 @@ describe('plover-route/lib/plugin', () => {
     app.use('plover-web');
     app.use(require('../lib/plugin'));
 
-    app.addMiddleware(function* () {
-      if (this.route) {
-        this.body = this.route;
+    app.addMiddleware(ctx => {
+      if (ctx.route) {
+        ctx.body = ctx.route;
       }
-    });
+    }, { bare: true });
 
     return co(function* () {
       yield app.get('/profile').expect({
@@ -63,9 +63,9 @@ describe('plover-route/lib/plugin', () => {
     app.use('plover-web');
     app.use(require('../lib/plugin'));
 
-    app.addMiddleware(function* () {
-      this.body = this.method;
-    });
+    app.addMiddleware(ctx => {
+      ctx.body = ctx.method;
+    }, { bare: true });
 
     return co(function* () {
       yield app.agent.post('/update')

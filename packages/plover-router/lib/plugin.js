@@ -15,7 +15,7 @@ module.exports = function(app) {
 
   const middlewares = info.middlewares;
   for (const item of middlewares) {
-    const opts = Object.assign({}, item.options);
+    const opts = Object.assign({ bare: true }, item.options);
     opts.match = item.match;
     app.addMiddleware(item.middleware, opts);
   }
