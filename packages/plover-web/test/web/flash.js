@@ -1,14 +1,14 @@
 'use strict';
 
 
-const koa = require('koa');
+const Koa = require('koa');
 const request = require('supertest');
 const co = require('co');
 
 
 describe('plover-web/web/flash', function() {
   it('test', function() {
-    const app = koa();
+    const app = new Koa();
 
     app.keys = ['0627e'];
 

@@ -1,7 +1,7 @@
 'use strict';
 
 
-const koa = require('koa');
+const Koa = require('Koa');
 const request = require('supertest');
 const co = require('co');
 
@@ -10,7 +10,7 @@ const co = require('co');
 
 
 describe('plover-web/web/csrf', () => {
-  const app = koa();
+  const app = new Koa();
   app.keys = ['test'];
   app.use(require('koa-session')({}, app));
   require('koa-csrf')(app);

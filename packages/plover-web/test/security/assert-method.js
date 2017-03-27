@@ -1,14 +1,14 @@
 'use strict';
 
 
-const koa = require('koa');
+const Koa = require('koa');
 const request = require('supertest');
 const co = require('co');
 const assertMethod = require('../../lib/security/assert-method');
 
 
 describe('plover-web/security/assert-method', () => {
-  const app = koa();
+  const app = new Koa();
   assertMethod(app);
 
   app.use(function* () {

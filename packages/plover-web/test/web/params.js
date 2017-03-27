@@ -1,12 +1,12 @@
 'use strict';
 
 
-const koa = require('koa');
+const Koa = require('koa');
 const request = require('supertest');
 
 describe('plover-web/web/params', () => {
   it('this.params', () => {
-    const app = koa();
+    const app = new Koa();
     require('../../lib/web/params')(app);
     app.use(require('koa-bodyparser')());
     app.use(function* () {

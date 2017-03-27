@@ -1,7 +1,7 @@
 'use strict';
 
 
-const koa = require('koa');
+const Koa = require('koa');
 const request = require('supertest');
 const co = require('co');
 const charset = require('../../lib/web/charset');
@@ -12,7 +12,7 @@ const charset = require('../../lib/web/charset');
 
 describe('plover-web/web/charset', () => {
   it('output gbk with query _output_charset', () => {
-    const app = koa();
+    const app = new Koa();
     app.use(charset());
     app.use(function* () {
       if (this.path === '/a') {

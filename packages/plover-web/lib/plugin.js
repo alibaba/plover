@@ -60,27 +60,28 @@ function install(app, name, config) {
   const fn = require(name);
   const mw = fn(config);
   mw.$name = name;
-  app.addMiddleware(mw, 0);
+  add(app, mw);
 }
 
 
 function installOutputCharset(app, config) {
   const mw = require('./web/charset')(config);
-  app.addMiddleware(mw, 0);
+  add(app, mw);
 }
 
 
 function installFlash(app) {
   const mw = require('./web/flash')(app);
-  app.addMiddleware(mw, 0);
+  add(app, mw);
 }
 
 
 function installSecurityHeaders(app) {
   const opts = (app.settings.security || {}).headers || {};
   const mw = require('./security/security-headers')(opts);
-  app.addMiddleware(mw, 0);
+  add(app, mw);
 }
+
 
 
 function installStatic(app, config) {
@@ -90,6 +91,11 @@ function installStatic(app, config) {
   const opts = Object.assign({}, config);
   const mw = require('koa-static')(root, opts);
   // after navigate
-  app.addMiddleware(mw, 4);
+  add(app, mw, 4);
 }
 
+
+function add(app, mw, level) {
+  level = level || 0;
+  app.addMiddleware(mw, { level: level, bare: true });
+}
