@@ -267,13 +267,10 @@ function* beforeRender(self, rd, ctx) {
   if (ret === false) {
     return false;
   }
-
   const fn = rd.module.beforeRender;
   if (fn) {
-    return lang.isGeneratorFunction(fn) ?
-        yield* fn.call(ctx) : fn.call(ctx);
+    return yield* invoker.run(fn, ctx);
   }
-
   return null;
 }
 
@@ -284,13 +281,11 @@ function* beforeRender(self, rd, ctx) {
 function* afterRender(self, rd, ctx) {
   const fn = rd.module.afterRender;
   if (fn) {
-    const ret = lang.isGeneratorFunction(fn) ?
-        yield* fn.call(ctx) : fn.call(ctx);
+    const ret = yield* invoker.run(fn, ctx);
     if (ret === false) {
       return false;
     }
   }
-
   return yield* invoker.filter(self.filters, 'afterRender', ctx, true);
 }
 

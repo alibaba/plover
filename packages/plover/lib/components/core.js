@@ -151,7 +151,8 @@ class Core {
 
 
   use(middleware, options) {
-    this.addMiddleware(middleware, Object.assign({ bare: true }));
+    options = Object.assign({ bare: true }, options);
+    this.addMiddleware(middleware, options);
   }
 }
 

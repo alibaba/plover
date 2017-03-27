@@ -2,7 +2,6 @@
 
 
 const assert = require('assert');
-const lang = require('plover-util/lib/lang');
 const invoker = require('../util/invoker');
 
 const logger = require('plover-logger')('plover:core/action-runner');
@@ -76,7 +75,7 @@ function* runAction(rd, ctx) {
   let fn = module.beforeAction;
 
   if (fn) {
-    ret = lang.isGeneratorFunction(fn) ? yield* fn.call(ctx, ctx) : fn.call(ctx, ctx);
+    ret = yield* invoker.run(fn, ctx);
     if (invoker.isSuccess(ret)) {
       return ret;
     }
@@ -84,14 +83,14 @@ function* runAction(rd, ctx) {
 
   fn = module[rd.route.action];
   assert(fn, 'action method should exists');
-  ret = lang.isGeneratorFunction(fn) ? yield* fn.call(ctx, ctx) : fn.call(ctx, ctx);
+  ret = yield* invoker.run(fn, ctx);
   if (invoker.isSuccess(ret)) {
     return ret;
   }
 
   fn = module.afterAction;
   if (fn) {
-    ret = lang.isGeneratorFunction(fn) ? yield* fn.call(ctx, ctx) : fn.call(ctx, ctx);
+    ret = yield* invoker.run(fn, ctx);
     if (invoker.isSuccess(ret)) {
       return ret;
     }
