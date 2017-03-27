@@ -2,7 +2,7 @@
 
 
 const co = require('co');
-const koa = require('koa');
+const Koa = require('koa');
 const sinon = require('sinon');
 const request = require('supertest');
 const jsonp = require('jsonp-body');
@@ -191,7 +191,7 @@ describe('components/navigate', function() {
 
 
 function mockApp() {
-  const app = koa();
+  const app = new Koa();
   const mws = [];
   return {
     settings: {},

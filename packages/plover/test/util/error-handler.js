@@ -2,7 +2,7 @@
 
 
 const co = require('co');
-const koa = require('koa');
+const Koa = require('koa');
 const request = require('supertest');
 const sinon = require('sinon');
 const Logger = require('plover-logger');
@@ -20,7 +20,7 @@ describe('util/error-handler', function() {
   });
 
   it('内层中间件出错时，开发环境会在页面打印异常', function() {
-    const app = koa();
+    const app = new Koa();
     const err = new Error('发生了错误怎么办');
     app.use(errorHandler({ env: 'development' }));
     app.use(function* () {
@@ -47,7 +47,7 @@ describe('util/error-handler', function() {
 
 
   it('不处理500以下的错误', function() {
-    const app = koa();
+    const app = new Koa();
     app.use(errorHandler());
     app.use(function* () {
       this.throw(400, '不允许进入');
@@ -60,7 +60,7 @@ describe('util/error-handler', function() {
 
 
   it('非开发环境不会打印具体错误', function() {
-    const app = koa();
+    const app = new Koa();
     app.use(errorHandler());
     app.use(function* () {
       throw new Error('出现了一个粗心大意的错误');

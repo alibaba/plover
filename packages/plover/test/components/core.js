@@ -2,6 +2,7 @@
 
 
 const co = require('co');
+const Koa = require('koa');
 const request = require('supertest');
 const sinon = require('sinon');
 const antsort = require('antsort');
@@ -154,7 +155,7 @@ describe('components/core', function() {
         this.body = 'hello plover';
       });
 
-      const app = require('koa')();
+      const app = new Koa();
       app.use(papp.middleware());
 
       return request(app.callback())
