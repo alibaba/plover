@@ -159,7 +159,7 @@ describe('core/action-context', function() {
       body: 'page body'
     });
   });
-  // it
+  //~
 
 
   it('忽略非顶层模块的layout设置', function() {
