@@ -5,4 +5,5 @@ do
     (cd $file; npm install)
   fi
 done
+npm install
 npm run ci
