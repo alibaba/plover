@@ -51,7 +51,7 @@ describe('components/core', function() {
     it('添加中间件', function() {
       const app = plover(settings);
 
-      app.addMiddleware(async (ctx, next) => {
+      app.use(async (ctx, next) => {
         if (ctx.url === '/a') {
           ctx.body = 'hello world a';
         } else {
@@ -59,23 +59,21 @@ describe('components/core', function() {
         }
       });
 
-      app.addMiddleware(function() {
-        return (ctx, next) => {
-          if (ctx.url === '/b') {
-            ctx.body = 'hello world b';
-          } else {
-            return next();
-          }
-        };
+      app.use((ctx, next) => {
+        if (ctx.url === '/b') {
+          ctx.body = 'hello world b';
+        } else {
+          return next();
+        }
       });
 
-      app.addMiddleware((ctx, next) => {
+      app.use((ctx, next) => {
         if (ctx.url === '/c') {
           ctx.body = 'hello world c';
         } else {
           return next();
         }
-      }, { bare: true });
+      });
 
       const agent = request(app.callback());
 

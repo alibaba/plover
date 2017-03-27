@@ -33,7 +33,8 @@ class Core {
       'listen',
       'callback',
       'middleware',
-      'addMiddleware'
+      'addMiddleware',
+      'use'
     ];
   }
 
@@ -146,6 +147,11 @@ class Core {
       middleware: middleware,
       options: options || {}
     });
+  }
+
+
+  use(middleware, options) {
+    this.addMiddleware(middleware, Object.assign({ bare: true }));
   }
 }
 
