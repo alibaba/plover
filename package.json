@@ -7,7 +7,7 @@
     "test": "mocha --require should --reporter spec --recursive --bail --check-leaks --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
     "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
     "travis": "istanbul cover _mocha --report lcovonly -- --require should --recursive --bail --check-leaks --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
-    "ci": "npm run lint && npm run travis"
+    "ci": "npm run lint && npm run test && npm run travis"
   },
   "repository": {
     "type": "git",
