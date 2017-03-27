@@ -32,5 +32,13 @@ describe('util/util', function() {
     gutil.loadModule(root, 'a').should.equal('a');
     gutil.loadModule(root, pathUtil.join(root, 'lib/a')).should.equal('a');
   });
+
+
+  it('util.isPureFunction', function() {
+    gutil.isPureFunction(function() {}).should.be.true();
+    gutil.isPureFunction(() => {}).should.be.true();
+    gutil.isPureFunction(function* () {}).should.be.false();
+    gutil.isPureFunction(async function() {}).should.be.false();
+  });
 });
 

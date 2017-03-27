@@ -50,3 +50,14 @@ exports.loadModule = function(root, path) {
   return require(path);
 };
 
+
+/**
+ * 检测否普通函数，非GenerationFunction或者AsyncFunction
+ *
+ * @param {Object} obj  - 对象
+ * @return {Boolean}    - 是否为普通函数
+ */
+exports.isPureFunction = function(obj) {
+  return obj && obj.constructor &&
+    obj.constructor.name === 'Function';
+}
