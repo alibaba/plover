@@ -1,7 +1,10 @@
 language: node_js
 node_js:
-  - "7"
-  - "6"
-  - "4"
-script: "./ci.sh"
-after_script: "npm install codecov && cat ./coverage/lcov.info | codecov"
+  - 7.6
+  - 6
+  - 4
+script:
+  - ./ci.sh
+after_script:
+  - npm install codecov
+  - ./node_modules/.bin/codecov
