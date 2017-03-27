@@ -13,6 +13,7 @@
   "dependencies": {
     "antsort": "~1.1.2",
     "co": "^4.6.0",
+    "composition": "^2.3.0",
     "delegates": "~1.0.0",
     "depd": "^1.1.0",
     "escape-html": "~1.0.3",
