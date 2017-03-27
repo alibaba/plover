@@ -1,6 +1,8 @@
 'use strict';
 
 
+/* eslint no-underscore-dangle: 0 */
+
 module.exports = function() {
   return function* PloverMethod(next) {
     const method = this.request.body._method;

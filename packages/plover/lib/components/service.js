@@ -43,6 +43,42 @@ class Service {
 module.exports = Service;
 
 
+/**
+ * 服务容器，延迟初始化服务
+ * @param {KoaApplication}  ctx  koa应用对象
+ */
+class ServiceContainer {
+  constructor(ctx) {
+    this.$ctx = ctx;
+    this.$cache = new Map();
+  }
+
+
+  $get(name) {
+    const cache = this.$cache;
+    let service = null;
+    if (cache.has(name)) {
+      service = cache.get(name);
+    } else {
+      service = ServiceContainer.services[name];
+      if (typeof service === 'function') {
+        logger.debug('create service object: %s', name);
+        const Class = service;
+        service = new Class(this.$ctx);
+      }
+      cache.set(name, service);
+    }
+    return service;
+  }
+}
+
+
+ServiceContainer.refine = function(services) {
+  ServiceContainer.services = services;
+  util.delegateGetters(this.prototype, Object.keys(services));
+};
+
+
 /*
  * 核心中间件
  *
@@ -99,41 +135,3 @@ function attachServicesToServer(services, server) {
     return this.services.$get(name);
   });
 }
-
-
-
-/**
- * 服务容器，延迟初始化服务
- * @param {KoaApplication}  ctx  koa应用对象
- */
-class ServiceContainer {
-  constructor(ctx) {
-    this.$ctx = ctx;
-    this.$cache = new Map();
-  }
-
-
-  $get(name) {
-    const cache = this.$cache;
-    let service = null;
-    if (cache.has(name)) {
-      service = cache.get(name);
-    } else {
-      service = ServiceContainer.services[name];
-      if (typeof service === 'function') {
-        logger.debug('create service object: %s', name);
-        const Class = service;
-        service = new Class(this.$ctx);
-      }
-      cache.set(name, service);
-    }
-    return service;
-  }
-}
-
-
-ServiceContainer.refine = function(services) {
-  ServiceContainer.services = services;
-  util.delegateGetters(this.prototype, Object.keys(services));
-};
-

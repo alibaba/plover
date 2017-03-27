@@ -13,7 +13,6 @@ const RenderHelper = require('../core/render-helper');
 const logger = require('plover-logger')('plover:helpers/app');
 
 
-
 /**
  * 默认提供的Helper
  * 用来在模板中渲染`view`, `control`等
@@ -97,6 +96,22 @@ class AppHelper {
 module.exports = AppHelper;
 
 
+class ProxyGenerator {
+  constructor(gen, ret) {
+    this.gen = gen;
+    this.ret = ret;
+    this.first = true;
+  }
+
+  next(value) {
+    if (this.first) {
+      this.first = false;
+      return this.ret;
+    }
+    return this.gen.next(value);
+  }
+}
+
 
 /*
  * 渲染子view
@@ -143,21 +158,3 @@ function tryQuickRender(gen, url, development) {
 
   return ret;
 }
-
-
-class ProxyGenerator {
-  constructor(gen, ret) {
-    this.gen = gen;
-    this.ret = ret;
-    this.first = true;
-  }
-
-  next(value) {
-    if (this.first) {
-      this.first = false;
-      return this.ret;
-    }
-    return this.gen.next(value);
-  }
-}
-

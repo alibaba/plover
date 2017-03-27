@@ -5,6 +5,8 @@ const util = require('../util/util');
 
 const debug = require('debug')('plover-web:web/csrf');
 
+/* eslint no-underscore-dangle: 0 */
+
 
 module.exports = function(app, config) {
   config = config || {};

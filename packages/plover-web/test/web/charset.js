@@ -11,7 +11,7 @@ const charset = require('../../lib/web/charset');
 
 
 describe('plover-web/web/charset', () => {
-  it('output gbk with query _output_charset', () =>{
+  it('output gbk with query _output_charset', () => {
     const app = koa();
     app.use(charset());
     app.use(function* () {

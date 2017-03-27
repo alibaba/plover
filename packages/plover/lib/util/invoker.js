@@ -7,7 +7,6 @@ const is = require('is-type-of');
 const logger = require('plover-logger')('plover:util/invoker');
 
 
-
 /**
  * 用于遍历调用拦截器方法
  *

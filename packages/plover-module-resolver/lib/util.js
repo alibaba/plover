@@ -78,4 +78,3 @@ exports.scan = function(path) {
   return list;
 };
 
-

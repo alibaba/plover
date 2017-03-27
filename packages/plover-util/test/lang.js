@@ -4,6 +4,9 @@
 const lang = require('..').Lang;
 
 
+/* eslint no-empty-function: 0 */
+
+
 describe('plover-util/lib/lang', function() {
   it('#isGenerator', function() {
     const fn = function* () {

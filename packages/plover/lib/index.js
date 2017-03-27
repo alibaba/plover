@@ -239,7 +239,7 @@ function printModules(self) {
 
   // 单元测试环境也不打印
   // `__testPrintModules`配置是用来专门测试这个方法的
-  if (process.env.LOADED_MOCHA_OPTS && !settings.__testPrintModules) {
+  if (process.env.LOADED_MOCHA_OPTS && !settings.__testPrintModules) { // eslint-disable-line
     return;
   }
 
@@ -261,7 +261,6 @@ function printModules(self) {
   }
 
   output = '\n\n' + output + '\n\n';
-  console.log(output);    // eslint-disable-line
+  global.console.log(output);
 }
-
 

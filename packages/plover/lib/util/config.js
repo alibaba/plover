@@ -5,7 +5,6 @@ const fs = require('fs');
 const pathUtil = require('path');
 
 
-
 /**
  * 加载由目录中的`json`和`js`文件组织成的配置信息
  * 此方法采用同步方式加载文件，所以不能在请求会话中使用

@@ -4,6 +4,7 @@
 const pathUtil = require('path');
 const resolveFrom = require('resolve-from');
 
+/* eslint no-prototype-builtins: 0 */
 
 /**
  * 代理属性访问到指定方法
@@ -27,7 +28,6 @@ exports.delegateGetters = function(obj, names, to) {
 };
 
 
-
 const rRelativePath = /^\./;
 
 
@@ -44,9 +44,7 @@ const rRelativePath = /^\./;
 exports.loadModule = function(root, path) {
   if (rRelativePath.test(path)) {
     path = pathUtil.join(root, path);
-  } else if (pathUtil.isAbsolute(path)) {
-    path = path;
-  } else {
+  } else if (!pathUtil.isAbsolute(path)) {
     path = resolveFrom(root, path);
   }
   return require(path);

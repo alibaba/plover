@@ -153,7 +153,6 @@ describe('components/navigate', function() {
       });
     });
   });
-  //~
 
 
   it('子类可以提供$jsonp来自定义jsonp的输出', function() {

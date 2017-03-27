@@ -258,7 +258,6 @@ function loadAppModules(self, root, settings) {
 }
 
 
-
 const rModuleName = /^\w/;
 
 /**
