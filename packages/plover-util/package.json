@@ -1,6 +1,6 @@
 {
   "name": "plover-util",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "【核心模块】有些在核心中使用的工具模块，但在插件中也要使用，所以独立出来。",
   "main": "lib/index",
   "scripts": {
@@ -11,7 +11,6 @@
     "lib"
   ],
   "dependencies": {
-    "is-type-of": "~1.0.0"
   },
   "devDependencies": {
     "istanbul": "^0.4.5",

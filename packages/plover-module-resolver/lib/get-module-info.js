@@ -118,7 +118,6 @@ function loadViews(root, vroot, assets) {
 }
 
 
-
 /**
  * 取得相对路径作为名称
  * @param {String} rpath  - 父路径

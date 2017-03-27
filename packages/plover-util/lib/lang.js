@@ -1,9 +1,25 @@
 'use strict';
 
 
-const is = require('is-type-of');
+exports.isGenerator = function(obj) {
+  return obj &&
+    typeof obj.next === 'function' &&
+    typeof obj.throw === 'function';
+};
 
 
-exports.isGenerator = is.generator;
-exports.isGeneratorFunction = is.generatorFunction;
-exports.isPromise = is.promise;
+exports.isGeneratorFunction = function(obj) {
+  return obj && obj.constructor &&
+    obj.constructor.name === 'GeneratorFunction';
+};
+
+
+exports.isPromise = function(obj) {
+  return obj && typeof obj.then === 'function';
+};
+
+
+exports.isAsyncFunction = function(obj) {
+  return obj && obj.constructor &&
+    obj.constructor.name === 'AsyncFunction';
+};

@@ -14,7 +14,7 @@ const rParam = /^\$([-\w]+)$/;
 
 // 规则 module/action?query
 // 模块名可以包含namespace, 如 admin/user
-const rRule = /^\/?([-\w\/]+?)[#\/:]([-\w]+)(?:\?(.*))?$/;
+const rRule = /^\/?([-\w/]+?)[#/:]([-\w]+)(?:\?(.*))?$/;
 
 
 class Router {

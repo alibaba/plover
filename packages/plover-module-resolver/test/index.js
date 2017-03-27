@@ -1,8 +1,8 @@
 'use strict';
 
-
 const pathUtil = require('path');
 const Resolver = require('..');
+
 const getModuleInfo = Resolver.getModuleInfo;
 
 
@@ -53,7 +53,6 @@ describe('plover-module-resolver', function() {
     info.should.not.be.empty();
     resolver.resolve('index').should.be.equal(info);
   });
-
 
 
   it('开发态时，每次都重新加载module', function(done) {

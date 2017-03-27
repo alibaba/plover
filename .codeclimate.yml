@@ -1,7 +1,6 @@
 engines:
   eslint:
     enabled: true
-    channel: "eslint-3"
   duplication:
     enabled: true
     config:
@@ -11,6 +10,6 @@ engines:
     enabled: true
 ratings:
   paths:
-  - lib/**
+  - packages/*/lib/**
 exclude_paths:
-- "**/fixtures/**/*"
+- "packages/*/test/fixtures/**/*"

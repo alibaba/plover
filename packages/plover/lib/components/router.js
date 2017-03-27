@@ -7,7 +7,6 @@ const Router = require('../util/router');
 const RouteCache = require('../util/route-cache');
 
 
-
 const logger = require('plover-logger')('plover:components/router');
 
 
