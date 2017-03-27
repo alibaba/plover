@@ -63,11 +63,11 @@ describe('plover-web/plugin', function() {
 
 
 function hello(app) {
-  app.addMiddleware(function* (next) {
-    if (this.path === '/hello') {
-      this.body = 'hello';
+  app.addMiddleware(async (ctx, next) => {
+    if (ctx.path === '/hello') {
+      ctx.body = 'hello';
     } else {
-      yield* next;
+      await next();
     }
   });
 }

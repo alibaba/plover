@@ -17,7 +17,7 @@ module.exports = function(app, config) {
   debug('install csrf module: %o', config);
   require('koa-csrf')(app.server, config);
   const mw = middleware(config);
-  app.addMiddleware(mw, 0);
+  app.addMiddleware(mw, { level: 0, bare: true });
 };
 
 
@@ -32,37 +32,37 @@ function middleware(opts) {
 
   debug('rules, match: %o, ignore: %o', matchRules, ignoreRules);
 
-  return function* PloverCsrf(next) {
+  return function PloverCsrf(ctx, next) {
     // 如果match匹配了，就检查csrf
-    if (util.testRules(matchRules, this.path)) {
-      return yield* nextWithAssert(this, next);
+    if (util.testRules(matchRules, ctx.path)) {
+      return nextWithAssert(ctx, next);
     }
 
     // 忽略 get, head, options 请求
-    const method = this.method;
+    const method = ctx.method;
     if (method === 'GET' ||
         method === 'HEAD' ||
         method === 'OPTIONS') {
-      return yield* next;
+      return next();
     }
 
     // multipart自己处理csrf
-    if (this.is('multipart')) {
-      return yield* next;
+    if (ctx.is('multipart')) {
+      return next();
     }
 
     // 如果ignore规则匹配，就忽略检查
-    if (util.testRules(ignoreRules, this.path)) {
-      debug('ignore check csrf ctoken: %s', this.path);
-      return yield* next;
+    if (util.testRules(ignoreRules, ctx.path)) {
+      debug('ignore check csrf ctoken: %s', ctx.path);
+      return next();
     }
 
-    yield* nextWithAssert(this, next);
+    return nextWithAssert(ctx, next);
   };
 }
 
 
-function* nextWithAssert(ctx, next) {
+function nextWithAssert(ctx, next) {
   const assertCsrf = ctx.assertCsrf || ctx.assertCSRF;
   if (assertCsrf) {
     const body = ctx.request.body || {};
@@ -72,6 +72,6 @@ function* nextWithAssert(ctx, next) {
     // 设置标识域，表示已校验过ctoken
     ctx[util.CSRF_CHECKED] = true;
   }
-  yield* next;
+  return next();
 }
 

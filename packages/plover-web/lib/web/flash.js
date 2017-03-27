@@ -13,14 +13,14 @@ module.exports = function(app) {
   });
 
 
-  return function* PloverFlash(next) {
-    this[FLASH] = this.session[KEY] || {};
-    delete this.session[KEY];
+  return async function PloverFlash(ctx, next) {
+    ctx[FLASH] = ctx.session[KEY] || {};
+    delete ctx.session[KEY];
 
-    yield* next;
+    await next();
 
-    if (this.status === 302) {
-      this.session[KEY] = this[FLASH];
+    if (ctx.status === 302) {
+      ctx.session[KEY] = ctx[FLASH];
     }
   };
 };

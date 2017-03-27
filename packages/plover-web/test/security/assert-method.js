@@ -11,14 +11,14 @@ describe('plover-web/security/assert-method', () => {
   const app = new Koa();
   assertMethod(app);
 
-  app.use(function* () {
-    if (this.path === '/post') {
-      this.assertMethod('post');
+  app.use(ctx => {
+    if (ctx.path === '/post') {
+      ctx.assertMethod('post');
     }
-    if (this.path === '/get') {
-      this.assertMethod(['get']);
+    if (ctx.path === '/get') {
+      ctx.assertMethod(['get']);
     }
-    this.body = 'ok';
+    ctx.body = 'ok';
   });
 
   const agent = request.agent(app.callback());

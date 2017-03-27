@@ -15,16 +15,16 @@ describe('plover-web/web/flash', function() {
     app.use(require('koa-session')({}, app));
     app.use(require('../../lib/web/flash')(app));
 
-    app.use(function* () {
-      if (this.path === '/update') {
-        this.flash.errors = {
+    app.use(ctx => {
+      if (ctx.path === '/update') {
+        ctx.flash.errors = {
           message: 'some error happen'
         };
-        this.redirect('/save');
-      } else if (this.path === '/save') {
-        this.body = this.flash.errors;
+        ctx.redirect('/save');
+      } else if (ctx.path === '/save') {
+        ctx.body = ctx.flash.errors;
       } else {
-        this.body = 'hello';
+        ctx.body = 'hello';
       }
     });
 

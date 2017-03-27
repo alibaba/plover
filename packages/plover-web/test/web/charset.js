@@ -14,11 +14,11 @@ describe('plover-web/web/charset', () => {
   it('output gbk with query _output_charset', () => {
     const app = new Koa();
     app.use(charset());
-    app.use(function* () {
-      if (this.path === '/a') {
-        this.body = '中国';
-      } else if (this.path === '/b') {
-        this.body = { data: '中国' };
+    app.use(ctx => {
+      if (ctx.path === '/a') {
+        ctx.body = '中国';
+      } else if (ctx.path === '/b') {
+        ctx.body = { data: '中国' };
       }
     });
 

@@ -4,9 +4,9 @@
 module.exports = function(opts) {
   opts = opts || {};
 
-  return function* SecurityHeaders(next) {
-    process(this);
-    yield* next;
+  return function SecurityHeaders(ctx, next) {
+    process(ctx);
+    return next();
   };
 
 

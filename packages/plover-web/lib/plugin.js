@@ -83,7 +83,6 @@ function installSecurityHeaders(app) {
 }
 
 
-
 function installStatic(app, config) {
   const root = config.root ||
       pathUtil.join(app.settings.applicationRoot, 'public');
