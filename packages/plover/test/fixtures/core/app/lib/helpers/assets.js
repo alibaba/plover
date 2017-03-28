@@ -1,6 +1,3 @@
-'use strict';
-
-
 const SafeString = require('plover-util/lib/safe-string')
 
 

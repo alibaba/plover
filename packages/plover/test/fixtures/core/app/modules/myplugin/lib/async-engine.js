@@ -1,6 +1,3 @@
-'use strict';
-
-
 exports.async = true;
 
 exports.compile = function(source) {

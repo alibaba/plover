@@ -1,6 +1,3 @@
-'use strict';
-
-
 const assert = require('assert');
 const EventEmitter = require('events');
 const Koa = require('koa');

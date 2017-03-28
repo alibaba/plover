@@ -1,6 +1,3 @@
-'use strict';
-
-
 const co = require('co');
 
 const invoker = require('../../lib/util/invoker');

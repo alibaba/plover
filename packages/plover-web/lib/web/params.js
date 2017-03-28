@@ -1,6 +1,3 @@
-'use strict';
-
-
 const PARAMS = Symbol('params');
 
 

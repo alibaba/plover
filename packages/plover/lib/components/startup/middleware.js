@@ -1,6 +1,3 @@
-'use strict';
-
-
 const compose = require('koa-compose');
 const util = require('../../util/util');
 

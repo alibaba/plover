@@ -1,6 +1,3 @@
-'use strict';
-
-
 exports.view = function() {
   const layout = this.query.layout;
   if (layout) {

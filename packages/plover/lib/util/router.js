@@ -1,6 +1,3 @@
-'use strict';
-
-
 const parseQuery = require('querystring').parse;
 const pathToRegexp = require('path-to-regexp');
 

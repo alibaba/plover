@@ -1,6 +1,3 @@
-'use strict';
-
-
 exports.view = function() {
   this.layout = this.query.layoutejs ? 'layoutejs' : 'layout';
   this.render();

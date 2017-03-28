@@ -1,6 +1,3 @@
-'use strict';
-
-
 const RouteCache = require('../../lib/util/route-cache');
 
 

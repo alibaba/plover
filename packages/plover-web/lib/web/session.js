@@ -1,5 +1,3 @@
-'use strict';
-
 /* eslint import/no-unresolved: 0 */
 
 module.exports = function(app, opts) {

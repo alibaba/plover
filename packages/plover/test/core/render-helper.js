@@ -1,6 +1,3 @@
-'use strict';
-
-
 const t = require('../../lib/core/render-helper').__test;   // eslint-disable-line
 const PLACE_HOLDER = t.PLACE_HOLDER;
 const mergeDepends = t.mergeDepends;

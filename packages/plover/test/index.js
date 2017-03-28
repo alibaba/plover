@@ -1,6 +1,3 @@
-'use strict';
-
-
 const pathUtil = require('path');
 const Koa = require('koa');
 const request = require('supertest');
