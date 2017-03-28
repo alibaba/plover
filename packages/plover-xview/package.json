@@ -1,6 +1,6 @@
 {
   "name": "plover-xview",
-  "version": "3.0.0-beta.1",
+  "version": "3.0.0",
   "description": "Plover视图插件，提供页面渲染的工具函数和重用方案。",
   "main": "lib/index",
   "scripts": {
