@@ -1,0 +1,2 @@
+{{$.viewdata('age', 2)}}
+<h2>Child</h2>
