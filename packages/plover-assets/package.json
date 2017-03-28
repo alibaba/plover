@@ -1,6 +1,6 @@
 {
   "name": "plover-assets",
-  "version": "4.0.0-beta.1",
+  "version": "4.0.0",
   "description": "plover assets helper and middleware",
   "main": "lib/index",
   "scripts": {
@@ -11,7 +11,7 @@
     "lib"
   ],
   "dependencies": {
-    "co": "^4.6.0",
+    "co": "~4.6.0",
     "create-tag": "~0.2.0",
     "debug": "~2.6.3",
     "fs-extra": "~2.1.2",

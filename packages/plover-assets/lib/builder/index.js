@@ -1,7 +1,7 @@
 const pathUtil = require('path');
 const fs = require('fs-extra');
 const sortBy = require('lodash/sortBy');
-const is = require('is-type-of');
+const lang = require('plover-util/lib/lang');
 
 const Resolver = require('plover-module-resolver');
 
@@ -112,7 +112,7 @@ function* runActions(app, actionList, options) {
 
   for (const action of actionList) {
     const fn = action.fn;
-    is.generatorFunction(fn) ?
+    lang.isGeneratorFunction(fn) ?
         yield* fn(app, options) : fn(app, options);
   }
 }

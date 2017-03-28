@@ -2,8 +2,7 @@ const assert = require('assert');
 const pathUtil = require('path');
 const fs = require('mz/fs');
 const sortBy = require('lodash/sortBy');
-const is = require('is-type-of');
-
+const lang = require('plover-util/lib/lang');
 const util = require('./util/util');
 
 
@@ -63,7 +62,7 @@ function* performFilter(path, info, options, o) {
   const thispath = path.replace(rExt, o.ext);
   if (yield fs.exists(thispath)) {
     const body = yield fs.readFile(thispath, 'utf-8');
-    const result = is.generatorFunction(o.handler) ?
+    const result = lang.isGeneratorFunction(o.handler) ?
           yield* o.handler(thispath, body, info, options) :
           o.handler(thispath, body, info, options);
     return regularResult(result);
@@ -92,7 +91,7 @@ exports.compile = function* (path, info, options) {
   for (const o of handlers) {
     if (pathUtil.extname(path) === o.ext) {
       const body = yield fs.readFile(path, 'utf-8');
-      let result = is.generatorFunction(o.handler) ?
+      let result = lang.isGeneratorFunction(o.handler) ?
           yield* o.handler(path, body, info, options) :
           o.handler(path, body, info, options);
       result = regularResult(result);
