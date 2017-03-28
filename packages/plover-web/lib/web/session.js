@@ -23,11 +23,11 @@ function installRedisSession(app, opts) {
   opts.store = redisStore(opts.storeOpts);
 
   const mw = session(opts);
-  app.addMiddleware(mw, 0);
+  app.use(mw, { level: 0 });
 }
 
 
 function installCookieSession(app, opts) {
   const mw = require('koa-session')(opts, app.server);
-  app.addMiddleware(mw, 0);
+  app.use(mw, { level: 0 });
 }

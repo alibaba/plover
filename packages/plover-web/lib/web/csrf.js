@@ -17,7 +17,7 @@ module.exports = function(app, config) {
   debug('install csrf module: %o', config);
   require('koa-csrf')(app.server, config);
   const mw = middleware(config);
-  app.addMiddleware(mw, { level: 0, bare: true });
+  app.use(mw, { level: 0 });
 };
 
 

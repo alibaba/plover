@@ -96,5 +96,5 @@ function installStatic(app, config) {
 
 function add(app, mw, level) {
   level = level || 0;
-  app.addMiddleware(mw, { level: level, bare: true });
+  app.use(mw, { level: level });
 }
