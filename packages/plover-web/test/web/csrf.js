@@ -1,7 +1,6 @@
 'use strict';
 
-
-const koa = require('koa');
+const Koa = require('koa');
 const request = require('supertest');
 const co = require('co');
 
@@ -10,7 +9,7 @@ const co = require('co');
 
 
 describe('plover-web/web/csrf', () => {
-  const app = koa();
+  const app = new Koa();
   app.keys = ['test'];
   app.use(require('koa-session')({}, app));
   require('koa-csrf')(app);
@@ -25,15 +24,15 @@ describe('plover-web/web/csrf', () => {
   };
 
   app.use(require('../../lib/web/csrf').middleware(opts));
-  app.use(function* (next) {
-    if (this.path === '/getcsrf') {
-      this.body = this.csrf;
+  app.use(async (ctx, next) => {
+    if (ctx.path === '/getcsrf') {
+      ctx.body = ctx.csrf;
     } else {
-      yield* next;
+      await next();
     }
   });
-  app.use(function* () {
-    this.body = 'ok';
+  app.use(ctx => {
+    ctx.body = 'ok';
   });
 
   const agent = request.agent(app.callback());

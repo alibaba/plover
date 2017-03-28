@@ -2,7 +2,7 @@
 
 
 const pathUtil = require('path');
-const is = require('is-type-of');
+const lang = require('plover-util/lib/lang');
 const assign = require('plover-util/lib/assign');
 const SafeString = require('plover-util/lib/safe-string');
 const RouteInfo = require('plover-util/lib/route-info');
@@ -226,7 +226,7 @@ function* navigateForResult(self, rd, ctx, result) {
   // 1. action中已得到结果
   if (result) {
     // for call navigator.navigate() without yield
-    if (is.generator(result)) {
+    if (lang.isGenerator(result)) {
       result = yield* result;
     }
     return yield* tryRenderLayout(self, rd, result);

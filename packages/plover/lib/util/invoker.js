@@ -1,8 +1,7 @@
 'use strict';
 
 
-const is = require('is-type-of');
-
+const lang = require('plover-util/lib/lang');
 
 const logger = require('plover-logger')('plover:util/invoker');
 
@@ -26,15 +25,20 @@ exports.filter = function* filter(list, method, context, reverse) {
     if (fn && (!item.match || item.match.test(ctx.path))) {
       const name = item.name || item.filter.name || '';
       logger.debug('%s.%s', name, method);
-      const result = is.generatorFunction(fn) ?
-        yield* fn.call(context, context) : fn.call(context, context);
-
+      const result = yield* exports.run(fn, context);
       if (exports.isSuccess(result)) {
         return result;
       }
     }
   }
   return null;
+};
+
+
+exports.run = function* (fn, context) {
+  return lang.isAsyncFunction(fn) ? yield fn.call(context, context) :
+      lang.isGeneratorFunction(fn) ? yield* fn.call(context, context) :
+      fn.call(context, context);
 };
 
 
@@ -50,7 +54,6 @@ exports.isSuccess = function(result) {
   if (result === undefined || result === null) {
     return false;
   }
-
   return result === false || typeof result === 'object';
 };
 

@@ -58,16 +58,15 @@ function createRouteComponent(self) {
 
   const routeCache = new RouteCache(self.app);
 
-  return function* RouterComponentx(next) {
+  return async function RouterComponentx(ctx, next) {
     // 如果有其他中间件能搞定这事就不管了
-    if (this.route) {
-      logger.debug('already routed: %o', this.route);
-      yield* next;
-      return;
+    if (ctx.route) {
+      logger.debug('already routed: %o', ctx.route);
+      return next();
     }
 
-    const path = this.path;
-    const method = this.method;
+    const path = ctx.path;
+    const method = ctx.method;
     const cacheKey = `${method} ${path}`;
     logger.debug('try route: %s', path);
 
@@ -84,14 +83,14 @@ function createRouteComponent(self) {
     }
 
     if (route) {
-      assign(route.query, this.query);
+      assign(route.query, ctx.query);
       logger.debug('route success: %o', route);
-      this.route = route;
+      ctx.route = route;
     } else {
-      this.route = null;
+      ctx.route = null;
     }
 
-    yield* next;
+    return next();
   };
 }
 

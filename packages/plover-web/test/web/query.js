@@ -1,16 +1,16 @@
 'use strict';
 
 
-const koa = require('koa');
+const Koa = require('koa');
 const request = require('supertest');
 const parseQuery = require('../../lib/web/query');
 
 
 describe('plover-web/web/query', function() {
-  const app = koa();
+  const app = new Koa();
   parseQuery(app);
-  app.use(function* () {
-    this.body = this.query;
+  app.use(ctx => {
+    ctx.body = ctx.query;
   });
   const agent = request.agent(app.callback());
 
@@ -30,12 +30,12 @@ describe('plover-web/web/query', function() {
   });
 
 
-  it('should cached when call `this.query` multiple times', function() {
-    const myapp = koa();
+  it('should cached when call `ctx.query` multiple times', function() {
+    const myapp = new Koa();
     parseQuery(myapp);
-    myapp.use(function* () {
-      (this.query === this.query).should.be.true();
-      this.body = 'ok';
+    myapp.use(ctx => {
+      (ctx.query === ctx.query).should.be.true();
+      ctx.body = 'ok';
     });
     return request(myapp.callback())
       .get('/').expect('ok');

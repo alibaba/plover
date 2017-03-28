@@ -10,9 +10,7 @@ const escapeHtml = require('escape-html');
 const arrayUtil = require('plover-util/lib/array');
 const SafeString = require('plover-util/lib/safe-string');
 
-
 const logger = require('plover-logger')('plover:core/render-helper');
-
 
 const PLACE_HOLDER = '##PLOVER_' + Date.now() + '_';
 const PADDING = '0000000000';

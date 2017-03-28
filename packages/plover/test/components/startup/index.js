@@ -16,7 +16,7 @@ describe('components/startup', function() {
     new StartupComponent(app);    // eslint-disable-line
 
     app.addRoute.called.should.be.true();
-    app.addMiddleware.callCount.should.equal(1);
+    app.use.callCount.should.equal(1);
     app.addService.called.should.be.true();
     app.addFilter.called.should.be.true();
     app.addHelper.called.should.be.true();
@@ -65,7 +65,7 @@ function createMockApp(settings) {
     config: {},
 
     addRoute: sinon.spy(),
-    addMiddleware: sinon.spy(),
+    use: sinon.spy(),
     addService: sinon.spy(),
     addFilter: sinon.spy(),
     addHelper: sinon.spy()

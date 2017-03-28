@@ -1,4 +1,7 @@
-module.exports = function* A(next) {
-  this.body = 'a';
-  yield* next;
+/**
+ * async function
+ */
+module.exports = async (ctx, next) => {
+  ctx.body = 'a';
+  await next();
 };

@@ -12,11 +12,8 @@ const logger = require('plover-logger')('plover:util/error-handler');
 
 module.exports = function(config) {
   const development = (config || {}).env === 'development';
-
-  return function* errorHandler(next) {
-    try {
-      yield* next;
-    } catch (e) {
+  return function errorHandler(ctx, next) {
+    return next().catch(e => {
       const status = e.status || 500;
       // 只处理500及以上的异常
       if (status < 500) {
@@ -24,13 +21,12 @@ module.exports = function(config) {
       }
 
       logger.error(e);
-      this.status = status;
-
+      ctx.status = status;
       const message = development ?
           '<pre>' + util.inspect(e) + '\n' + (e.stack || '') + '</pre>' :
           'Internel Server Error';
-      this.body = message;
-    }
+      ctx.body = message;
+    });
   };
 };
 

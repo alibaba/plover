@@ -3,7 +3,7 @@
 
 const assert = require('assert');
 const EventEmitter = require('events');
-const koa = require('koa');
+const Koa = require('koa');
 const ready = require('ready-callback');
 const fmt = require('output-formatter');
 
@@ -194,7 +194,7 @@ function prepareConfig(self, settings) {
  * 创建koa application对象
  */
 function createServer(settings) {
-  const server = koa();
+  const server = new Koa();
   server.env = settings.env;
   return server;
 }

@@ -3,7 +3,6 @@
 
 const assign = require('plover-util/lib/assign');
 
-
 const logger = require('plover-logger')('plover:util/route-cache');
 
 

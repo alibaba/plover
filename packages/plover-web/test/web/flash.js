@@ -1,30 +1,30 @@
 'use strict';
 
 
-const koa = require('koa');
+const Koa = require('koa');
 const request = require('supertest');
 const co = require('co');
 
 
 describe('plover-web/web/flash', function() {
   it('test', function() {
-    const app = koa();
+    const app = new Koa();
 
     app.keys = ['0627e'];
 
     app.use(require('koa-session')({}, app));
     app.use(require('../../lib/web/flash')(app));
 
-    app.use(function* () {
-      if (this.path === '/update') {
-        this.flash.errors = {
+    app.use(ctx => {
+      if (ctx.path === '/update') {
+        ctx.flash.errors = {
           message: 'some error happen'
         };
-        this.redirect('/save');
-      } else if (this.path === '/save') {
-        this.body = this.flash.errors;
+        ctx.redirect('/save');
+      } else if (ctx.path === '/save') {
+        ctx.body = ctx.flash.errors;
       } else {
-        this.body = 'hello';
+        ctx.body = 'hello';
       }
     });
 

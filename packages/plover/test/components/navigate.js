@@ -2,7 +2,7 @@
 
 
 const co = require('co');
-const koa = require('koa');
+const Koa = require('koa');
 const sinon = require('sinon');
 const request = require('supertest');
 const jsonp = require('jsonp-body');
@@ -191,7 +191,7 @@ describe('components/navigate', function() {
 
 
 function mockApp() {
-  const app = koa();
+  const app = new Koa();
   const mws = [];
   return {
     settings: {},
@@ -212,22 +212,22 @@ function createAgent(o) {
   const papp = Object.assign(mockApp(), o);
   const app = papp.server;
 
-  app.use(function* (next) {
-    if (this.query.module) {
-      this.route = {
-        module: this.query.module,
-        action: this.query.action,
-        type: this.query.type
+  app.use((ctx, next) => {
+    if (ctx.query.module) {
+      ctx.route = {
+        module: ctx.query.module,
+        action: ctx.query.action,
+        type: ctx.query.type
       };
     }
-    yield next;
+    return next();
   });
 
   new NavigateComponent(papp); // eslint-disable-line
   papp.start();
 
-  app.use(function* () {
-    this.body = this.path;
+  app.use(ctx => {
+    ctx.body = ctx.path;
   });
 
   return request.agent(app.callback());
@@ -235,7 +235,7 @@ function createAgent(o) {
 
 
 function stubNavigate() {
-  sinon.stub(Navigator.prototype, 'navigate', function* (route) {
+  sinon.stub(Navigator.prototype, 'navigate').callsFake(function* (route) {
     if (route.module === 'notfound') {
       return null;
     }

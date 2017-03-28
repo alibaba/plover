@@ -44,7 +44,7 @@ describe('util/invoker', function() {
     const ctx = { };
 
     const f1 = {
-      before: function() {
+      before: async function() {
         this.f1 = 'hello';
         return false;
       }

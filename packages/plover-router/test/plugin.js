@@ -11,18 +11,18 @@ describe('plover-route/lib/plugin', () => {
       applicationRoot: __dirname,
       routes: (r) => {
         r.get('/profile', 'users#show');
-        r.use('/hello', function* () {
-          this.body = 'hello';
+        r.use('/hello', ctx => {
+          ctx.body = 'hello';
         });
       }
     });
 
-    app.use('plover-web');
-    app.use(require('../lib/plugin'));
+    app.install('plover-web');
+    app.install(require('../lib/plugin'));
 
-    app.addMiddleware(function* () {
-      if (this.route) {
-        this.body = this.route;
+    app.use(ctx => {
+      if (ctx.route) {
+        ctx.body = ctx.route;
       }
     });
 
@@ -43,8 +43,8 @@ describe('plover-route/lib/plugin', () => {
       applicationRoot: __dirname
     });
 
-    app.use('plover-web');
-    app.use(require('../lib/plugin'));
+    app.install('plover-web');
+    app.install(require('../lib/plugin'));
 
     (true).should.be.ok();
   });
@@ -60,11 +60,11 @@ describe('plover-route/lib/plugin', () => {
       }
     });
 
-    app.use('plover-web');
-    app.use(require('../lib/plugin'));
+    app.install('plover-web');
+    app.install(require('../lib/plugin'));
 
-    app.addMiddleware(function* () {
-      this.body = this.method;
+    app.use(ctx => {
+      ctx.body = ctx.method;
     });
 
     return co(function* () {

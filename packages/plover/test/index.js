@@ -2,7 +2,7 @@
 
 
 const pathUtil = require('path');
-const koa = require('koa');
+const Koa = require('koa');
 const request = require('supertest');
 
 const plover = require('..');
@@ -75,7 +75,7 @@ describe('application', function() {
 
 
   it('可以集成到原有koa应用', function() {
-    const app = koa();
+    const app = new Koa();
     const papp = plover(app, {
       applicationRoot: root
     });
@@ -85,7 +85,7 @@ describe('application', function() {
 
 
   it('集成到其它koa应用时, 如果存在自定义config，则不会被覆盖', function() {
-    const app = koa();
+    const app = new Koa();
     const config = {};
     app.context.config = config;
 
@@ -106,8 +106,8 @@ describe('application', function() {
     };
 
     const app = p.server;
-    app.use(function* () {
-      this.body = this.sayHello();
+    app.use(ctx => {
+      ctx.body = ctx.sayHello();
     });
 
     return request(app.callback()).get('/').expect('hello');
@@ -169,8 +169,8 @@ describe('application', function() {
 
     const app = new MyPlover({ applicationRoot: root });
 
-    app.addMiddleware(function* () {
-      this.body = 'hello world';
+    app.addMiddleware(ctx => {
+      ctx.body = 'hello world';
     });
 
     return request(app.callback())

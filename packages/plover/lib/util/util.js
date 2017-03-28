@@ -3,8 +3,14 @@
 
 const pathUtil = require('path');
 const resolveFrom = require('resolve-from');
+const convert = require('koa-convert');
+const lang = require('plover-util/lib/lang');
+
+const depd = require('depd')('plover');
+
 
 /* eslint no-prototype-builtins: 0 */
+
 
 /**
  * 代理属性访问到指定方法
@@ -50,3 +56,26 @@ exports.loadModule = function(root, path) {
   return require(path);
 };
 
+
+/**
+ * 转化中间件成标准格式
+ *
+ * @param {Application} app - Ploveration Application
+ * @param {Function} mw     - 中间件对象
+ * @param {Object} options  - 配置
+ * @return {Middleware}     - 中间件函数
+ */
+exports.convertMiddleware = function(app, mw, options) {
+  // 中间件是普通function时，需要初始化
+  // 接口形式是middleware(config, koaapp, ploverapp)
+  if (lang.isPureFunction(mw) && options.prepare !== false) {
+    mw = mw(app.config, app.server, app.proto);
+  }
+  if (lang.isGeneratorFunction(mw)) {
+    depd('support for generators will be removed in v4.');
+    const name = mw.name;
+    mw = convert(mw);
+    mw.$name = name;
+  }
+  return mw;
+};

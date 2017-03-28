@@ -23,3 +23,9 @@ exports.isAsyncFunction = function(obj) {
   return obj && obj.constructor &&
     obj.constructor.name === 'AsyncFunction';
 };
+
+
+exports.isPureFunction = function(obj) {
+  return obj && obj.constructor &&
+    obj.constructor.name === 'Function';
+};

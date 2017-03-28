@@ -1,24 +1,24 @@
 'use strict';
 
 
-const koa = require('koa');
+const Koa = require('koa');
 const request = require('supertest');
 const co = require('co');
 const assertMethod = require('../../lib/security/assert-method');
 
 
 describe('plover-web/security/assert-method', () => {
-  const app = koa();
+  const app = new Koa();
   assertMethod(app);
 
-  app.use(function* () {
-    if (this.path === '/post') {
-      this.assertMethod('post');
+  app.use(ctx => {
+    if (ctx.path === '/post') {
+      ctx.assertMethod('post');
     }
-    if (this.path === '/get') {
-      this.assertMethod(['get']);
+    if (ctx.path === '/get') {
+      ctx.assertMethod(['get']);
     }
-    this.body = 'ok';
+    ctx.body = 'ok';
   });
 
   const agent = request.agent(app.callback());
