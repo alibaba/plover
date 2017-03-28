@@ -17,14 +17,14 @@ describe('plover-route/lib/plugin', () => {
       }
     });
 
-    app.use('plover-web');
-    app.use(require('../lib/plugin'));
+    app.install('plover-web');
+    app.install(require('../lib/plugin'));
 
-    app.addMiddleware(ctx => {
+    app.use(ctx => {
       if (ctx.route) {
         ctx.body = ctx.route;
       }
-    }, { bare: true });
+    });
 
     return co(function* () {
       yield app.get('/profile').expect({
@@ -43,8 +43,8 @@ describe('plover-route/lib/plugin', () => {
       applicationRoot: __dirname
     });
 
-    app.use('plover-web');
-    app.use(require('../lib/plugin'));
+    app.install('plover-web');
+    app.install(require('../lib/plugin'));
 
     (true).should.be.ok();
   });
@@ -60,12 +60,12 @@ describe('plover-route/lib/plugin', () => {
       }
     });
 
-    app.use('plover-web');
-    app.use(require('../lib/plugin'));
+    app.install('plover-web');
+    app.install(require('../lib/plugin'));
 
-    app.addMiddleware(ctx => {
+    app.use(ctx => {
       ctx.body = ctx.method;
-    }, { bare: true });
+    });
 
     return co(function* () {
       yield app.agent.post('/update')
