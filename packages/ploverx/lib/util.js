@@ -11,7 +11,7 @@ exports.loadSettings = function(root) {
     applicationRoot: root,
     env: process.env.NODE_ENV || 'development',
     disableDefaultRouter: true,
-    defaultLayout: 'layouts:index',
+    defaultLayout: 'layouts:index'
   };
 
   const appConfig = require(pathUtil.join(configRoot, 'app.js'));

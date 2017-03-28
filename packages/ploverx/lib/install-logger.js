@@ -1,7 +1,7 @@
 const pathUtil = require('path');
 const fse = require('fs-extra');
 const winston = require('winston');
-const PloverLogger = require('plover-logger');
+const Logger = require('plover-logger');
 
 const LEVEL = { error: 1, warn: 2, info: 3, debug: 4 };
 
@@ -12,18 +12,27 @@ module.exports = function(settings) {
     list.push(create(name, map[name]));
   }
   if (!list.length) {
-    return;
+    return function() {};
   }
 
-  PloverLogger.prototype.isEnabled = function(level) {
+  const isEnabled = Logger.prototype.isEnabled;
+  const handler = Logger.prototype.handler;
+
+  Logger.prototype.isEnabled = function(level) {
     const v = LEVEL[level];
     return list.some(item => v <= LEVEL[item.config.level]);
   };
 
-  PloverLogger.handler = function(name, level, message) {
+  Logger.handler = function(name, level, message) {
     const item = list.find(o => o.test(name));
     const logger = item && winston.loggers.get(item.name);
     logger && logger[level](message, { name });
+  };
+
+  // restore
+  return function() {
+    Logger.prototype.isEnabled = isEnabled;
+    Logger.handler = handler;
   };
 };
 

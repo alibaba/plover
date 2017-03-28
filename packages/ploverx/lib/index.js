@@ -9,7 +9,8 @@ const installLogger = require('./install-logger');
 module.exports = function(options) {
   options = options || {};
   const settings = util.loadSettings(options.applicationRoot);
-  installLogger(settings);
+
+  const restore = installLogger(settings);
 
   const app = plover(settings);
 
@@ -18,6 +19,9 @@ module.exports = function(options) {
     app.listen(port);
     console.log(`server started: 127.0.0.1:${port}, env: ${settings.env}`);
   };
+
+  // for test
+  app.__restoreLogger = restore;    // eslint-disable-line
 
   return app;
 };

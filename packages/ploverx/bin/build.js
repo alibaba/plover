@@ -2,7 +2,6 @@
 
 const assert = require('assert');
 const pathUtil = require('path');
-const fs = require('fs');
 const co = require('co');
 const Builder = require('plover-assets/lib/builder');
 const util = require('../lib/util');

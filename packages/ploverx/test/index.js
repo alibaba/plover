@@ -6,9 +6,18 @@ const ploverx = require('../');
 
 
 describe('ploverx', () => {
-  const root = pathUtil.join(__dirname, 'fixtures/app');
-  const app = ploverx({ applicationRoot: root });
-  const agent = request(app.callback());
+  let app = null;
+  let agent = null;
+
+  before(() => {
+    const root = pathUtil.join(__dirname, 'fixtures/app');
+    app = ploverx({ applicationRoot: root });
+    agent = request(app.callback());
+  });
+
+  after(() => {
+    app.__restoreLogger();  // eslint-disable-line
+  });
 
 
   it('should run app with default plugins', () => {
