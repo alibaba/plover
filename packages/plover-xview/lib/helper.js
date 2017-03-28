@@ -38,7 +38,7 @@ class Helper {
     const type = typeof args[0];
     if (type === 'string') {
       cache[args[0]] = args[1];
-    } else if (type === 'object') {
+    } else if (type === 'object' && args[0]) {
       assign(cache, args[0]);
     } else {
       console.warn(fmt.yellow('invalid viewdata: '), args[0]); // eslint-disable-line
