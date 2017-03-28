@@ -1,6 +1,3 @@
-'use strict';
-
-
 const util = require('../util/util');
 
 const logger = require('plover-logger')('plover:core/helper-container');

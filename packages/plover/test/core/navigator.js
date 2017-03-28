@@ -1,6 +1,3 @@
-'use strict';
-
-
 const fs = require('fs');
 const pathUtil = require('path');
 const co = require('co');

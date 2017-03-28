@@ -1,6 +1,3 @@
-'use strict';
-
-
 const pathUtil = require('path');
 
 const gutil = require('../../lib/util/util');

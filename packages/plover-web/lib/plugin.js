@@ -1,5 +1,3 @@
-'use strict';
-
 const pathUtil = require('path');
 
 const debug = require('debug')('plover-web:plugin');

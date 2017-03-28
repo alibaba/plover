@@ -1,6 +1,3 @@
-'use strict';
-
-
 const pathUtil = require('path');
 const lang = require('plover-util/lib/lang');
 const assign = require('plover-util/lib/assign');

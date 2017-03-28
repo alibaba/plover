@@ -1,6 +1,3 @@
-'use strict';
-
-
 const pathUtil = require('path');
 const co = require('co');
 const request = require('supertest');

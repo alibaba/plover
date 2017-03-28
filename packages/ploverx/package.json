@@ -1,0 +1,49 @@
+{
+  "name": "ploverx",
+  "version": "4.0.0-beta",
+  "description": "集成常用plover插件，提供全栈nodejs web应用开发环境。",
+  "main": "lib/index",
+  "bin": {
+    "plover-build": "bin/build.js"
+  },
+  "scripts": {
+    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks test/",
+    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks test/ -R spec"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "dependencies": {
+    "bluebird": "~3.4.6",
+    "fs-extra": "~2.0.0",
+    "plover": "~3.0.0-beta",
+    "plover-arttemplate": "~3.1.0",
+    "plover-assets": "~3.0.0-beta",
+    "plover-benchmark": "~1.1.0",
+    "plover-ejs": "~1.1.0",
+    "plover-logger": "~1.4.4",
+    "plover-router": "~3.0.0-beta",
+    "plover-web": "~3.0.0-beta",
+    "plover-xview": "~3.0.0-beta",
+    "winston": "~2.3.0"
+  },
+  "devDependencies": {
+    "co": "^4.6.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "should": "^11.2.0",
+    "sinon": "^2.1.0",
+    "supertest": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alibaba/plover.git"
+  },
+  "author": "bencode@163.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/alibaba/plover/issues"
+  },
+  "homepage": "https://github.com/alibaba/plover#readme"
+}

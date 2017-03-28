@@ -1,6 +1,3 @@
-'use strict';
-
-
 const pathToRegexp = require('path-to-regexp');
 
 

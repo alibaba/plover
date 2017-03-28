@@ -1,6 +1,3 @@
-'use strict';
-
-
 class CMSHelper {
   constructor(rd, viewRender) {
     this.rd = rd;

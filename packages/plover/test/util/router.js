@@ -1,6 +1,3 @@
-'use strict';
-
-
 const Router = require('../../lib/util/router');
 
 

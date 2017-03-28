@@ -1,6 +1,3 @@
-'use strict';
-
-
 const lang = require('plover-util/lib/lang');
 
 const logger = require('plover-logger')('plover:util/invoker');

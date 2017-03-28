@@ -1,6 +1,3 @@
-'use strict';
-
-
 const debug = require('debug')('plover-web:charset');
 
 

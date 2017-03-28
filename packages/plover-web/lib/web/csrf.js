@@ -1,6 +1,3 @@
-'use strict';
-
-
 const util = require('../util/util');
 
 const debug = require('debug')('plover-web:web/csrf');

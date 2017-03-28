@@ -1,6 +1,3 @@
-'use strict';
-
-
 exports.afterRender = function() {
   const route = this.route;
   this.body =

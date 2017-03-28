@@ -1,6 +1,3 @@
-'use strict';
-
-
 const Path = require('path');
 
 const config = require('../../lib/util/config');

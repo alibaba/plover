@@ -1,6 +1,3 @@
-'use strict';
-
-
 const http = require('http');
 const assert = require('assert');
 const antsort = require('antsort');

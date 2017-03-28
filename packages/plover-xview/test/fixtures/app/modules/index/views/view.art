@@ -1,0 +1,5 @@
+{{$.viewdata('productUrl', 'http://www.ploverjs.com')}}
+{{$.viewdata({ name: 'plover', version: '3.0' })}}
+{{$.viewdata(null)}}
+<h1>Hello World!</h1>
+{{app.control('child')}}

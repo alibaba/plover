@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "co": "^4.6.0",
-    "istanbul": "^0.4.1",
+    "istanbul": "^1.1.0-alpha",
     "koa": "^2.2.0",
     "koa-rewrite": "^2.1.0",
     "mocha": "^3.1.0",
@@ -45,7 +45,6 @@
     "type": "git",
     "url": "git+https://github.com/alibaba/plover.git"
   },
-  "author": "bencode@163.com",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/alibaba/plover/issues"

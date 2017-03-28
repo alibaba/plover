@@ -1,6 +1,3 @@
-'use strict';
-
-
 class UrlHelper {
   constructor(rd) {
     this.ctx = rd.ctx;

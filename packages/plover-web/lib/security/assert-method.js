@@ -1,6 +1,3 @@
-'use strict';
-
-
 module.exports = function(app) {
   app.context.assertMethod = assertMethod;
 };

@@ -1,6 +1,3 @@
-'use strict';
-
-
 const Koa = require('koa');
 const request = require('supertest');
 const parseQuery = require('../../lib/web/query');

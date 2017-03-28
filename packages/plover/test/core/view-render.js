@@ -1,6 +1,3 @@
-'use strict';
-
-
 const pathUtil = require('path');
 const sinon = require('sinon');
 const request = require('supertest');

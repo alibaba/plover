@@ -1,6 +1,3 @@
-'use strict';
-
-
 const assert = require('assert');
 const pathUtil = require('path');
 const antsort = require('antsort');

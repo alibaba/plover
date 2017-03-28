@@ -1,6 +1,3 @@
-'use strict';
-
-
 const co = require('co');
 const sinon = require('sinon');
 const ActionRunner = require('../../lib/core/action-runner');

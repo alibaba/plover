@@ -1,6 +1,3 @@
-'use strict';
-
-
 exports.$init = function() {
   this.emptyClass = function(v) {
     return v ? '' : 'empty';

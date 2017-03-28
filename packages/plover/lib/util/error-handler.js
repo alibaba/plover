@@ -2,9 +2,6 @@
  * 错误处理中间件
  */
 
-'use strict';
-
-
 const util = require('util');
 
 const logger = require('plover-logger')('plover:util/error-handler');

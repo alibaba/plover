@@ -1,6 +1,3 @@
-'use strict';
-
-
 const mm = require('plover-test-mate');
 const co = require('co');
 

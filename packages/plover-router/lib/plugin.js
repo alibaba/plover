@@ -1,6 +1,3 @@
-'use strict';
-
-
 const assert = require('assert');
 const router = require('./router');
 

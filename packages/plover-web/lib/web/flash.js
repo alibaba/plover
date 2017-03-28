@@ -1,6 +1,3 @@
-'use strict';
-
-
 const KEY = 'plover-flash';
 const FLASH = Symbol(KEY);
 

@@ -1,6 +1,3 @@
-'use strict';
-
-
 const sinon = require('sinon');
 const ActionContext = require('../../lib/core/action-context');
 

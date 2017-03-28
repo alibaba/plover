@@ -1,6 +1,3 @@
-'use strict';
-
-
 const assert = require('assert');
 const inflection = require('inflection');
 

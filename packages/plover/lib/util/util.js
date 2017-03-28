@@ -1,6 +1,3 @@
-'use strict';
-
-
 const pathUtil = require('path');
 const resolveFrom = require('resolve-from');
 const convert = require('koa-convert');

@@ -1,0 +1,13 @@
+<h1>Hello World</h1>
+
+{{assets.css('lib:css/tabs.css', 'lib')}}
+{{assets.css('css/mytabs.css')}}
+
+{{assets.js('lib:js/tabs.js', 'lib')}}
+{{assets.js('js/mytabs.js')}}
+
+<img src="{{assets.root}}img/logo.png" alt="" />
+<img src="{{assets.root}}img/big.png" alt="" />
+<img src="{{assets.url('lib:img/combo.png')}}" alt="" />
+
+{{app.control('form#select')}}

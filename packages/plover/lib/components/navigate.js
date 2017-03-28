@@ -1,6 +1,3 @@
-'use strict';
-
-
 const assert = require('assert');
 const jsonp = require('jsonp-body');
 const antsort = require('antsort');

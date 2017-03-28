@@ -1,6 +1,3 @@
-'use strict';
-
-
 /* eslint no-underscore-dangle: 0 */
 
 module.exports = function PloverMethod(ctx, next) {

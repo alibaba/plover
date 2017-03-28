@@ -1,6 +1,3 @@
-'use strict';
-
-
 class ProductService {
   constructor(ctx) {
     this.ctx = ctx;
