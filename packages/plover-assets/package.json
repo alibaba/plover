@@ -1,0 +1,50 @@
+{
+  "name": "plover-assets",
+  "version": "4.0.0",
+  "description": "plover assets helper and middleware",
+  "main": "lib/index",
+  "scripts": {
+    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks test",
+    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks test -R spec"
+  },
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "co": "^4.6.0",
+    "create-tag": "~0.2.0",
+    "debug": "~2.6.3",
+    "fs-extra": "~2.1.2",
+    "koa-sendfile": "~2.0.0",
+    "lodash": "~4.17.4",
+    "minimatch": "~3.0.0",
+    "mz": "~2.6.0",
+    "plover-assets-util": "~1.4.0",
+    "plover-logger": "~1.4.4",
+    "plover-module-resolver": "~1.6.7",
+    "plover-util": "^1.7.0",
+    "resolve-from": "^2.0.0"
+  },
+  "devDependencies": {
+    "istanbul": "^1.1.0-alpha",
+    "mocha": "^3.1.1",
+    "plover": "^3.0.0-beta",
+    "plover-arttemplate": "^3.0.0",
+    "plover-test-mate": "^3.0.0",
+    "should": "^11.2.1",
+    "supertest": "^3.0.0"
+  },
+  "plover": {
+    "plugin": "lib/plugin.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alibaba/plover.git"
+  },
+  "author": "bencode@163.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/alibaba/plover/issues"
+  },
+  "homepage": "https://github.com/alibaba/plover#readme"
+}

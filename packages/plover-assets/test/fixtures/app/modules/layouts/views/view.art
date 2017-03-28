@@ -1,0 +1,15 @@
+<html>
+  <head>
+  {{assets.cssTag('lib')}}
+  {{assets.cssTag()}}
+  {{assets.css('http://g.cdn.com/bootstrap.css', 'lib')}}
+  {{assets.css('lib:css/vue.css')}}
+  {{assets.js('http://g.cdn.com/jquery.js', 'lib')}}
+  {{assets.js('lib:css/vue.js')}}
+  </head>
+  <body>
+  {{content}}
+  {{assets.jsTag('lib')}}
+  {{assets.jsTag()}}
+  </body>
+</html>
