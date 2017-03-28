@@ -3,12 +3,10 @@
 
 /* eslint no-underscore-dangle: 0 */
 
-module.exports = function() {
-  return function PloverMethod(ctx, next) {
-    const method = ctx.request.body._method;
-    if (method && ctx.method === 'POST') {
-      ctx.method = method.toUpperCase();
-    }
-    return next();
-  };
+module.exports = function PloverMethod(ctx, next) {
+  const method = ctx.request.body._method;
+  if (method && ctx.method === 'POST') {
+    ctx.method = method.toUpperCase();
+  }
+  return next();
 };

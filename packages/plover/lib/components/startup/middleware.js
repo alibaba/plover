@@ -44,6 +44,5 @@ function loadMiddlewares(app, root, mws, options) {
     middleware = mws[0];
   }
 
-  options = Object.assign({ bare: true }, options);
-  app.addMiddleware(middleware, options);
+  app.use(middleware, options);
 }

@@ -127,10 +127,11 @@ class Core {
    *   - papp: plover实例对象
    *
    * @param {Object|Number} options - 配置，如果是Number则相当于 { level: options }
-   *   - bare    默认情况下如果是function会对中间件先进行一次初始化
-   *             如果传了bare为true，则不作处理，用于支持koa 2普通函数作为中间件
-   *   - level   點认为3
-   *   - before  用于对中间件进行精确排序
+   *   - prepare  默认情况下如果是function会对中间件先进行一次初始化
+   *              如果传了preprae为false，则不作初始化处理
+   *              用于支持koa 2普通函数作为中间件
+   *   - level    點认为3
+   *   - before   用于对中间件进行精确排序
    *   - after
    *   - match
    *   - method
@@ -151,7 +152,7 @@ class Core {
 
 
   use(middleware, options) {
-    options = Object.assign({ bare: true }, options);
+    options = Object.assign({ prepare: false }, options);
     this.addMiddleware(middleware, options);
   }
 }

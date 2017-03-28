@@ -68,7 +68,7 @@ exports.loadModule = function(root, path) {
 exports.convertMiddleware = function(app, mw, options) {
   // 中间件是普通function时，需要初始化
   // 接口形式是middleware(config, koaapp, ploverapp)
-  if (lang.isPureFunction(mw) && !options.bare) {
+  if (lang.isPureFunction(mw) && options.prepare !== false) {
     mw = mw(app.config, app.server, app.proto);
   }
   if (lang.isGeneratorFunction(mw)) {
