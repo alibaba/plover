@@ -15,17 +15,17 @@
     "lib"
   ],
   "dependencies": {
-    "bluebird": "~3.4.6",
-    "fs-extra": "~2.0.0",
-    "plover": "~3.0.0-beta",
+    "bluebird": "~3.5.0",
+    "fs-extra": "~2.1.2",
+    "plover": "~3.0.1",
     "plover-arttemplate": "~3.1.0",
-    "plover-assets": "~3.0.0-beta",
+    "plover-assets": "~4.0.0",
     "plover-benchmark": "~1.1.0",
     "plover-ejs": "~1.1.0",
     "plover-logger": "~1.4.4",
-    "plover-router": "~3.0.0-beta",
-    "plover-web": "~3.0.0-beta",
-    "plover-xview": "~3.0.0-beta",
+    "plover-router": "~3.0.0",
+    "plover-web": "~3.0.0",
+    "plover-xview": "~3.0.0",
     "winston": "~2.3.0"
   },
   "devDependencies": {
