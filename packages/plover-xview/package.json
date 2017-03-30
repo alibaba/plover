@@ -19,7 +19,7 @@
   "devDependencies": {
     "istanbul": "^1.1.0-alpha",
     "mocha": "^3.2.0",
-    "plover": "^3.0.0-beta",
+    "plover": "^3.0.1",
     "plover-arttemplate": "^3.1.0",
     "plover-test-mate": "^3.0.0",
     "should": "^11.1.1",
