@@ -148,7 +148,8 @@ describe('plover-logger', function() {
     const create = require(path).Logger;
     create.level = 'debug';
 
-    sinon.spy(console, 'log');
+    const debug = console.debug ?
+        sinon.spy(console, 'debug') : sinon.spy(console, 'log');
     sinon.spy(console, 'info');
     sinon.spy(console, 'warn');
     sinon.spy(console, 'error');
@@ -159,14 +160,14 @@ describe('plover-logger', function() {
     log.warn('some warn message');
     log.error('some error message');
 
-    console.log.called.should.be.true();
+    debug.called.should.be.true();
     console.info.called.should.be.true();
     console.warn.called.should.be.true();
     console.error.called.should.be.true();
 
     delete process.env.NODE_ENV;
 
-    console.log.restore();
+    debug.restore();
     console.info.restore();
     console.warn.restore();
     console.error.restore();

@@ -214,7 +214,9 @@ class ActionContext {
     if (options) {
       options.type && (this.type = options.type);
       options.view && (this.view = options.view);
-      options.layout && (this.layout = options.layout);
+      if (options.layout || options.layout === false) {
+        this.layout = options.layout;
+      }
     }
 
     if (data && typeof data === 'object') {
