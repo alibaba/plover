@@ -248,6 +248,20 @@ describe('core/action-context', function() {
         }
       });
     });
+
+
+    it('关闭layout', function() {
+      const rd = {
+        ctx: {},
+        data: {},
+        route: {},
+        layout: { enable: true }
+      };
+
+      const ac = new ActionContext(navigator, rd);
+      ac.render({}, { layout: false });
+      rd.layout.enable.should.be.false();
+    });
   });
 
 
