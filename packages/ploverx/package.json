@@ -1,6 +1,6 @@
 {
   "name": "ploverx",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "集成常用plover插件，提供全栈nodejs web应用开发环境。",
   "main": "lib/index",
   "bin": {
@@ -15,18 +15,18 @@
     "lib"
   ],
   "dependencies": {
-    "bluebird": "~3.5.0",
-    "fs-extra": "~2.1.2",
-    "plover": "~3.0.1",
-    "plover-arttemplate": "~3.1.0",
-    "plover-assets": "~4.0.0",
-    "plover-benchmark": "~1.1.0",
-    "plover-ejs": "~1.1.0",
-    "plover-logger": "~1.4.4",
-    "plover-router": "~3.0.0",
-    "plover-web": "~3.0.0",
-    "plover-xview": "~3.0.0",
-    "winston": "~2.3.0"
+    "bluebird": "^3.5.0",
+    "fs-extra": "^3.0.1",
+    "plover": "^3.0.1",
+    "plover-arttemplate": "^3.1.0",
+    "plover-assets": "^4.0.0",
+    "plover-benchmark": "^1.1.0",
+    "plover-ejs": "^1.1.0",
+    "plover-logger": "^1.4.4",
+    "plover-router": "^3.1.0",
+    "plover-web": "^3.0.0",
+    "plover-xview": "^3.0.0",
+    "winston": "^2.3.0"
   },
   "devDependencies": {
     "co": "^4.6.0",
