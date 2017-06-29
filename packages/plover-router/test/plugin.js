@@ -47,7 +47,7 @@ describe('plover-route/lib/plugin', () => {
   });
 
 
-  it('put with _method', () => {
+  describe('http method', () => {
     const app = mm({
       applicationRoot: __dirname,
       web: {
@@ -64,10 +64,22 @@ describe('plover-route/lib/plugin', () => {
       ctx.body = ctx.method;
     });
 
-    return co(function* () {
-      yield app.agent.post('/update')
-        .send({ _method: 'put' })
-        .expect('PUT');
+
+    it('put with _method', () => {
+      return co(function* () {
+        yield app.agent.post('/update')
+          .send({ _method: 'put' })
+          .expect('PUT');
+      });
+    });
+
+
+    it('patch with header: x-http-method-override', () => {
+      return co(function* () {
+        yield app.agent.post('/update')
+          .set('X-HTTP-Method-Override', 'patch')
+          .expect('PATCH');
+      });
     });
   });
 });

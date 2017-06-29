@@ -57,11 +57,12 @@ module.exports = function(fn) {
       block = options;
       options = null;
     }
-    options = Object.assign({}, options);
 
+    options = options || {};
     const actions = options.only ||
         ['index', 'new', 'create', 'show', 'edit', 'update', 'delete'];
-    delete options.only;
+    const singleton = options.singleton;
+    options = drop(options, ['only', 'singleton']);
 
     const add = function(action, verb, match) {
       if (actions.indexOf(action) !== -1) {
@@ -74,11 +75,20 @@ module.exports = function(fn) {
     add('index', 'get', `/${name}`);
     add('new', 'get', `/${name}/new`);
     add('create', 'post', `/${name}`);
-    add('show', 'get', `/${name}/:id`);
-    add('edit', 'get', `/${name}/:id/edit`);
-    add('update', 'put', `/${name}/:id`);
-    add('update', 'patch', `/${name}/:id`);
-    add('delete', 'delete', `/${name}/:id`);
+
+    if (singleton) {
+      add('show', 'get', `/${name}`);
+      add('edit', 'get', `/${name}/edit`);
+      add('update', 'put', `/${name}`);
+      add('update', 'patch', `/${name}`);
+      add('delete', 'delete', `/${name}`);
+    } else {
+      add('show', 'get', `/${name}/:id`);
+      add('edit', 'get', `/${name}/:id/edit`);
+      add('update', 'put', `/${name}/:id`);
+      add('update', 'patch', `/${name}/:id`);
+      add('delete', 'delete', `/${name}/:id`);
+    }
 
     if (block) {
       const sname = inflection.singularize(name);
@@ -169,4 +179,15 @@ function join(parent, name) {
 function withStateOptions(states, options) {
   const current = states[0] || {};
   return Object.assign({}, current.options, options);
+}
+
+
+function drop(map, keys) {
+  const o = {};
+  for (const k in map) {
+    if (keys.indexOf(k) === -1) {
+      o[k] = map[k];
+    }
+  }
+  return o;
 }
