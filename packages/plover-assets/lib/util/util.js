@@ -46,3 +46,19 @@ exports.getCachePath = function(path, settings) {
   return pathUtil.join(tmpdir, filename);
 };
 
+
+exports.loadManifest = function(settings) {
+  const publicDir = exports.getPublicDir(settings);
+  const prefix = exports.getAssetsPrefix(settings);
+  const path = pathUtil.join(publicDir, prefix, 'manifest.json');
+  if (!fs.existsSync(path)) {
+    return null;
+  }
+
+  const map = new Map();
+  const obj = JSON.parse(fs.readFileSync(path, 'utf-8'));
+  for (const key in obj) {
+    map.set(key, obj[key]);
+  }
+  return map;
+}
