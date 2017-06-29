@@ -72,5 +72,14 @@ describe('plover-route/lib/plugin', () => {
           .expect('PUT');
       });
     });
+
+
+    it('patch with header: x-http-method-override', () => {
+      return co(function* () {
+        yield app.agent.post('/update')
+          .set('X-HTTP-Method-Override', 'patch')
+          .expect('PATCH');
+      });
+    });
   });
 });
