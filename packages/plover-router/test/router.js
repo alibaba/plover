@@ -188,6 +188,39 @@ describe('plover-route/lib/router', () => {
   });
 
 
+  it('singleton resources', () => {
+    const config = (r) => {
+      r.resources('pages', { only: ['show'] }, () => {
+        r.resources('design', { only: ['show', 'update'], singleton: true });
+      });
+    };
+
+    const routes = router(config).routes;
+    routes.should.eql([
+      {
+        match: '/pages/:id',
+        to: { module: 'pages', action: 'show' },
+        verb: 'get'
+      },
+      {
+        match: '/pages/:page_id/design',
+        to: { module: 'design', action: 'show' },
+        verb: 'get'
+      },
+      {
+        match: '/pages/:page_id/design',
+        to: { module: 'design', action: 'update' },
+        verb: 'put'
+      },
+      {
+        match: '/pages/:page_id/design',
+        to: { module: 'design', action: 'update' },
+        verb: 'patch'
+      }
+    ]);
+  });
+
+
   it('nested resources more', () => {
     const config = (r) => {
       const resources = r.resources;
