@@ -1,5 +1,3 @@
-const pathUtil = require('path');
-const fs = require('fs');
 const arrayUtil = require('plover-util/lib/array');
 const concatUrl = require('./util/concat-url');
 const assetsUtil = require('./util/util');
@@ -22,7 +20,8 @@ class UrlBuilder {
 
     const config = settings.assets || {};
     this.concatItems = config.concatItems;
-    this.manifest = settings.development ? null : loadManifest(settings);
+    this.manifest = settings.development ?
+        null : assetsUtil.loadManifest(settings);
   }
 
 
@@ -148,21 +147,4 @@ function groupUrls(items, urls) {
   }
 
   return { defs: defs, groups: groups };
-}
-
-
-function loadManifest(settings) {
-  const publicDir = assetsUtil.getPublicDir(settings);
-  const prefix = assetsUtil.getAssetsPrefix(settings);
-  const path = pathUtil.join(publicDir, prefix, 'manifest.json');
-  if (!fs.existsSync(path)) {
-    return null;
-  }
-
-  const map = new Map();
-  const obj = JSON.parse(fs.readFileSync(path, 'utf-8'));
-  for (const key in obj) {
-    map.set(key, obj[key]);
-  }
-  return map;
 }

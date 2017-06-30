@@ -30,6 +30,7 @@
     "mocha": "^3.1.1",
     "plover": "^3.0.1",
     "plover-arttemplate": "^3.0.0",
+    "plover-ejs": "^1.1.0",
     "plover-test-mate": "^3.0.0",
     "should": "^11.2.1",
     "supertest": "^3.0.0"
