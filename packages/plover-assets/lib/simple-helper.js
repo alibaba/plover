@@ -46,24 +46,24 @@ class Helper {
   }
 
 
-  cssTag(group, attrs) {
+  cssTag(group, opts) {
     const urls = getUrls(this, group, 'css');
     return urls.map(url => {
-      attrs = Object.assign({
+      const attrs = Object.assign({
         rel: 'stylesheet',
         href: url
-      }, attrs);
+      }, opts);
       return createTag('link', attrs);
     }).join('\n');
   }
 
 
-  jsTag(group, attrs) {
+  jsTag(group, opts) {
     const urls = getUrls(this, group, 'js');
     return urls.map(url => {
-      attrs = Object.assign({ src: url }, attrs);
+      const attrs = Object.assign({ src: url }, opts);
       return createTag('script', attrs, '');
-    });
+    }).join('\n');
   }
 }
 
