@@ -1,5 +1,3 @@
-const pathUtil = require('path');
-const fs = require('fs');
 const arrayUtil = require('plover-util/lib/array');
 const concatUrl = require('./util/concat-url');
 const assetsUtil = require('./util/util');

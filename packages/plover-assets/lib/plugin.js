@@ -6,7 +6,7 @@ module.exports = function(app) {
   const config = settings.assets || (settings.assets = {});
   // 简单资源模式
   if (config.simple) {
-    app.addHelper('assets', require('./simple-helper')(app));
+    app.addHelper('assets', require('./simple-helper'));
     return;
   }
 

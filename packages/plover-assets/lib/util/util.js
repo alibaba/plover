@@ -61,4 +61,4 @@ exports.loadManifest = function(settings) {
     map.set(key, obj[key]);
   }
   return map;
-}
+};
