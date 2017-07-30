@@ -22,6 +22,7 @@ class Helper {
 
   constructor(rd) {
     this.assets = rd.assets;
+    this.viewType = rd.route.type;
     this.urlPrefix = Helper.urlPrefix;
     this.manifest = Helper.manifest;
   }
@@ -72,7 +73,9 @@ module.exports = Helper;
 
 
 function push(self, type, url, group) {
-  group = group || 'default';
+  if (!group) {
+    group = self.viewType === 'layout' ? 'layout' : 'default';
+  }
   url = self.url(url);
   const bag = self.assets[group] ||
       (self.assets[group] = { css: [], js: [] });
@@ -81,9 +84,15 @@ function push(self, type, url, group) {
 }
 
 
-function getUrls(self, group, type) {
-  group = group || 'default';
-  const list = (self.assets[group] || {})[type];
-  return list.map(item => item.url);
+function getUrls(self, groups, type) {
+  groups = groups || ['layout', 'default'];
+  if (!Array.isArray(groups)) {
+    groups = [groups];
+  }
+
+  return groups.reduce((acc, group) => {
+    const list = (self.assets[group] || {})[type];
+    return list ? acc.concat(list) : acc;
+  }, []).map(item => item.url);
 }
 
