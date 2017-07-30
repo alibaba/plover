@@ -22,7 +22,7 @@ describe('plover-web/web/csrf', () => {
   };
 
   app.use(require('../../lib/web/csrf').middleware(opts));
-  app.use(async (ctx, next) => {
+  app.use(async(ctx, next) => {
     if (ctx.path === '/getcsrf') {
       ctx.body = ctx.csrf;
     } else {

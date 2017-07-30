@@ -10,7 +10,6 @@ const logger = require('plover-logger')('plover-assets:url-builder');
  * 默认的UrlBuilder
  */
 class UrlBuilder {
-
   constructor(app) {
     const settings = app.settings;
 

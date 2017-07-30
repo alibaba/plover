@@ -16,7 +16,6 @@ const LAYOUT = Symbol('layout');
 
 
 class Navigator {
-
   /**
    * 处理Plover模块渲染逻辑
    *

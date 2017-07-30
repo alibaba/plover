@@ -104,7 +104,7 @@ module.exports = function(settings, app) {
     // 去掉concat前缀，去掉可能的时间缀，再根据`,`切成路径数组
     const paths = ctx.url.replace(rConcat, '').replace(rQuery, '').split(',');
     let list = paths.map(path => {
-      const request = async () => {
+      const request = async() => {
         // 先尝试从pulbic目录下取
         const cachePath = pathUtil.join(publicDir, concatPrefix, path);
         logger.debug('try load concat file from publicdir: %s', cachePath);

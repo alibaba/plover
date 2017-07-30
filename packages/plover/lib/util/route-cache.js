@@ -4,7 +4,6 @@ const logger = require('plover-logger')('plover:util/route-cache');
 
 
 class RouteCache {
-
   /**
    * 用于缓存路由规则
    * cache规则见`#set(path, route)`

@@ -9,7 +9,6 @@ const logger = require('plover-logger')('plover:components/core');
 
 
 class Core {
-
   /**
    * 定义核心方法和核心中间件
    * 以及通用异常处理

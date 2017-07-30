@@ -8,7 +8,6 @@ const logger = require('plover-logger')('plover:components/router');
 
 
 class RouterComponent {
-
   /**
    * 路由
    *

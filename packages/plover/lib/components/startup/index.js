@@ -4,7 +4,6 @@ const logger = require('plover-logger')('plover:components/startup');
 
 
 class Startup {
-
   /**
    * 根据配置信息初始化应用
    * 主要添加以下plover部件：

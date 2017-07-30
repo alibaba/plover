@@ -14,7 +14,6 @@ const logger = require('plover-logger')('plover:components/navigate');
 
 
 class Navigate {
-
   /**
    * 页面渲染流程
    *

@@ -16,7 +16,6 @@ const logger = require('plover-logger')('plover:core/view-render');
 
 
 class ViewRender {
-
   /**
    * 用于执行视图渲染
    * 一个ViewRender对应于一次请求

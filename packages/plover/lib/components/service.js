@@ -4,7 +4,6 @@ const logger = require('plover-logger')('plover:components/service');
 
 
 class Service {
-
   constructor(app) {
     this.app = app;
     this.services = {};

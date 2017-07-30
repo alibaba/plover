@@ -60,7 +60,7 @@ describe('plover-web/plugin', function() {
 
 
 function hello(app) {
-  app.use(async (ctx, next) => {
+  app.use(async(ctx, next) => {
     if (ctx.path === '/hello') {
       ctx.body = 'hello';
     } else {

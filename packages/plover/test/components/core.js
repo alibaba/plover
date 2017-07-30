@@ -48,7 +48,7 @@ describe('components/core', function() {
     it('添加中间件', function() {
       const app = plover(settings);
 
-      app.use(async (ctx, next) => {
+      app.use(async(ctx, next) => {
         if (ctx.url === '/a') {
           ctx.body = 'hello world a';
         } else {
@@ -85,7 +85,7 @@ describe('components/core', function() {
     it('设置中间件级别', function() {
       const app = plover(settings);
 
-      app.addMiddleware(async (ctx, next) => {
+      app.addMiddleware(async(ctx, next) => {
         ctx.list = [];
         await next();
         ctx.body = ctx.list.join(' ');

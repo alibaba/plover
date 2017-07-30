@@ -19,7 +19,6 @@ const debug = require('debug')('plover-assets:builder');
 
 
 class Builder {
-
   constructor(settings) {
     // 标识非开发态
     settings.development = false;
