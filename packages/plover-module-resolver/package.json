@@ -11,9 +11,9 @@
     "lib"
   ],
   "dependencies": {
-    "debug": "~2.6.1",
-    "resolve-from": "~2.0.0",
-    "semver": "~5.4.1"
+    "debug": "^2.6.1",
+    "resolve-from": "^2.0.0",
+    "semver": "^5.4.1"
   },
   "devDependencies": {
     "istanbul": "^0.4.1",

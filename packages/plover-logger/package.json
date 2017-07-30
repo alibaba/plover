@@ -11,7 +11,7 @@
     "lib"
   ],
   "dependencies": {
-    "debug": "~2.6.3"
+    "debug": "^2.6.3"
   },
   "devDependencies": {
     "istanbul": "^0.4.5",

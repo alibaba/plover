@@ -10,7 +10,7 @@
     "lib"
   ],
   "dependencies": {
-    "inflection": "~1.12.0"
+    "inflection": "^1.12.0"
   },
   "devDependencies": {
     "istanbul": "^1.1.0-alpha",

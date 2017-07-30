@@ -11,10 +11,10 @@
     "lib"
   ],
   "dependencies": {
-    "create-tag": "~0.2.0",
-    "escape-html": "~1.0.3",
-    "output-formatter": "~1.0.2",
-    "plover-util": "~1.7.0"
+    "create-tag": "^0.2.0",
+    "escape-html": "^1.0.3",
+    "output-formatter": "^1.0.2",
+    "plover-util": "^1.7.0"
   },
   "devDependencies": {
     "istanbul": "^1.1.0-alpha",

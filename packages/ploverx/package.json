@@ -17,7 +17,7 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "commander": "^2.10.0",
-    "fs-extra": "^3.0.1",
+    "fs-extra": "^4.0.0",
     "plover": "^3.0.1",
     "plover-arttemplate": "^3.1.0",
     "plover-assets": "^4.0.0",
