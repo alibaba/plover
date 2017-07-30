@@ -8,9 +8,6 @@
   },
 
   rules: {
-    indent: 0,
-    no-multi-spaces: [2, { ignoreEOLComments: true }],
-
     strict: 0,
     comma-dangle: [2, 'never'],
     func-names: 0,
