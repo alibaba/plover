@@ -9,7 +9,7 @@
 
   rules: {
     indent: 0,
-    no-multi-spaces: ['error', { ignoreEOLComments: true }],
+    no-multi-spaces: [2, { ignoreEOLComments: true }],
 
     strict: 0,
     comma-dangle: [2, 'never'],
