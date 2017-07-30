@@ -5,7 +5,6 @@ const logger = require('plover-logger')('plover:core/action-runner');
 
 
 class ActionRunner {
-
   /**
    * 用于运行控制器Action方法
    *

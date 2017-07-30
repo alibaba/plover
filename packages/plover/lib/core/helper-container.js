@@ -12,7 +12,6 @@ const CACHE = Symbol('cache');
 const initList = [];
 
 class HelperContainer {
-
   /**
    * Helper容器，用于管理helper对象
    * 模板中只有用到某个helper才去构造

@@ -9,7 +9,6 @@ const logger = require('plover-logger')('plover-assets:helper');
 
 
 class AssetsHelper {
-
   static startup(app) {
     this.app = app;
     const config = app.settings.assets || {};

@@ -31,7 +31,8 @@ describe('plover-web/web/query', function() {
     const myapp = new Koa();
     parseQuery(myapp);
     myapp.use(ctx => {
-      (ctx.query === ctx.query).should.be.true();
+      const query = ctx.query;
+      (query === ctx.query).should.be.true();
       ctx.body = 'ok';
     });
     return request(myapp.callback())

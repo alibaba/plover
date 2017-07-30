@@ -18,7 +18,6 @@ const debug = require('debug')('plover-module-resolver');
 
 
 class Resolver {
-
   /**
    * 用于解析和加载应用中的模块
    *

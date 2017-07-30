@@ -7,7 +7,6 @@ const logger = require('plover-logger')('plover:components/plugin');
 
 
 class Plugin {
-
   /**
    * 加载插件
    *

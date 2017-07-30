@@ -19,7 +19,6 @@ const logger = new Logger('plover:application');
 
 
 class Application extends EventEmitter {
-
   /**
    * 创建应用对象
    *

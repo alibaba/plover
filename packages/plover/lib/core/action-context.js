@@ -48,7 +48,6 @@ const PARAMS = Symbol('params');
  *  navigate(route, [options])  - 调用另一个`Action`
  */
 class ActionContext {
-
   constructor(navigator, rd) {
     this[NAVIGATOR] = navigator;
     this[RD] = rd;

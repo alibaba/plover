@@ -15,7 +15,6 @@ const logger = require('plover-logger')('plover:helpers/app');
  * 用来在模板中渲染`view`, `control`等
  */
 class AppHelper {
-
   static $init(rd, viewRender, navigator, app) {
     this.self = rd.data;
     this.json = JSON.stringify;
