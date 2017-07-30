@@ -2,4 +2,5 @@ node_modules/
 !**/test/fixtures/**/node_modules/
 coverage/
 yarn.lock
+package-lock.json
 logs/
