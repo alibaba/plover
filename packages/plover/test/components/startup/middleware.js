@@ -5,6 +5,7 @@ const request = require('supertest');
 const plover = require('../../../');
 const plugin = require('../../../lib/components/startup/middleware');
 
+/* eslint require-yield: 0 */
 
 const fixtureRoot = pathUtil.join(
   __dirname,

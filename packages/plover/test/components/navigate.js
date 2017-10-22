@@ -10,6 +10,7 @@ const Logger = require('plover-logger');
 const NavigateComponent = require('../../lib/components/navigate');
 const Navigator = require('../../lib/core/navigator');
 
+/* eslint require-yield: 0 */
 
 describe('components/navigate', function() {
   before(function() {

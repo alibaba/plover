@@ -8,7 +8,7 @@ const plover = require('../../');
 const equal = require('../util').equalWith;
 
 
-/* eslint max-nested-callbacks: [2, 4] */
+/* eslint max-nested-callbacks: [2, 4], require-yield: 0 */
 
 
 describe('core/navigator', function() {

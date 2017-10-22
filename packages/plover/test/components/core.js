@@ -7,7 +7,7 @@ const antsort = require('antsort');
 const plover = require('../../');
 
 
-/* eslint no-console: 0, max-nested-callbacks: [2, 4], consistent-return: 0 */
+/* eslint no-console: 0, max-nested-callbacks: [2, 4], consistent-return: 0, require-yield: 0 */
 
 
 describe('components/core', function() {
