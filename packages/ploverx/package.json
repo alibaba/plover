@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "co": "^4.6.0",
-    "istanbul": "^0.4.5",
+    "istanbul": "^1.1.0-alpha",
     "mocha": "^4.0.1",
     "should": "^13.1.2",
     "sinon": "^4.0.1",
