@@ -3,7 +3,7 @@ const Koa = require('koa');
 const sinon = require('sinon');
 const request = require('supertest');
 const jsonp = require('jsonp-body');
-const pathToRegexp = require('path-to-regexp');
+const minimatch = require('minimatch');
 
 const Logger = require('plover-logger');
 
@@ -97,7 +97,7 @@ describe('components/navigate', function() {
     app.filters[3].should.eql({
       name: 'XViewFilter',
       filter: XViewFilter,
-      match: pathToRegexp('/api'),
+      match: minimatch.makeRe('/api'),
       options: {
         match: '/api'
       }

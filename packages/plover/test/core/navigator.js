@@ -78,7 +78,7 @@ describe('core/navigator', function() {
     });
 
     const filter = require(pathUtil.join(root, './lib/filters/api.js'));
-    thisApp.addFilter(filter, { match: '/api/:name' });
+    thisApp.addFilter(filter, { match: '/api/*' });
 
     const thisAgent = request.agent(thisApp.callback());
 

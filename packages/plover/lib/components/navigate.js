@@ -1,7 +1,7 @@
 const assert = require('assert');
 const jsonp = require('jsonp-body');
 const antsort = require('antsort');
-const pathToRegexp = require('path-to-regexp');
+const minimatch = require('minimatch');
 const co = require('co');
 
 const RouteInfo = require('plover-util/lib/route-info');
@@ -144,7 +144,8 @@ function prepareFilters(filters) {
   list.forEach(item => {
     const o = filters[item.index];
     const match = o.options.match;
-    o.match = match ? pathToRegexp(match) : null;
+    o.match = match && typeof match === 'string' ?
+      minimatch.makeRe(match) : (match || null);
     result.push(o);
   });
   return result;

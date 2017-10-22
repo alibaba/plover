@@ -1,7 +1,7 @@
 const http = require('http');
 const assert = require('assert');
 const antsort = require('antsort');
-const pathToRegexp = require('path-to-regexp');
+const minimatch = require('minimatch');
 const compose = require('koa-compose');
 const util = require('../util/util');
 
@@ -190,15 +190,15 @@ function mountMiddlewares(server, items) {
 
 
 function createProxy(mw, options) {
-  const re = options.match && pathToRegexp(options.match);
+  const re = options.match && toRe(options.match);
   const name = 'proxy-' + options.match +
       '->' + (mw.name || mw.$name);
 
   logger.info('create proxy middleware: %s -> %s', re, name);
 
   const result = (ctx, next) => {
-    if (!re || re.test(ctx.path)) {
-      if (!options.method || match(ctx, options.method)) {
+    if (!options.method || match(ctx, options.method)) {
+      if (!re || re.test(ctx.path)) {
         logger.debug('%s matches %s', ctx.path, name);
         return mw(ctx, next);
       }
@@ -208,6 +208,13 @@ function createProxy(mw, options) {
 
   result.$name = name;
   return result;
+}
+
+function toRe(match) {
+  if (typeof match === 'string') {
+    return minimatch.makeRe(match);
+  }
+  return match;
 }
 
 

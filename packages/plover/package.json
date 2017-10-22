@@ -21,6 +21,7 @@
     "koa": "^2.3.0",
     "koa-compose": "^4.0.0",
     "koa-convert": "^1.2.0",
+    "minimatch": "^3.0.4",
     "mz": "^2.6.0",
     "output-formatter": "^1.0.1",
     "path-to-regexp": "^2.1.0",

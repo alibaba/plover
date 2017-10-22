@@ -134,7 +134,7 @@ describe('components/core', function() {
 
       app.addMiddleware(function* () {
         this.body = 'hello';
-      }, { match: '/hello/:id' });
+      }, { match: '/hello/*' });
 
       app.addMiddleware(function* () {
         this.body = 'uploaded';
