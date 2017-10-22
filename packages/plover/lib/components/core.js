@@ -133,8 +133,10 @@ class Core {
    *   - method
    */
   addMiddleware(middleware, options) {
-    assert(typeof middleware === 'function',
-      'middleware should be typeof function');
+    assert(
+      typeof middleware === 'function',
+      'middleware should be typeof function'
+    );
 
     if (typeof options === 'number') {
       options = { level: options };

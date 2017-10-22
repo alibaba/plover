@@ -139,8 +139,10 @@ exports.Application = Application;
  * 初始化日志级别和环境变量
  */
 function prepareEnv(settings) {
-  assert(settings.applicationRoot,
-    '`settings.applicationRoot` required');
+  assert(
+    settings.applicationRoot,
+    '`settings.applicationRoot` required'
+  );
 
   // 可以通过环境变量或配置指定日志级别
   // 1. 环境变量`LOG_LEVEL`优先

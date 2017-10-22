@@ -4,8 +4,10 @@ const Router = require('../../lib/util/router');
 describe('util/router', function() {
   it('可以路由url', function() {
     const router = new Router();
-    router.add('/offer/:offerId(\\d+)(\\.html)?',
-      'offer#view');
+    router.add(
+      '/offer/:offerId(\\d+)(\\.html)?',
+      'offer#view'
+    );
 
     router.route('/offer/123').should.eql({
       module: 'offer',
@@ -61,8 +63,10 @@ describe('util/router', function() {
 
   it('可以在rule中使用query参数', function() {
     const router = new Router();
-    router.add('/offer-(\\w+)-:offerId(\\d+)-(\\w+)-:feature([a-z]+)',
-      'offer:view?cat=$1&group=$2');
+    router.add(
+      '/offer-(\\w+)-:offerId(\\d+)-(\\w+)-:feature([a-z]+)',
+      'offer:view?cat=$1&group=$2'
+    );
     router.route('/offer-food-123-liquid-red').should.eql({
       module: 'offer',
       action: 'view',
@@ -78,8 +82,10 @@ describe('util/router', function() {
 
   it('可以在rule中声明特殊参数', function() {
     const router = new Router();
-    router.add('/special-:offerId(\\d+)',
-      'offer/view?_plover_layout=special');
+    router.add(
+      '/special-:offerId(\\d+)',
+      'offer/view?_plover_layout=special'
+    );
 
     router.route('/special-123').should.eql({
       module: 'offer',
@@ -204,8 +210,10 @@ describe('util/router', function() {
   it('for coverage', function() {
     const router = new Router();
     router.add('/pages', { module: 'pages', action: 'index', param: {} });
-    router.add('/pages/(\\d+)',
-      { module: 'pages', action: 'show', query: { id: '$1', type: 'test' } });
+    router.add(
+      '/pages/(\\d+)',
+      { module: 'pages', action: 'show', query: { id: '$1', type: 'test' } }
+    );
 
     router.route('/pages').should
       .eql({ module: 'pages', action: 'index', param: {}, query: {} });
@@ -214,8 +222,10 @@ describe('util/router', function() {
       .eql({ module: 'pages', action: 'show', query: { id: '123', type: 'test' } });
 
     (() => {
-      router.add('/pages/(\\d+)',
-        { module: 'pages', action: 'show', query: { id: '$2' } });
+      router.add(
+        '/pages/(\\d+)',
+        { module: 'pages', action: 'show', query: { id: '$2' } }
+      );
     }).should.throw();
   });
 });

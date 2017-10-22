@@ -51,8 +51,10 @@ class Navigate {
    * @param {Object}  engine  - 模板引擎
    */
   addEngine(ext, engine) {
-    assert(typeof engine.compile === 'function',
-      'render engine should be have a `compile` function');
+    assert(
+      typeof engine.compile === 'function',
+      'render engine should be have a `compile` function'
+    );
     logger.info('register engine: %s', ext);
     this.app.engines[ext] = engine;
   }
@@ -181,8 +183,10 @@ function logResult(data) {
     data = JSON.stringify(data);
   }
 
-  logger.debug('set response: \n%s\n...',
-    data.substr(0, 1000));
+  logger.debug(
+    'set response: \n%s\n...',
+    data.substr(0, 1000)
+  );
 }
 
 

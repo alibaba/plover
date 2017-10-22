@@ -90,8 +90,10 @@ class ActionContext {
    */
   get params() {
     if (!this[PARAMS]) {
-      this[PARAMS] = assign({}, this.route.query,
-        this.ctx.request.body);
+      this[PARAMS] = assign(
+        {}, this.route.query,
+        this.ctx.request.body
+      );
     }
     return this[PARAMS];
   }

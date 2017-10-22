@@ -24,8 +24,10 @@ module.exports = function(app) {
 
 function loadVendor(app, settings, item) {
   item = typeof item === 'string' ? { name: item } : item;
-  const path = resolveFrom(settings.applicationRoot,
-    item.name + '/package.json');
+  const path = resolveFrom(
+    settings.applicationRoot,
+    item.name + '/package.json'
+  );
   const root = pathUtil.dirname(path);
   const pkg = require(path);
 

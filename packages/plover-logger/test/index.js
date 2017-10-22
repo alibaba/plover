@@ -33,8 +33,7 @@ describe('plover-logger', function() {
     log.info('init service: %s', 'test');
 
     Logger.handler.calledOnce.should.be.true();
-    Logger.handler.getCall(0).args.should.eql(
-      ['Test', 'info', 'init service: test']);
+    Logger.handler.getCall(0).args.should.eql(['Test', 'info', 'init service: test']);
 
     const o = { name: 'test' };
     log.info('data: %o', o);

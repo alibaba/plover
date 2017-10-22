@@ -125,8 +125,10 @@ function regularResult(result) {
     result = { code: result };
   }
   if (result) {
-    assert(typeof result === 'object' && ('code' in result),
-      'invalid assert result, it should be typeof object with prop `code`');
+    assert(
+      typeof result === 'object' && ('code' in result),
+      'invalid assert result, it should be typeof object with prop `code`'
+    );
   }
   return result;
 }

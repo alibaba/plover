@@ -25,8 +25,10 @@ class Plugin {
       logger.info('startup plugin: %s', info.name);
       const path = pathUtil.join(info.path, info.plugin);
       const fn = require(path);
-      assert(typeof fn === 'function',
-        'plugin module should be a function: ' + path);
+      assert(
+        typeof fn === 'function',
+        'plugin module should be a function: ' + path
+      );
       fn(app.proto);
     }
   }

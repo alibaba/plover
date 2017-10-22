@@ -132,8 +132,7 @@ describe('application', function() {
     const app = plover({ applicationRoot: path });
 
     app.on('error', function(e) {
-      e.message.should.be.match(
-        'b@2.0.0 is not compatible with a which depend on b@~1.0.0');
+      e.message.should.be.match('b@2.0.0 is not compatible with a which depend on b@~1.0.0');
       done();
     });
   });

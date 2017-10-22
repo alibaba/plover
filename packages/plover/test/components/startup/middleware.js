@@ -6,8 +6,10 @@ const plover = require('../../../');
 const plugin = require('../../../lib/components/startup/middleware');
 
 
-const fixtureRoot = pathUtil.join(__dirname,
-  '../../fixtures/components/startup');
+const fixtureRoot = pathUtil.join(
+  __dirname,
+  '../../fixtures/components/startup'
+);
 
 
 describe('components/startup/middleware', function() {

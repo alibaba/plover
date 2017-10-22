@@ -37,8 +37,10 @@ describe('util/route-cache', function() {
     }
 
     // 第30个, 会清除原有offer/view的cache
-    const success = routeCache.set('/offer/29',
-      { module: 'offer', action: 'view' });
+    const success = routeCache.set(
+      '/offer/29',
+      { module: 'offer', action: 'view' }
+    );
     success.should.be.false();
 
     for (let i = 0; i < size; i++) {

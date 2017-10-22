@@ -36,7 +36,7 @@
     require-yield: 0,
     class-methods-use-this: 0,
     prefer-destructuring: 0,
-    no-multi-spaces: 0,
+    no-multi-spaces: [2, {ignoreEOLComments: true}],
     object-curly-newline: 0
   }
 }
