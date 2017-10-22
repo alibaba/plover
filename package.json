@@ -4,9 +4,9 @@
   "description": "专注于模块化的NodeJs Web框架",
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha --require should --reporter spec --recursive --check-leaks --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
-    "cov": "istanbul cover _mocha -- --require should --recursive --check-leaks --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
-    "travis": "istanbul cover _mocha --report lcovonly -- --require should --recursive --check-leaks --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
+    "test": "mocha --require should --reporter spec --recursive --check-leaks --exit --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
+    "cov": "istanbul cover _mocha -- --require should --recursive --check-leaks --exit --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
+    "travis": "istanbul cover _mocha --report lcovonly -- --require should --recursive --check-leaks --exit --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
     "ci": "npm run lint && npm run travis"
   },
   "repository": {

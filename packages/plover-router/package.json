@@ -3,8 +3,8 @@
   "version": "3.2.0",
   "description": "为Plover应用提供Restful形式API。",
   "scripts": {
-    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks test/",
-    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks test/ -R spec"
+    "test": "mocha --require should --reporter spec --recursive --check-leaks test/",
+    "cov": "istanbul cover _mocha -- --require should --recursive --check-leaks test/ -R spec"
   },
   "files": [
     "lib"

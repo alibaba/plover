@@ -4,8 +4,8 @@
   "description": "【核心模块】有些在核心中使用的工具模块，但在插件中也要使用，所以独立出来。",
   "main": "lib/index",
   "scripts": {
-    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks test/",
-    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks test/ -R spec"
+    "test": "mocha --require should --reporter spec --recursive --check-leaks test/",
+    "cov": "istanbul cover _mocha -- --require should --recursive --check-leaks test/ -R spec"
   },
   "files": [
     "lib"
