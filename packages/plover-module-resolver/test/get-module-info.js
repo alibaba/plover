@@ -59,7 +59,7 @@ describe('plover-module-resolver/lib/getModuleInfo(path)', function() {
 
   it('package.json存在plover节点不存在也不能算模块', function() {
     const path = pathUtil.join(__dirname, 'fixtures/withpkg');
-    const info = getModuleInfo(path);
+    const info = getModuleInfo(path, { ensure: true });
     (!!info).should.not.be.ok();
   });
 
