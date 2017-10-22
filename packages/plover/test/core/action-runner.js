@@ -176,7 +176,7 @@ describe('core/action-runner', function() {
 
   it('work with arrow function', function() {
     const controller = {};
-    controller.view = (ctx) => {
+    controller.view = ctx => {
       ctx.body = 'hello';
     };
 

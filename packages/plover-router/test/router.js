@@ -3,7 +3,7 @@ const router = require('../lib/router');
 
 describe('plover-route/lib/router', () => {
   it('http verb route', () => {
-    const config = (r) => {
+    const config = r => {
       r.get('/', 'home#index');
       r.get('/profile', 'users#edit');
       r.post('/loginout', 'session#delete');
@@ -26,7 +26,7 @@ describe('plover-route/lib/router', () => {
 
 
   it('resources route', () => {
-    const config = (r) => {
+    const config = r => {
       r.resources('photos');
     };
 
@@ -77,7 +77,7 @@ describe('plover-route/lib/router', () => {
 
 
   it('resouces route with selected actions', () => {
-    const config = (r) => {
+    const config = r => {
       r.resources('revisions', { only: ['index', 'show', 'update'] });
     };
 
@@ -108,7 +108,7 @@ describe('plover-route/lib/router', () => {
 
 
   it('with namespace', () => {
-    const config = (r) => {
+    const config = r => {
       r.namespace('/admin', () => {
         r.get('/users/:id', 'users#show');
         r.resources('photos', { only: ['index', 'show'] });
@@ -151,7 +151,7 @@ describe('plover-route/lib/router', () => {
 
 
   it('nested resources', () => {
-    const config = (r) => {
+    const config = r => {
       r.resources('pages', { only: ['index', 'show', 'delete'] }, () => {
         r.resources('revisions', { only: ['index', 'delete'] });
       });
@@ -189,7 +189,7 @@ describe('plover-route/lib/router', () => {
 
 
   it('singleton resources', () => {
-    const config = (r) => {
+    const config = r => {
       r.resources('pages', { only: ['show'] }, () => {
         r.resources('design', { only: ['show', 'update'], singleton: true });
       });
@@ -222,7 +222,7 @@ describe('plover-route/lib/router', () => {
 
 
   it('nested resources more', () => {
-    const config = (r) => {
+    const config = r => {
       const resources = r.resources;
       resources('publishers', () => {
         resources('magazines', () => {
@@ -242,7 +242,7 @@ describe('plover-route/lib/router', () => {
 
 
   it('resources with type', () => {
-    const config = (r) => {
+    const config = r => {
       r.namespace('api/v2', () => {
         r.resources('pages', { only: ['index', 'show'], type: 'json' });
       });
@@ -275,7 +275,7 @@ describe('plover-route/lib/router', () => {
   it('use middleware', () => {
     const mw = function() {};
 
-    const config = (r) => {
+    const config = r => {
       r.use('/photos/*', mw);
       r.use('/', mw);
       r.use(mw);

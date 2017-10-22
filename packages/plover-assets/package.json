@@ -4,8 +4,8 @@
   "description": "plover assets helper and middleware",
   "main": "lib/index",
   "scripts": {
-    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks test",
-    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks test -R spec"
+    "test": "mocha --require should --reporter spec --recursive --check-leaks test",
+    "cov": "istanbul cover _mocha -- --require should --recursive --check-leaks test -R spec"
   },
   "files": [
     "lib"
