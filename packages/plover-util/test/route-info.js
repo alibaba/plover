@@ -1,4 +1,3 @@
-'use strict';
 
 
 const RouteInfo = require('..').RouteInfo;

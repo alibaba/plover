@@ -1,4 +1,4 @@
-'use strict';
+
 
 const pathUtil = require('path');
 const Resolver = require('..');

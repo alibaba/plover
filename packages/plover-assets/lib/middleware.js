@@ -1,4 +1,3 @@
-'use strict';
 
 
 const pathUtil = require('path');

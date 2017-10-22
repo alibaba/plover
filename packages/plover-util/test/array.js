@@ -1,4 +1,3 @@
-'use strict';
 
 
 const arrayUtil = require('..').Array;
