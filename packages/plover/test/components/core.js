@@ -39,7 +39,7 @@ describe('components/core', function() {
 
     it('使用listen可以快速启动应用', function() {
       const app = plover(settings);
-      return app.listen(1234);
+      return app.listen(8765);
     });
   });
 
@@ -134,7 +134,7 @@ describe('components/core', function() {
 
       app.addMiddleware(function* () {
         this.body = 'hello';
-      }, { match: '/hello/*' });
+      }, { match: '/hello/:id' });
 
       app.addMiddleware(function* () {
         this.body = 'uploaded';
