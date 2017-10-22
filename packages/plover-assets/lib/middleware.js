@@ -223,10 +223,8 @@ const rQueryStamp = /\?.*$/;
  * @param   {String}    body  输出的内容
  */
 function setResponse(ctx, path, body) {
-  const buffer = new Buffer(body);
-  ctx.length = buffer.length;
   ctx.type = pathUtil.extname(path).replace(rQueryStamp, '');
-  ctx.body = buffer;
+  ctx.body = body;
 }
 
 

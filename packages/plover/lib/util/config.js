@@ -23,7 +23,7 @@ exports.load = function(dir) {
     const stat = fs.statSync(path);
 
     const item = stat.isDirectory() ?
-            tryLoadFromDir(path) : tryLoadFromFile(path);
+      tryLoadFromDir(path) : tryLoadFromFile(path);
 
     if (item) {
       config[name] = item;

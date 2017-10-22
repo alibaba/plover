@@ -63,8 +63,8 @@ function* performFilter(path, info, options, o) {
   if (yield fs.exists(thispath)) {
     const body = yield fs.readFile(thispath, 'utf-8');
     const result = lang.isGeneratorFunction(o.handler) ?
-          yield* o.handler(thispath, body, info, options) :
-          o.handler(thispath, body, info, options);
+      yield* o.handler(thispath, body, info, options) :
+      o.handler(thispath, body, info, options);
     return regularResult(result);
   }
 
@@ -92,8 +92,8 @@ exports.compile = function* (path, info, options) {
     if (pathUtil.extname(path) === o.ext) {
       const body = yield fs.readFile(path, 'utf-8');
       let result = lang.isGeneratorFunction(o.handler) ?
-          yield* o.handler(path, body, info, options) :
-          o.handler(path, body, info, options);
+        yield* o.handler(path, body, info, options) :
+        o.handler(path, body, info, options);
       result = regularResult(result);
       if (result) {
         result.type = o.type;
@@ -126,7 +126,7 @@ function regularResult(result) {
   }
   if (result) {
     assert(typeof result === 'object' && ('code' in result),
-        'invalid assert result, it should be typeof object with prop `code`');
+      'invalid assert result, it should be typeof object with prop `code`');
   }
   return result;
 }

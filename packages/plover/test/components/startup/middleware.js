@@ -7,7 +7,7 @@ const plugin = require('../../../lib/components/startup/middleware');
 
 
 const fixtureRoot = pathUtil.join(__dirname,
-        '../../fixtures/components/startup');
+  '../../fixtures/components/startup');
 
 
 describe('components/startup/middleware', function() {
@@ -105,7 +105,7 @@ describe('components/startup/middleware', function() {
       this.body = 'hello';
     });
     return request(app.callback())
-        .get('/').expect('hello');
+      .get('/').expect('hello');
   });
 });
 

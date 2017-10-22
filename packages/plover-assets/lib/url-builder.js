@@ -20,7 +20,7 @@ class UrlBuilder {
     const config = settings.assets || {};
     this.concatItems = config.concatItems;
     this.manifest = settings.development ?
-        null : assetsUtil.loadManifest(settings);
+      null : assetsUtil.loadManifest(settings);
   }
 
 
@@ -60,7 +60,7 @@ function getUrlPrefix(settings) {
   const assets = settings.assets || {};
   const prefix = assets.prefix || '/g';
   return settings.development ? prefix :
-      (assets.urlPrefix || prefix);
+    (assets.urlPrefix || prefix);
 }
 
 

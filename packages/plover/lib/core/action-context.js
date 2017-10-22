@@ -261,9 +261,9 @@ module.exports = ActionContext;
 
 
 delegate(ActionContext.prototype, 'ctx')
-    .method('throw')
-    .method('assert')
-    .method('redirect');
+  .method('throw')
+  .method('assert')
+  .method('redirect');
 
 
 ActionContext.refine = function(app) {

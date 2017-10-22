@@ -24,14 +24,14 @@ describe('plover-web/web/charset', () => {
       yield agent.get('/a').expect('中国');
 
       yield agent.get('/a?_output_charset=gbk')
-          .expect('content-type', 'text/plain; charset=gbk')
-          .expect(o => {
-            o.buffered.should.be.true();
-          });
+        .expect('content-type', 'text/plain; charset=gbk')
+        .expect(o => {
+          o.buffered.should.be.true();
+        });
 
       // json data should not encode
       yield agent.get('/b?_output_charset=gbk')
-          .expect({ data: '中国' });
+        .expect({ data: '中国' });
     });
   });
 });

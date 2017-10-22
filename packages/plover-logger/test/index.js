@@ -149,7 +149,7 @@ describe('plover-logger', function() {
     create.level = 'debug';
 
     const debug = console.debug ?
-        sinon.spy(console, 'debug') : sinon.spy(console, 'log');
+      sinon.spy(console, 'debug') : sinon.spy(console, 'log');
     sinon.spy(console, 'info');
     sinon.spy(console, 'warn');
     sinon.spy(console, 'error');

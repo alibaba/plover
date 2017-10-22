@@ -41,10 +41,10 @@ describe('application', function() {
     });
 
     app.config.plover.should
-        .equal(require(pathUtil.join(configRoot, 'plover')));
+      .equal(require(pathUtil.join(configRoot, 'plover')));
 
     app.config.urls.should
-        .equal(require(pathUtil.join(configRoot, 'urls')));
+      .equal(require(pathUtil.join(configRoot, 'urls')));
 
     // 中间件上下文中可以取得config对象
     app.context.config.should.equal(app.config);
@@ -59,7 +59,7 @@ describe('application', function() {
     });
 
     app.config.plover.should
-        .equal(require(pathUtil.join(configRoot, 'plover')));
+      .equal(require(pathUtil.join(configRoot, 'plover')));
 
     app.config.urls.should.eql([]);
   });
@@ -171,8 +171,8 @@ describe('application', function() {
     });
 
     return request(app.callback())
-        .get('/')
-        .expect('hello world');
+      .get('/')
+      .expect('hello world');
   });
 
 

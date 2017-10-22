@@ -52,7 +52,7 @@ class Navigate {
    */
   addEngine(ext, engine) {
     assert(typeof engine.compile === 'function',
-        'render engine should be have a `compile` function');
+      'render engine should be have a `compile` function');
     logger.info('register engine: %s', ext);
     this.app.engines[ext] = engine;
   }
@@ -182,7 +182,7 @@ function logResult(data) {
   }
 
   logger.debug('set response: \n%s\n...',
-      data.substr(0, 1000));
+    data.substr(0, 1000));
 }
 
 

@@ -46,7 +46,7 @@ function get(name) {
       logger.debug('create helper object: %s', name);
       const Helper = helper;
       helper = new Helper(this[RD], this[VIEW_RENDER],
-          this[NAVIGATOR], this[APP]);
+        this[NAVIGATOR], this[APP]);
     }
     cache.set(name, helper);
   }

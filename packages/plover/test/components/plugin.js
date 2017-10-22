@@ -15,13 +15,13 @@ describe('components/plugin', function() {
 
     return co(function* () {
       yield agent.get('/test')
-          .expect('hello test');
+        .expect('hello test');
 
       yield agent.get('/test-withorder')
-          .expect('hello test-withorder');
+        .expect('hello test-withorder');
 
       yield agent.get('/last')
-          .expect('last');
+        .expect('last');
     });
   });
 
@@ -41,7 +41,7 @@ describe('components/plugin', function() {
 
     return co(function* () {
       yield agent.get('/test')
-          .expect('last');
+        .expect('last');
     });
   });
 

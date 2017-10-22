@@ -268,7 +268,7 @@ const rModuleName = /^\w/;
 function getModuleDirs(path) {
   const dirs = util.isDir(path) ? fs.readdirSync(path) : [];
   return dirs.filter(name => rModuleName.test(name))
-            .map(name => pathUtil.join(path, name));
+    .map(name => pathUtil.join(path, name));
 }
 
 

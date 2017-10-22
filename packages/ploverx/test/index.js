@@ -22,7 +22,7 @@ describe('ploverx', () => {
 
   it('should run app with default plugins', () => {
     return agent.get('/hello')
-        .expect(/<h1>Hello<\/h1>/);
+      .expect(/<h1>Hello<\/h1>/);
   });
 
 

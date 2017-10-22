@@ -104,7 +104,7 @@ describe('components/core', function() {
       }); // 3 for default
 
       return request(app.callback())
-          .get('/').expect('Hello Plover');
+        .get('/').expect('Hello Plover');
     });
 
 
@@ -125,7 +125,7 @@ describe('components/core', function() {
       }, { before: 'mycsrf' });
 
       return request(app.callback())
-          .get('/').expect('ignore csrf');
+        .get('/').expect('ignore csrf');
     });
 
 
@@ -165,7 +165,7 @@ describe('components/core', function() {
       app.use(papp.middleware());
 
       return request(app.callback())
-          .get('/').expect('hello plover');
+        .get('/').expect('hello plover');
     });
   });
 
@@ -219,7 +219,7 @@ describe('components/core', function() {
 
         // 500及以上 错误异常会打在页面上
         yield agent.get('/')
-            .expect(/Error: some error happen/);
+          .expect(/Error: some error happen/);
 
         // 其他的正常返回到浏览器端
         yield agent.get('/admin').expect(401);

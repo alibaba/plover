@@ -114,27 +114,27 @@ describe('components/navigate', function() {
 
     it('返回html', function() {
       return agent.get('/?module=index&action=view')
-          .expect(JSON.stringify({ module: 'index', action: 'view' }));
+        .expect(JSON.stringify({ module: 'index', action: 'view' }));
     });
 
 
     it('返回json', function() {
       return agent.get('/?module=index&action=update&type=json')
-          .expect('Content-Type', 'application/json')
-          .expect({ module: 'index', action: 'update' });
+        .expect('Content-Type', 'application/json')
+        .expect({ module: 'index', action: 'update' });
     });
 
 
     it('返回jsonp结果', function() {
       return agent.get('/?module=index&action=update&type=json&callback=myjsonp')
-          .expect('Content-Type', 'text/javascript')
-          .expect(jsonp({ module: 'index', action: 'update' }, 'myjsonp'));
+        .expect('Content-Type', 'text/javascript')
+        .expect(jsonp({ module: 'index', action: 'update' }, 'myjsonp'));
     });
 
 
     it('not found', function() {
       return agent.get('/?module=notfound&action=view')
-          .expect(404);
+        .expect(404);
     });
 
 
@@ -142,8 +142,8 @@ describe('components/navigate', function() {
       sinon.stub(Logger.prototype, 'error');
       return co(function* () {
         yield agent.get('/?module=invalid')
-            .expect(500)
-            .expect(/Internel Server Error/);
+          .expect(500)
+          .expect(/Internel Server Error/);
         Logger.prototype.error.called.should.be.true();
         Logger.prototype.error.args[0][0].should.match(/invalid navigate result/);
         Logger.prototype.error.restore();

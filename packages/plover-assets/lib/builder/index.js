@@ -112,6 +112,6 @@ function* runActions(app, actionList, options) {
   for (const action of actionList) {
     const fn = action.fn;
     lang.isGeneratorFunction(fn) ?
-        yield* fn(app, options) : fn(app, options);
+      yield* fn(app, options) : fn(app, options);
   }
 }

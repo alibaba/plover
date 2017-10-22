@@ -5,7 +5,7 @@ describe('util/router', function() {
   it('可以路由url', function() {
     const router = new Router();
     router.add('/offer/:offerId(\\d+)(\\.html)?',
-        'offer#view');
+      'offer#view');
 
     router.route('/offer/123').should.eql({
       module: 'offer',
@@ -208,10 +208,10 @@ describe('util/router', function() {
       { module: 'pages', action: 'show', query: { id: '$1', type: 'test' } });
 
     router.route('/pages').should
-        .eql({ module: 'pages', action: 'index', param: {}, query: {} });
+      .eql({ module: 'pages', action: 'index', param: {}, query: {} });
 
     router.route('/pages/123').should
-        .eql({ module: 'pages', action: 'show', query: { id: '123', type: 'test' } });
+      .eql({ module: 'pages', action: 'show', query: { id: '123', type: 'test' } });
 
     (() => {
       router.add('/pages/(\\d+)',

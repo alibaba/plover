@@ -13,9 +13,9 @@ describe('plover-web/web/params', () => {
     });
 
     return request(app.callback())
-        .post('/?page=23')
-        .send({ name: 'plover' })
-        .expect({ page: '23', name: 'plover' });
+      .post('/?page=23')
+      .send({ name: 'plover' })
+      .expect({ page: '23', name: 'plover' });
   });
 });
 

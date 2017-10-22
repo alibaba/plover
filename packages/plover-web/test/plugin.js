@@ -37,7 +37,7 @@ describe('plover-web/plugin', function() {
 
   it('compress', function() {
     return agent.get('/big.txt')
-        .expect('Content-Encoding', 'gzip');
+      .expect('Content-Encoding', 'gzip');
   });
 
 

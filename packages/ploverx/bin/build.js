@@ -43,7 +43,7 @@ if (require.main === module) {
     .parse(process.argv);
 
   const appRoot = program.applicationRoot ?
-      pathUtil.resolve(program.applicationRoot) : process.cwd();
+    pathUtil.resolve(program.applicationRoot) : process.cwd();
   const outputDir = program.outputDir && pathUtil.resolve(program.outputDir);
 
   const opts = {

@@ -40,9 +40,9 @@ module.exports = function(settings) {
 function create(name, config) {
   const match = config.match;
   const test = !match ? () => true :
-      typeof match === 'string' ? n => match === n :
+    typeof match === 'string' ? n => match === n :
       typeof match.test === 'function' ? n => match.test(n) :
-      typeof match === 'function' ? match : () => true;
+        typeof match === 'function' ? match : () => true;
 
   const transports = [];
   const File = winston.transports.File;

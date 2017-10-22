@@ -38,7 +38,7 @@ describe('util/route-cache', function() {
 
     // 第30个, 会清除原有offer/view的cache
     const success = routeCache.set('/offer/29',
-        { module: 'offer', action: 'view' });
+      { module: 'offer', action: 'view' });
     success.should.be.false();
 
     for (let i = 0; i < size; i++) {
@@ -49,7 +49,7 @@ describe('util/route-cache', function() {
 
   it('不存在的模块不route', function() {
     routeCache.set('/404', { module: 'not-found', action: 'view' })
-        .should.be.false();
+      .should.be.false();
 
     (routeCache.get('/404') === undefined).should.be.true();
   });

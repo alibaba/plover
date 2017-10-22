@@ -181,10 +181,10 @@ exports.renderError = function(e, development) {
 exports.notFound = function(url, development) {
   url = escapeHtml(url);
   const content = development ?
-`<h2 style="color: red; border: 1px dotted #f00; margin: 2px; padding: 5px 10px;">
-  Not Found: ${url}
-</h2>` :
-`<div class="plover-not-found" style="display: none" data-url="${url}"></div>`;
+    `<h2 style="color: red; border: 1px dotted #f00; margin: 2px; padding: 5px 10px;">
+      Not Found: ${url}
+    </h2>` :
+    `<div class="plover-not-found" style="display: none" data-url="${url}"></div>`;
   return { content: content };
 };
 
