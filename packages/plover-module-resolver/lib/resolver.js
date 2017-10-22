@@ -205,7 +205,7 @@ function loadLibModulesMap(libPath) {
   const pkgInfo = require(pkgPath);
   const deps = Object.assign({}, pkgInfo.dependencies, pkgInfo.devDependencies);
   for (const name in deps) {
-    const path = resolveFrom(libPath, name + '/package.json');
+    const path = resolveFrom.silent(libPath, name + '/package.json');
     if (path) {
       const moduleRoot = pathUtil.dirname(path);
       const info = getModuleInfo(moduleRoot, { ensure: true });
