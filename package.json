@@ -16,6 +16,7 @@
   "devDependencies": {
     "eslint": "^4.9.0",
     "eslint-config-bce": "^3.0.0",
+    "eslint-plugin-import": "^2.8.0",
     "istanbul": "^1.1.0-alpha",
     "mocha": "^4.0.1",
     "should": "^13.1.2"
