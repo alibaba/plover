@@ -13,8 +13,8 @@
   "dependencies": {},
   "devDependencies": {
     "istanbul": "^0.4.5",
-    "mocha": "^3.4.2",
-    "should": "^11.2.1"
+    "mocha": "^4.0.1",
+    "should": "^13.1.2"
   },
   "repository": {
     "type": "git",
