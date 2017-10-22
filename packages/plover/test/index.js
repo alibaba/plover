@@ -158,7 +158,7 @@ describe('application', function() {
     }
 
     class MyPlover extends plover.Application {
-      $prepareComponents() {
+      $prepareComponents() {  // eslint-disable-line
         return [Core, Plugin];
       }
     }

@@ -175,7 +175,7 @@ describe('components/core', function() {
       const callback = sinon.spy();
 
       class App extends plover.Application {
-        $mountMiddlewares(app, items) {
+        $mountMiddlewares(app, items) {  // eslint-disable-line
           callback();
           items = antsort(items, { defaultLevel: 3 });
           items.forEach(item => {

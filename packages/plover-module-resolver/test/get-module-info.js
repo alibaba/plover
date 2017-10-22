@@ -50,17 +50,17 @@ describe('plover-module-resolver/lib/getModuleInfo(path)', function() {
   it('空目录不算模块或目录不存都不算模块', function() {
     const path = pathUtil.join(__dirname, 'fixtures/empty');
     let info = getModuleInfo(path);
-    (!!info).should.not.be.ok;
+    (!!info).should.not.be.ok();
 
     info = getModuleInfo('notexist');
-    (!!info).should.not.be.ok;
+    (!!info).should.not.be.ok();
   });
 
 
   it('package.json存在plover节点不存在也不能算模块', function() {
     const path = pathUtil.join(__dirname, 'fixtures/withpkg');
     const info = getModuleInfo(path);
-    (!!info).should.not.be.ok;
+    (!!info).should.not.be.ok();
   });
 
 

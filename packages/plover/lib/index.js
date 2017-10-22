@@ -111,7 +111,7 @@ class Application extends EventEmitter {
    *
    * @since 1.0
    */
-  $prepareComponents() {
+  $prepareComponents() {  // eslint-disable-line
     // 核心的组成部分
     const components = [
       'core',     // 中间件
