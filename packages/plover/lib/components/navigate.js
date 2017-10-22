@@ -1,11 +1,11 @@
 const assert = require('assert');
 const jsonp = require('jsonp-body');
 const antsort = require('antsort');
-const minimatch = require('minimatch');
 const co = require('co');
 
 const RouteInfo = require('plover-util/lib/route-info');
 
+const util = require('../util/util');
 const Navigator = require('../core/navigator');
 const ActionContext = require('../core/action-context');
 const HelperContainer = require('../core/helper-container');
@@ -143,9 +143,7 @@ function prepareFilters(filters) {
   const result = [];
   list.forEach(item => {
     const o = filters[item.index];
-    const match = o.options.match;
-    o.match = match && typeof match === 'string' ?
-      minimatch.makeRe(match) : (match || null);
+    o.match = util.patternToRe(o.options.match);
     result.push(o);
   });
   return result;
