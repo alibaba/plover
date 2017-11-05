@@ -4,8 +4,8 @@
   "description": "plover assets helper and middleware",
   "main": "lib/index",
   "scripts": {
-    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks test",
-    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks test -R spec"
+    "test": "mocha --require should --reporter spec --recursive --check-leaks test",
+    "cov": "istanbul cover _mocha -- --require should --recursive --check-leaks test -R spec"
   },
   "files": [
     "lib"
@@ -13,7 +13,7 @@
   "dependencies": {
     "co": "^4.6.0",
     "create-tag": "^0.2.0",
-    "debug": "^2.6.8",
+    "debug": "^3.1.0",
     "fs-extra": "^4.0.0",
     "koa-sendfile": "^2.0.0",
     "lodash": "^4.17.4",
@@ -22,16 +22,16 @@
     "plover-logger": "^1.4.4",
     "plover-module-resolver": "^1.6.7",
     "plover-util": "^1.7.0",
-    "resolve-from": "^3.0.0"
+    "resolve-from": "^4.0.0"
   },
   "devDependencies": {
     "istanbul": "^1.1.0-alpha",
-    "mocha": "^3.4.2",
+    "mocha": "^4.0.1",
     "plover": "^3.0.1",
     "plover-arttemplate": "^3.0.0",
     "plover-ejs": "^1.1.0",
     "plover-test-mate": "^3.0.0",
-    "should": "^11.2.1",
+    "should": "^13.1.2",
     "supertest": "^3.0.0"
   },
   "plover": {

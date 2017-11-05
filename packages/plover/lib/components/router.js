@@ -50,7 +50,7 @@ function createRouteComponent(self) {
 
   // 可以通过settings.disableDefaultRouter关闭默认路由规则
   const defaultRouter = settings.disableDefaultRouter ?
-          null : createDefaultRouter();
+    null : createDefaultRouter();
 
   const routeCache = new RouteCache(self.app);
 

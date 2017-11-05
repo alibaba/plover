@@ -1,11 +1,11 @@
 const assert = require('assert');
 const jsonp = require('jsonp-body');
 const antsort = require('antsort');
-const pathToRegexp = require('path-to-regexp');
 const co = require('co');
 
 const RouteInfo = require('plover-util/lib/route-info');
 
+const util = require('../util/util');
 const Navigator = require('../core/navigator');
 const ActionContext = require('../core/action-context');
 const HelperContainer = require('../core/helper-container');
@@ -51,8 +51,10 @@ class Navigate {
    * @param {Object}  engine  - 模板引擎
    */
   addEngine(ext, engine) {
-    assert(typeof engine.compile === 'function',
-        'render engine should be have a `compile` function');
+    assert(
+      typeof engine.compile === 'function',
+      'render engine should be have a `compile` function'
+    );
     logger.info('register engine: %s', ext);
     this.app.engines[ext] = engine;
   }
@@ -141,8 +143,7 @@ function prepareFilters(filters) {
   const result = [];
   list.forEach(item => {
     const o = filters[item.index];
-    const match = o.options.match;
-    o.match = match ? pathToRegexp(match) : null;
+    o.match = util.patternToRe(o.options.match);
     result.push(o);
   });
   return result;
@@ -181,8 +182,10 @@ function logResult(data) {
     data = JSON.stringify(data);
   }
 
-  logger.debug('set response: \n%s\n...',
-      data.substr(0, 1000));
+  logger.debug(
+    'set response: \n%s\n...',
+    data.substr(0, 1000)
+  );
 }
 
 

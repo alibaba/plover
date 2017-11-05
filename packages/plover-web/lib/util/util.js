@@ -1,4 +1,4 @@
-const pathToRegexp = require('path-to-regexp');
+const minimatch = require('minimatch');
 
 
 exports.regularRules = function(rules) {
@@ -6,7 +6,7 @@ exports.regularRules = function(rules) {
   rules = Array.isArray(rules) ? rules : [rules];
   return rules.map(rule => {
     if (typeof rule === 'string') {
-      rule = pathToRegexp(rule);
+      rule = minimatch.makeRe(rule);
     }
     return rule;
   });

@@ -8,7 +8,7 @@ const plover = require('../../');
 const equal = require('../util').equalWith;
 
 
-/* eslint max-nested-callbacks: [2, 4] */
+/* eslint max-nested-callbacks: [2, 4], require-yield: 0 */
 
 
 describe('core/navigator', function() {
@@ -19,13 +19,13 @@ describe('core/navigator', function() {
   describe('渲染页面', function() {
     it('正常渲染一个页面', function() {
       return agent.get('/index')
-          .expect(equal('index.html'));
+        .expect(equal('index.html'));
     });
 
 
     it('返回json结果', function() {
       return agent.get('/api/offer')
-          .expect({ id: 123, name: 'test offer' });
+        .expect({ id: 123, name: 'test offer' });
     });
   });
 
@@ -222,8 +222,8 @@ describe('core/navigator', function() {
         defaultLayout: 'layouts#index'
       });
       return request(myapp.callback())
-          .get('/index')
-          .expect(equal('index-with-default-layout.html'));
+        .get('/index')
+        .expect(equal('index-with-default-layout.html'));
     });
   });
 
@@ -232,7 +232,7 @@ describe('core/navigator', function() {
     it('渲染Buffer', function() {
       return agent.get('/buffer')
         .expect(200)
-        .expect(new Buffer('hello world'));
+        .expect(Buffer.from('hello world'));
     });
   });
 });

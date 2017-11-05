@@ -2,6 +2,7 @@ const co = require('co');
 
 const invoker = require('../../lib/util/invoker');
 
+/* eslint require-yield: 0 */
 
 describe('util/invoker', function() {
   it('.filter', function() {

@@ -34,7 +34,7 @@ exports.filter = function* filter(list, method, context, reverse) {
 
 exports.run = function* (fn, context) {
   return lang.isAsyncFunction(fn) ? yield fn.call(context, context) :
-      lang.isGeneratorFunction(fn) ? yield* fn.call(context, context) :
+    lang.isGeneratorFunction(fn) ? yield* fn.call(context, context) :
       fn.call(context, context);
 };
 

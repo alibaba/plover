@@ -2,6 +2,7 @@ const co = require('co');
 const sinon = require('sinon');
 const ActionRunner = require('../../lib/core/action-runner');
 
+/* eslint require-yield: 0 */
 
 describe('core/action-runner', function() {
   it('work with filters', function() {
@@ -176,7 +177,7 @@ describe('core/action-runner', function() {
 
   it('work with arrow function', function() {
     const controller = {};
-    controller.view = (ctx) => {
+    controller.view = ctx => {
       ctx.body = 'hello';
     };
 

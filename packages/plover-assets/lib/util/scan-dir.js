@@ -53,13 +53,17 @@ function scan(root, dir, options, results) {
 
     /* istanbul ignore else  */
     if (stat.isFile()) {
-      if (test(file, rpath,
-               options.fileMatch, options.fileIgnore, options.fileMatchOnly)) {
+      if (test(
+        file, rpath,
+        options.fileMatch, options.fileIgnore, options.fileMatchOnly
+      )) {
         results.push(path);
       }
     } else if (stat.isDirectory()) {
-      if (test(file, rpath,
-               options.dirMatch, options.dirIgnore, options.dirMatchOnly)) {
+      if (test(
+        file, rpath,
+        options.dirMatch, options.dirIgnore, options.dirMatchOnly
+      )) {
         scan(root, path, options, results);
       }
     }
@@ -83,8 +87,10 @@ function makeRules(patterns, dirRules, fileRules) {
 
 /* eslint max-params: [2, 5] */
 function test(file, rpath, match, ignore, matchOnly) {
-  debug('test: %s, match: %o, ignore: %o, matchOnly: %s',
-        rpath, match, ignore, matchOnly);
+  debug(
+    'test: %s, match: %o, ignore: %o, matchOnly: %s',
+    rpath, match, ignore, matchOnly
+  );
 
   const fn = re => re.test(rpath);
   if (match.length && match.some(fn)) {

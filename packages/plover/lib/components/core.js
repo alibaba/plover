@@ -1,7 +1,6 @@
 const http = require('http');
 const assert = require('assert');
 const antsort = require('antsort');
-const pathToRegexp = require('path-to-regexp');
 const compose = require('koa-compose');
 const util = require('../util/util');
 
@@ -133,8 +132,10 @@ class Core {
    *   - method
    */
   addMiddleware(middleware, options) {
-    assert(typeof middleware === 'function',
-        'middleware should be typeof function');
+    assert(
+      typeof middleware === 'function',
+      'middleware should be typeof function'
+    );
 
     if (typeof options === 'number') {
       options = { level: options };
@@ -188,15 +189,15 @@ function mountMiddlewares(server, items) {
 
 
 function createProxy(mw, options) {
-  const re = options.match && pathToRegexp(options.match);
+  const re = util.patternToRe(options.match);
   const name = 'proxy-' + options.match +
       '->' + (mw.name || mw.$name);
 
   logger.info('create proxy middleware: %s -> %s', re, name);
 
   const result = (ctx, next) => {
-    if (!re || re.test(ctx.path)) {
-      if (!options.method || match(ctx, options.method)) {
+    if (!options.method || match(ctx, options.method)) {
+      if (!re || re.test(ctx.path)) {
         logger.debug('%s matches %s', ctx.path, name);
         return mw(ctx, next);
       }

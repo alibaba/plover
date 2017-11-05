@@ -23,7 +23,7 @@ exports.loadBuildConfig = function* (info) {
   const path = pathUtil.join(info.path, 'build.js');
   const config = (yield fs.exists(path)) ? require(path) : {};
   const obj = info.build ? info.build :
-      info.build === false ? { enable: false } : null;
+    info.build === false ? { enable: false } : null;
   return Object.assign({}, config, obj);
 };
 

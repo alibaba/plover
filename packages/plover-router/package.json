@@ -3,8 +3,8 @@
   "version": "3.2.0",
   "description": "为Plover应用提供Restful形式API。",
   "scripts": {
-    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks test/",
-    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks test/ -R spec"
+    "test": "mocha --require should --reporter spec --recursive --check-leaks test/",
+    "cov": "istanbul cover _mocha -- --require should --recursive --check-leaks test/ -R spec"
   },
   "files": [
     "lib"
@@ -14,11 +14,11 @@
   },
   "devDependencies": {
     "istanbul": "^1.1.0-alpha",
-    "mocha": "^3.4.2",
+    "mocha": "^4.0.1",
     "plover-test-mate": "^3.0.0",
-    "plover-web": "^3.0.0",
-    "should": "^11.2.1",
-    "sinon": "^2.4.1"
+    "plover-web": "^3.1.0",
+    "should": "^13.1.2",
+    "sinon": "^4.0.1"
   },
   "plover": {
     "plugin": "lib/plugin.js"

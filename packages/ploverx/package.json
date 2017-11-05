@@ -31,10 +31,10 @@
   },
   "devDependencies": {
     "co": "^4.6.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.2.0",
-    "should": "^11.2.0",
-    "sinon": "^2.1.0",
+    "istanbul": "^1.1.0-alpha",
+    "mocha": "^4.0.1",
+    "should": "^13.1.2",
+    "sinon": "^4.0.1",
     "supertest": "^3.0.0"
   },
   "repository": {

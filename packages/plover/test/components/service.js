@@ -3,6 +3,7 @@ const sinon = require('sinon');
 const request = require('supertest');
 const plover = require('../../');
 
+/* eslint require-yield: 0 */
 
 describe('components/service', function() {
   const settings = { applicationRoot: 'somepath' };
@@ -27,8 +28,8 @@ describe('components/service', function() {
     }).should.throw(/service name conflict: calc/);
 
     return request(app.callback())
-        .get('/')
-        .expect('3');
+      .get('/')
+      .expect('3');
   });
 
 
@@ -56,8 +57,8 @@ describe('components/service', function() {
 
     return co(function* () {
       yield request(app.callback())
-          .get('/hello')
-          .expect('/hello/100');
+        .get('/hello')
+        .expect('/hello/100');
 
       NotUsed.called.should.be.false();
     });

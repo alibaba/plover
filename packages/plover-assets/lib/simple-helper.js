@@ -12,11 +12,11 @@ class Helper {
 
     const prefix = config.prefix || '/g';
     const urlPrefix = settings.development ? prefix :
-        (config.urlPrefix || prefix);
+      (config.urlPrefix || prefix);
 
     this.urlPrefix = urlPrefix.replace(rSlashEnd, '');
     this.manifest = settings.development ? null :
-        assetsUtil.loadManifest(settings);
+      assetsUtil.loadManifest(settings);
   }
 
 

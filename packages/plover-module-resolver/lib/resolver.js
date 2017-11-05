@@ -1,4 +1,3 @@
-'use strict';
 
 
 const fs = require('fs');
@@ -206,7 +205,7 @@ function loadLibModulesMap(libPath) {
   const pkgInfo = require(pkgPath);
   const deps = Object.assign({}, pkgInfo.dependencies, pkgInfo.devDependencies);
   for (const name in deps) {
-    const path = resolveFrom(libPath, name + '/package.json');
+    const path = resolveFrom.silent(libPath, name + '/package.json');
     if (path) {
       const moduleRoot = pathUtil.dirname(path);
       const info = getModuleInfo(moduleRoot, { ensure: true });
@@ -268,7 +267,7 @@ const rModuleName = /^\w/;
 function getModuleDirs(path) {
   const dirs = util.isDir(path) ? fs.readdirSync(path) : [];
   return dirs.filter(name => rModuleName.test(name))
-            .map(name => pathUtil.join(path, name));
+    .map(name => pathUtil.join(path, name));
 }
 
 

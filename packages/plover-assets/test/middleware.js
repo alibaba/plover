@@ -31,25 +31,25 @@ describe('middleware', function() {
 
   it('module assets', function() {
     return app.get('/g/index/css/view.css')
-        .expect('body { }\n');
+      .expect('body { }\n');
   });
 
 
   it('module assets with handler', function() {
     return app.get('/g/index/css/test.css')
-        .expect('compiled: body: {}\n');
+      .expect('compiled: body: {}\n');
   });
 
 
   it('module assets not exists', function() {
     return app.get('/g/index/css/not-exists.css')
-        .expect(404);
+      .expect(404);
   });
 
 
   it('concat assets', function() {
     return app.get('/g/??index.html,index/js/a.js,index/js/b.js,index/css/test.css,not-found.js')   // eslint-disable-line
-        .expect('Hello World\n\nvar a = 1;\n\nvar b = 2;\n\ncompiled: body: {}\n\n');
+      .expect('Hello World\n\nvar a = 1;\n\nvar b = 2;\n\ncompiled: body: {}\n\n');
   });
 
 

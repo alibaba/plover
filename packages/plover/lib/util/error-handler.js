@@ -20,8 +20,8 @@ module.exports = function(config) {
       logger.error(e);
       ctx.status = status;
       const message = development ?
-          '<pre>' + util.inspect(e) + '\n' + (e.stack || '') + '</pre>' :
-          'Internel Server Error';
+        '<pre>' + util.inspect(e) + '\n' + (e.stack || '') + '</pre>' :
+        'Internel Server Error';
       ctx.body = message;
     });
   };

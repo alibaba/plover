@@ -41,10 +41,10 @@ describe('application', function() {
     });
 
     app.config.plover.should
-        .equal(require(pathUtil.join(configRoot, 'plover')));
+      .equal(require(pathUtil.join(configRoot, 'plover')));
 
     app.config.urls.should
-        .equal(require(pathUtil.join(configRoot, 'urls')));
+      .equal(require(pathUtil.join(configRoot, 'urls')));
 
     // 中间件上下文中可以取得config对象
     app.context.config.should.equal(app.config);
@@ -59,7 +59,7 @@ describe('application', function() {
     });
 
     app.config.plover.should
-        .equal(require(pathUtil.join(configRoot, 'plover')));
+      .equal(require(pathUtil.join(configRoot, 'plover')));
 
     app.config.urls.should.eql([]);
   });
@@ -132,8 +132,7 @@ describe('application', function() {
     const app = plover({ applicationRoot: path });
 
     app.on('error', function(e) {
-      e.message.should.be.match(
-        'b@2.0.0 is not compatible with a which depend on b@~1.0.0');
+      e.message.should.be.match('b@2.0.0 is not compatible with a which depend on b@~1.0.0');
       done();
     });
   });
@@ -159,7 +158,7 @@ describe('application', function() {
     }
 
     class MyPlover extends plover.Application {
-      $prepareComponents() {
+      $prepareComponents() {  // eslint-disable-line
         return [Core, Plugin];
       }
     }
@@ -171,8 +170,8 @@ describe('application', function() {
     });
 
     return request(app.callback())
-        .get('/')
-        .expect('hello world');
+      .get('/')
+      .expect('hello world');
   });
 
 

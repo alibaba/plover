@@ -111,8 +111,8 @@ class Application extends EventEmitter {
    *
    * @since 1.0
    */
-  $prepareComponents() {
-     // 核心的组成部分
+  $prepareComponents() {  // eslint-disable-line
+    // 核心的组成部分
     const components = [
       'core',     // 中间件
       'service',  // 服务
@@ -139,16 +139,18 @@ exports.Application = Application;
  * 初始化日志级别和环境变量
  */
 function prepareEnv(settings) {
-  assert(settings.applicationRoot,
-      '`settings.applicationRoot` required');
+  assert(
+    settings.applicationRoot,
+    '`settings.applicationRoot` required'
+  );
 
   // 可以通过环境变量或配置指定日志级别
   // 1. 环境变量`LOG_LEVEL`优先
   // 2. 设置了`DEBUG`则默认将日志级别设置为'debug'
   // 3. 最后从配置中读取
   const logLevel = process.env.LOG_LEVEL ? process.env.LOG_LEVEL :
-            process.env.DEBUG ? 'debug' :
-            settings.logger ? settings.logger.level : false;
+    process.env.DEBUG ? 'debug' :
+      settings.logger ? settings.logger.level : false;
 
   if (logLevel) {
     Logger.level = logLevel.toLowerCase();

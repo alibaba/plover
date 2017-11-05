@@ -1,4 +1,4 @@
-'use strict';
+
 
 const pathUtil = require('path');
 const Resolver = require('..');
@@ -210,11 +210,15 @@ describe('plover-module-resolver', function() {
       });
     }
 
-    test('依赖的模块版本不兼容', 'dep-not-compatible',
-      'b@2.0.0 is not compatible with a which depend on b@~1.0.0');
+    test(
+      '依赖的模块版本不兼容', 'dep-not-compatible',
+      'b@2.0.0 is not compatible with a which depend on b@~1.0.0'
+    );
 
-    test('依赖的模块不存在', 'dep-not-exists',
-      'the module b which is required by a can not be found.');
+    test(
+      '依赖的模块不存在', 'dep-not-exists',
+      'the module b which is required by a can not be found.'
+    );
 
     test('依赖的模块版本兼容', 'dep-ok');
   });

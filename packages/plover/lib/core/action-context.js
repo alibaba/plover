@@ -90,8 +90,10 @@ class ActionContext {
    */
   get params() {
     if (!this[PARAMS]) {
-      this[PARAMS] = assign({}, this.route.query,
-        this.ctx.request.body);
+      this[PARAMS] = assign(
+        {}, this.route.query,
+        this.ctx.request.body
+      );
     }
     return this[PARAMS];
   }
@@ -261,9 +263,9 @@ module.exports = ActionContext;
 
 
 delegate(ActionContext.prototype, 'ctx')
-    .method('throw')
-    .method('assert')
-    .method('redirect');
+  .method('throw')
+  .method('assert')
+  .method('redirect');
 
 
 ActionContext.refine = function(app) {

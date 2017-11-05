@@ -4,8 +4,8 @@
   "description": "Plover视图插件，提供页面渲染的工具函数和重用方案。",
   "main": "lib/index",
   "scripts": {
-    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks test/",
-    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks test/ -R spec"
+    "test": "mocha --require should --reporter spec --recursive --check-leaks test/",
+    "cov": "istanbul cover _mocha -- --require should --recursive --check-leaks test/ -R spec"
   },
   "files": [
     "lib"
@@ -14,15 +14,15 @@
     "create-tag": "^0.2.0",
     "escape-html": "^1.0.3",
     "output-formatter": "^1.0.2",
-    "plover-util": "^1.7.0"
+    "plover-util": "^1.8.0"
   },
   "devDependencies": {
     "istanbul": "^1.1.0-alpha",
-    "mocha": "^3.2.0",
-    "plover": "^3.0.1",
-    "plover-arttemplate": "^3.1.0",
+    "mocha": "^4.0.1",
+    "plover": "^3.1.0",
+    "plover-arttemplate": "^3.4.0",
     "plover-test-mate": "^3.0.0",
-    "should": "^11.1.1",
+    "should": "^13.1.2",
     "supertest": "^3.0.0"
   },
   "plover": {

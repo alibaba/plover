@@ -1,4 +1,3 @@
-'use strict';
 
 
 exports.isGenerator = function(obj) {

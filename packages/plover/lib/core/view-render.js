@@ -139,7 +139,7 @@ function* render(self, rd, view, ctx) { // eslint-disable-line
   const ret = yield* beforeRender(self, rd, ctx);
   if (ret === false) {
     return ctx.body !== undefined && ctx.body !== null ?
-        { content: ctx.body } : null;
+      { content: ctx.body } : null;
   }
 
   // 渲染内容

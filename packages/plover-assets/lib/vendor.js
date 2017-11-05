@@ -24,14 +24,16 @@ module.exports = function(app) {
 
 function loadVendor(app, settings, item) {
   item = typeof item === 'string' ? { name: item } : item;
-  const path = resolveFrom(settings.applicationRoot,
-      item.name + '/package.json');
+  const path = resolveFrom(
+    settings.applicationRoot,
+    item.name + '/package.json'
+  );
   const root = pathUtil.dirname(path);
   const pkg = require(path);
 
   const tryPath = pathUtil.join(root, 'dist');
   const dist = item.dist ? pathUtil.join(root, item.dist) :
-      isDir(tryPath) ? tryPath : root;
+    isDir(tryPath) ? tryPath : root;
 
   const info = {
     name: pkg.name.replace(rNamespace, ''),   // remove namespace

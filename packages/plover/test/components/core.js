@@ -7,7 +7,7 @@ const antsort = require('antsort');
 const plover = require('../../');
 
 
-/* eslint no-console: 0, max-nested-callbacks: [2, 4], consistent-return: 0 */
+/* eslint no-console: 0, max-nested-callbacks: [2, 4], consistent-return: 0, require-yield: 0 */
 
 
 describe('components/core', function() {
@@ -39,7 +39,7 @@ describe('components/core', function() {
 
     it('使用listen可以快速启动应用', function() {
       const app = plover(settings);
-      return app.listen(1234);
+      return app.listen(8765);
     });
   });
 
@@ -104,7 +104,7 @@ describe('components/core', function() {
       }); // 3 for default
 
       return request(app.callback())
-          .get('/').expect('Hello Plover');
+        .get('/').expect('Hello Plover');
     });
 
 
@@ -125,7 +125,7 @@ describe('components/core', function() {
       }, { before: 'mycsrf' });
 
       return request(app.callback())
-          .get('/').expect('ignore csrf');
+        .get('/').expect('ignore csrf');
     });
 
 
@@ -165,7 +165,7 @@ describe('components/core', function() {
       app.use(papp.middleware());
 
       return request(app.callback())
-          .get('/').expect('hello plover');
+        .get('/').expect('hello plover');
     });
   });
 
@@ -175,7 +175,7 @@ describe('components/core', function() {
       const callback = sinon.spy();
 
       class App extends plover.Application {
-        $mountMiddlewares(app, items) {
+        $mountMiddlewares(app, items) {  // eslint-disable-line
           callback();
           items = antsort(items, { defaultLevel: 3 });
           items.forEach(item => {
@@ -219,7 +219,7 @@ describe('components/core', function() {
 
         // 500及以上 错误异常会打在页面上
         yield agent.get('/')
-            .expect(/Error: some error happen/);
+          .expect(/Error: some error happen/);
 
         // 其他的正常返回到浏览器端
         yield agent.get('/admin').expect(401);

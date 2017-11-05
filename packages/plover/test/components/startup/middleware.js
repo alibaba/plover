@@ -5,9 +5,12 @@ const request = require('supertest');
 const plover = require('../../../');
 const plugin = require('../../../lib/components/startup/middleware');
 
+/* eslint require-yield: 0 */
 
-const fixtureRoot = pathUtil.join(__dirname,
-        '../../fixtures/components/startup');
+const fixtureRoot = pathUtil.join(
+  __dirname,
+  '../../fixtures/components/startup'
+);
 
 
 describe('components/startup/middleware', function() {
@@ -105,7 +108,7 @@ describe('components/startup/middleware', function() {
       this.body = 'hello';
     });
     return request(app.callback())
-        .get('/').expect('hello');
+      .get('/').expect('hello');
   });
 });
 

@@ -1,4 +1,3 @@
-'use strict';
 
 
 const SafeString = require('..').SafeString;

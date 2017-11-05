@@ -4,17 +4,17 @@
   "description": "【核心模块】有些在核心中使用的工具模块，但在插件中也要使用，所以独立出来。",
   "main": "lib/index",
   "scripts": {
-    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks test/",
-    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks test/ -R spec"
+    "test": "mocha --require should --reporter spec --recursive --check-leaks test/",
+    "cov": "istanbul cover _mocha -- --require should --recursive --check-leaks test/ -R spec"
   },
   "files": [
     "lib"
   ],
   "dependencies": {},
   "devDependencies": {
-    "istanbul": "^0.4.5",
-    "mocha": "^3.4.2",
-    "should": "^11.2.1"
+    "istanbul": "^1.1.0-alpha",
+    "mocha": "^4.0.1",
+    "should": "^13.1.2"
   },
   "repository": {
     "type": "git",

@@ -6,7 +6,7 @@ describe('plover-route/lib/plugin', () => {
   it('config routes', () => {
     const app = mm({
       applicationRoot: __dirname,
-      routes: (r) => {
+      routes: r => {
         r.get('/profile', 'users#show');
         r.use('/hello', ctx => {
           ctx.body = 'hello';

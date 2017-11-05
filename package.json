@@ -4,9 +4,9 @@
   "description": "专注于模块化的NodeJs Web框架",
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha --require should --reporter spec --recursive --bail --check-leaks --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
-    "cov": "istanbul cover _mocha -- --require should --recursive --bail --check-leaks --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
-    "travis": "istanbul cover _mocha --report lcovonly -- --require should --recursive --bail --check-leaks --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
+    "test": "mocha --require should --reporter spec --recursive --check-leaks --exit --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
+    "cov": "istanbul cover _mocha -- --require should --recursive --check-leaks --exit --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
+    "travis": "istanbul cover _mocha --report lcovonly -- --require should --recursive --check-leaks --exit --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
     "ci": "npm run lint && npm run travis"
   },
   "repository": {
@@ -14,12 +14,12 @@
     "url": "git+https://github.com/alibaba/plover.git"
   },
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb-base": "^11.3.1",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint": "^4.9.0",
+    "eslint-config-bce": "^3.0.0",
+    "eslint-plugin-import": "^2.8.0",
     "istanbul": "^1.1.0-alpha",
-    "mocha": "^3.2.0",
-    "should": "^11.2.1"
+    "mocha": "^4.0.1",
+    "should": "^13.1.2"
   },
   "author": "bencode@163.com",
   "license": "Apache-2.0",

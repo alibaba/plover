@@ -3,6 +3,7 @@ const sinon = require('sinon');
 const supertest = require('supertest');
 const plover = require('../../');
 
+/* eslint require-yield: 0 */
 
 describe('components/router', function() {
   const settings = { applicationRoot: 'somepath' };
