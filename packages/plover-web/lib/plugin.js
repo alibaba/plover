@@ -11,8 +11,7 @@ module.exports = function(app) {
   }
 
   installKoaUtillity(app, config);
-
-  require('./web/session')(app, config.session);
+  installSession(app, config.session);
   installFlash(app);
 
   if (config.outputCharset) {
@@ -67,6 +66,10 @@ function installOutputCharset(app, config) {
   add(app, mw);
 }
 
+function installSession(app, config) {
+  const mw = require('./web/session')(config, app.server);
+  add(app, mw);
+}
 
 function installFlash(app) {
   const mw = require('./web/flash')(app);
@@ -79,7 +82,6 @@ function installSecurityHeaders(app) {
   const mw = require('./security/security-headers')(opts);
   add(app, mw);
 }
-
 
 function installStatic(app, config) {
   const root = config.root ||

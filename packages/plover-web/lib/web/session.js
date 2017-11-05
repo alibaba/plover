@@ -1,31 +1,16 @@
-/* eslint import/no-unresolved: 0 */
+const session = require('koa-session');
 
-module.exports = function(app, opts) {
-  opts = opts || {};
-  const store = opts.store;
 
-  if (store === 'redis') {
-    installRedisSession(app, opts);
-    return;
-  }
-
-  installCookieSession(app, opts);
+module.exports = function(opts, app) {
+  opts = Object.assign({}, opts);
+  opts.store = createStore(opts.store, opts.storeOpts);
+  return session(opts, app);
 };
 
 
-function installRedisSession(app, opts) {
-  const session = require('koa-generic-session');
-  const redisStore = require('koa-redis');
-
-  opts = Object.assign({}, opts);
-  opts.store = redisStore(opts.storeOpts);
-
-  const mw = session(opts);
-  app.use(mw, { level: 0 });
-}
-
-
-function installCookieSession(app, opts) {
-  const mw = require('koa-session')(opts, app.server);
-  app.use(mw, { level: 0 });
+function createStore(store, opts) {
+  if (store === 'redis') {
+    return require('koa-redis')(opts);
+  }
+  return null;
 }
