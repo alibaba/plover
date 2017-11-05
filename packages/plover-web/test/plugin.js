@@ -12,6 +12,7 @@ describe('plover-web/plugin', function() {
 
   plugin(app);
   hello(app);
+  login(app);
 
   const agent = request.agent(app.callback());
 
@@ -56,6 +57,12 @@ describe('plover-web/plugin', function() {
       .expect('X-Content-Type-Options', 'nosniff')
       .expect('X-Download-Options', 'noopen');
   });
+
+
+  it('session', async function() {
+    await agent.get('/login').expect('ok');
+    await agent.get('/user').expect({ name: 'tester' });
+  });
 });
 
 
@@ -63,6 +70,20 @@ function hello(app) {
   app.use(async(ctx, next) => {
     if (ctx.path === '/hello') {
       ctx.body = 'hello';
+    } else {
+      await next();
+    }
+  });
+}
+
+
+function login(app) {
+  app.use(async(ctx, next) => {
+    if (ctx.path === '/login') {
+      ctx.session.user = { name: 'tester' };
+      ctx.body = 'ok';
+    } else if (ctx.path === '/user') {
+      ctx.body = ctx.session.user;
     } else {
       await next();
     }
