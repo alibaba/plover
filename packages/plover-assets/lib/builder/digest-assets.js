@@ -21,8 +21,8 @@ module.exports = function(settings, options) {
     const outpath = pathUtil.join(pathUtil.dirname(path), filename + ext);
     fs.copySync(path, outpath);
 
-    const from = pathUtil.relative(root, path);
-    const to = pathUtil.relative(root, outpath);
+    const from = pathUtil.relative(root, path).replace(/\\/g, '/');
+    const to = pathUtil.relative(root, outpath).replace(/\\/g, '/');
     manifest[from] = to;
   }
 
