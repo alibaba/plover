@@ -7,13 +7,15 @@
     "test": "mocha --require should --reporter spec --recursive --check-leaks --exit --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
     "cov": "istanbul cover _mocha -- --require should --recursive --check-leaks --exit --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
     "travis": "istanbul cover _mocha --report lcovonly -- --require should --recursive --check-leaks --exit --timeout 5000 $(find packages/*/test -name '*.js' ! -path 'packages/*/test/fixtures/*')",
-    "ci": "npm run lint && npm run travis"
+    "ci": "npm run lint && npm run travis",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -o CHANGELOG.md -s"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alibaba/plover.git"
   },
   "devDependencies": {
+    "conventional-changelog-cli": "^1.3.5",
     "eslint": "^4.9.0",
     "eslint-config-bce": "^3.0.0",
     "eslint-plugin-import": "^2.8.0",
