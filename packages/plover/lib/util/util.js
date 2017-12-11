@@ -2,7 +2,7 @@ const pathUtil = require('path');
 const resolveFrom = require('resolve-from');
 const convert = require('koa-convert');
 const lang = require('plover-util/lib/lang');
-const minimatch = require('minimatch');
+const pathToRegexp = require('path-to-regexp');
 
 const depd = require('depd')('plover');
 
@@ -81,7 +81,7 @@ exports.convertMiddleware = function(app, mw, options) {
 
 exports.patternToRe = function(pattern) {
   if (pattern && typeof pattern === 'string') {
-    return minimatch.makeRe(pattern);
+    return pathToRegexp(pattern.replace(/\/\*/g, '/(.*)'));
   }
   return pattern || null;
 };

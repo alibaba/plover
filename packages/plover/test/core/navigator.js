@@ -1,6 +1,5 @@
 const fs = require('fs');
 const pathUtil = require('path');
-const co = require('co');
 const sinon = require('sinon');
 const request = require('supertest');
 
@@ -71,7 +70,7 @@ describe('core/navigator', function() {
   });
 
 
-  it('使用filter', function() {
+  it('使用filter', async function() {
     const thisApp = plover({
       applicationRoot: root,
       filters: ['./lib/filters/box.js']
@@ -82,14 +81,12 @@ describe('core/navigator', function() {
 
     const thisAgent = request.agent(thisApp.callback());
 
-    return co(function* () {
-      yield thisAgent.get('/index?layout=false')
-        .expect(equal('index-with-filter.html'));
+    await thisAgent.get('/index?layout=false')
+      .expect(equal('index-with-filter.html'));
 
-      yield thisAgent.get('/api/offer')
-        .expect('X-API', '112233')
-        .expect({ id: 123, name: 'test offer' });
-    });
+    await thisAgent.get('/api/offer')
+      .expect('X-API', '112233')
+      .expect({ id: 123, name: 'test offer' });
   });
 
 
@@ -140,7 +137,7 @@ describe('core/navigator', function() {
   });
 
 
-  it('开发模式下，控制器有更新会自动生效', function() {
+  it('开发模式下，控制器有更新会自动生效', async function() {
     const thisApp = plover({
       applicationRoot: root,
       env: 'development'
@@ -148,20 +145,18 @@ describe('core/navigator', function() {
 
     const r = request.agent(thisApp.callback());
 
-    return co(function* () {
-      yield r.get('/dev').expect('dev');
+    await r.get('/dev').expect('dev');
 
-      // 更新controller
-      const src = pathUtil.join(root, 'modules/dev/index.js');
-      const des = pathUtil.join(root, 'modules/dev/index-update.js');
-      const bak = src + '.bak';
-      fs.renameSync(src, bak);
-      fs.renameSync(des, src);
+    // 更新controller
+    const src = pathUtil.join(root, 'modules/dev/index.js');
+    const des = pathUtil.join(root, 'modules/dev/index-update.js');
+    const bak = src + '.bak';
+    fs.renameSync(src, bak);
+    fs.renameSync(des, src);
 
-      yield r.get('/dev').expect('dev-update');
-      fs.renameSync(src, des);
-      fs.renameSync(bak, src);
-    });
+    await r.get('/dev').expect('dev-update');
+    fs.renameSync(src, des);
+    fs.renameSync(bak, src);
   });
 
 

@@ -1,4 +1,3 @@
-const co = require('co');
 const Koa = require('koa');
 const request = require('supertest');
 const sinon = require('sinon');
@@ -45,7 +44,7 @@ describe('components/core', function() {
 
 
   describe('app.addMiddleware(middleware, [options])', function() {
-    it('添加中间件', function() {
+    it('添加中间件', async function() {
       const app = plover(settings);
 
       app.use(async(ctx, next) => {
@@ -73,12 +72,9 @@ describe('components/core', function() {
       });
 
       const agent = request(app.callback());
-
-      return co(function* () {
-        yield agent.get('/a').expect('hello world a');
-        yield agent.get('/b').expect('hello world b');
-        yield agent.get('/c').expect('hello world c');
-      });
+      await agent.get('/a').expect('hello world a');
+      await agent.get('/b').expect('hello world b');
+      await agent.get('/c').expect('hello world c');
     });
 
 
@@ -129,7 +125,7 @@ describe('components/core', function() {
     });
 
 
-    it('使用match/method匹配中间件的访问', function() {
+    it('使用match/method匹配中间件的访问', async function() {
       const app = plover(settings);
 
       app.addMiddleware(function* () {
@@ -140,15 +136,21 @@ describe('components/core', function() {
         this.body = 'uploaded';
       }, { match: '/upload', method: 'post' });
 
+      app.use(async ctx => {
+        ctx.body = 'api';
+      }, { match: '/api/*' });
+
       const agent = request.agent(app.callback());
 
-      return co(function* () {
-        yield agent.get('/').expect(404);
-        yield agent.get('/hello/123').expect('hello');
+      await agent.get('/').expect(404);
+      await agent.get('/hello/123').expect('hello');
 
-        yield agent.get('/upload').expect(404);
-        yield agent.post('/upload').expect('uploaded');
-      });
+      await agent.get('/upload').expect(404);
+      await agent.post('/upload').expect('uploaded');
+
+      await agent.get('/api/').expect('api');
+      await agent.get('/api/hello').expect('api');
+      await agent.get('/api/people/hello').expect('api');
     });
   });
 
@@ -201,7 +203,7 @@ describe('components/core', function() {
 
 
   describe('环境相关', function() {
-    it('开发环境时，异常会打印在页面上', function() {
+    it('开发环境时，异常会打印在页面上', async function() {
       const app = plover(settings);
 
       app.addMiddleware(function* () {
@@ -214,18 +216,15 @@ describe('components/core', function() {
 
       sinon.stub(console, 'error');
 
-      return co(function* () {
-        const agent = request(app.callback());
+      const agent = request(app.callback());
 
-        // 500及以上 错误异常会打在页面上
-        yield agent.get('/')
-          .expect(/Error: some error happen/);
+      // 500及以上 错误异常会打在页面上
+      await agent.get('/').expect(/Error: some error happen/);
 
-        // 其他的正常返回到浏览器端
-        yield agent.get('/admin').expect(401);
+      // 其他的正常返回到浏览器端
+      await agent.get('/admin').expect(401);
 
-        console.error.restore();
-      });
+      console.error.restore();
     });
   });
 });
