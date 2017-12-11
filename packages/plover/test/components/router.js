@@ -94,7 +94,8 @@ describe('components/router', function() {
     // 所以这里先添加一个
     app.moduleResolver.pushModule({
       name: 'index',
-      reload: false
+      reload: false,
+      views: []
     });
 
     const Router = require('../../lib/util/router');
