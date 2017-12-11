@@ -1,11 +1,37 @@
 <a name="4.3.0"></a>
-# [4.3.0](https://github.com/alibaba/plover/compare/v2.11.0...v4.3.0) (2017-12-11)
+# [4.3.0](https://github.com/alibaba/plover/compare/v4.1.0...v4.3.0) (2017-12-11)
+
+
+### Bug Fixes
+
+* 修复layout和页面资源渲染顺序问题 ([5e121c8](https://github.com/alibaba/plover/commit/5e121c8))
+
+
+### Features
+
+* finish simple helper ([35612bf](https://github.com/alibaba/plover/commit/35612bf))
+* 添加简单资源帮助方法 ([445eb92](https://github.com/alibaba/plover/commit/445eb92))
+
+
+
+<a name="4.1.0"></a>
+# [4.1.0](https://github.com/alibaba/plover/compare/v4.0.0...v4.1.0) (2017-06-29)
 
 
 ### Bug Fixes
 
 * render with option layout=false to disable layout ([487ed10](https://github.com/alibaba/plover/commit/487ed10))
-* 修复layout和页面资源渲染顺序问题 ([5e121c8](https://github.com/alibaba/plover/commit/5e121c8))
+
+
+### Features
+
+* parse http method from head `x-http-method-override` ([151f015](https://github.com/alibaba/plover/commit/151f015))
+* resouces for singleton ([aad7265](https://github.com/alibaba/plover/commit/aad7265))
+
+
+
+<a name="4.0.0"></a>
+# [4.0.0](https://github.com/alibaba/plover/compare/v2.11.0...v4.0.0) (2017-03-30)
 
 
 ### Features
@@ -16,15 +42,11 @@
 * [plover] add app#use(middleware, [optioins]) ([ba90407](https://github.com/alibaba/plover/commit/ba90407))
 * [plover] support async function ([8ae21a1](https://github.com/alibaba/plover/commit/8ae21a1))
 * add util.isPureFunction() ([d11c4be](https://github.com/alibaba/plover/commit/d11c4be))
-* finish simple helper ([35612bf](https://github.com/alibaba/plover/commit/35612bf))
-* parse http method from head `x-http-method-override` ([151f015](https://github.com/alibaba/plover/commit/151f015))
-* resouces for singleton ([aad7265](https://github.com/alibaba/plover/commit/aad7265))
 * upgrade koa to 2.0 ([78be25e](https://github.com/alibaba/plover/commit/78be25e))
-* upgrade to koa@2 ([54c7248](https://github.com/alibaba/plover/commit/54c7248))
 * upgrade to koa@2 ([14f5ab6](https://github.com/alibaba/plover/commit/14f5ab6))
 * upgrade to koa@2 ([58b5add](https://github.com/alibaba/plover/commit/58b5add))
+* upgrade to koa@2 ([54c7248](https://github.com/alibaba/plover/commit/54c7248))
 * v3.0 ([24deb1f](https://github.com/alibaba/plover/commit/24deb1f))
-* 添加简单资源帮助方法 ([445eb92](https://github.com/alibaba/plover/commit/445eb92))
 * 迁移plover-assets到主仓库，方便后续统一维护 ([5f68df3](https://github.com/alibaba/plover/commit/5f68df3))
 
 
@@ -133,6 +155,11 @@
 
 
 
+<a name="2.7.1"></a>
+## [2.7.1](https://github.com/alibaba/plover/compare/v2.7.0...v2.7.1) (2016-10-06)
+
+
+
 <a name="2.7.0"></a>
 # [2.7.0](https://github.com/alibaba/plover/compare/v2.6.1...v2.7.0) (2016-10-01)
 
@@ -205,6 +232,11 @@
 
 
 
+<a name="2.2.1"></a>
+## [2.2.1](https://github.com/alibaba/plover/compare/v2.2.0...v2.2.1) (2016-06-20)
+
+
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/alibaba/plover/compare/v2.1.1...v2.2.0) (2016-06-17)
 
@@ -212,6 +244,11 @@
 ### Bug Fixes
 
 * 优化模块的加载，添加cache ([843511d](https://github.com/alibaba/plover/commit/843511d))
+
+
+
+<a name="2.1.1"></a>
+## [2.1.1](https://github.com/alibaba/plover/compare/v2.1.0...v2.1.1) (2016-05-09)
 
 
 
@@ -257,12 +294,13 @@
 
 
 <a name="2.0.0"></a>
-# 2.0.0 (2016-04-26)
+# [2.0.0](https://github.com/alibaba/plover/compare/8bf94aa...v2.0.0) (2016-04-26)
 
 
 ### Bug Fixes
 
 * add startup component sto default components set ([744f469](https://github.com/alibaba/plover/commit/744f469))
+
 
 ### Features
 
@@ -289,6 +327,7 @@
 * **util:** add router ([a28a75e](https://github.com/alibaba/plover/commit/a28a75e))
 * **util:** add util/config module ([92ba0a5](https://github.com/alibaba/plover/commit/92ba0a5))
 * **util:** add util/error-handler ([2e70f0e](https://github.com/alibaba/plover/commit/2e70f0e))
+
 
 ### Performance Improvements
 
