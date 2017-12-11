@@ -1,3 +1,13 @@
+<a name="4.3.1"></a>
+## [4.3.1](https://github.com/alibaba/plover/compare/v4.3.0...v4.3.1) (2017-12-11)
+
+
+### Bug Fixes
+
+* 修复route使用/*的bug ([eb995d1](https://github.com/alibaba/plover/commit/eb995d1))
+
+
+
 <a name="4.3.0"></a>
 # [4.3.0](https://github.com/alibaba/plover/compare/v4.1.0...v4.3.0) (2017-12-11)
 
