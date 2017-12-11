@@ -136,6 +136,10 @@ describe('components/core', function() {
         this.body = 'uploaded';
       }, { match: '/upload', method: 'post' });
 
+      app.use(async ctx => {
+        ctx.body = 'api';
+      }, { match: '/api/*' });
+
       const agent = request.agent(app.callback());
 
       await agent.get('/').expect(404);
@@ -143,6 +147,10 @@ describe('components/core', function() {
 
       await agent.get('/upload').expect(404);
       await agent.post('/upload').expect('uploaded');
+
+      await agent.get('/api/').expect('api');
+      await agent.get('/api/hello').expect('api');
+      await agent.get('/api/people/hello').expect('api');
     });
   });
 
