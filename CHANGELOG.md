@@ -1,58 +1,31 @@
 <a name="3.0.0"></a>
-# [3.0.0](https://github.com/alibaba/plover/compare/v2.6.1...v3.0.0) (2017-12-09)
+# [3.0.0](https://github.com/alibaba/plover/compare/v2.11.0...v3.0.0) (2017-12-11)
 
 
 ### Bug Fixes
 
-* [plover-router] routes not config npe. ([a424766](https://github.com/alibaba/plover/commit/a424766))
-* [plover-web] fix add flash middleware error ([ff9d1eb](https://github.com/alibaba/plover/commit/ff9d1eb))
-* addRoute missing options ([e5fb3d8](https://github.com/alibaba/plover/commit/e5fb3d8))
-* include async ([65c9ee1](https://github.com/alibaba/plover/commit/65c9ee1))
 * render with option layout=false to disable layout ([487ed10](https://github.com/alibaba/plover/commit/487ed10))
-* 修复devDeps中的模块不能被加载的问题 ([b217358](https://github.com/alibaba/plover/commit/b217358))
 * 修复layout和页面资源渲染顺序问题 ([5e121c8](https://github.com/alibaba/plover/commit/5e121c8))
-* 修复proxy中间件名称没有设置 ([ede8b2f](https://github.com/alibaba/plover/commit/ede8b2f))
-* 修复加载其他模块control资源错误。 ([8d6a29e](https://github.com/alibaba/plover/commit/8d6a29e))
 
 
 ### Features
 
 * [plover-util] add lang.isPureFunction() ([8336fd0](https://github.com/alibaba/plover/commit/8336fd0))
 * [plover-util] add lang#isAsyncFunction(obj) ([83093c9](https://github.com/alibaba/plover/commit/83093c9))
-* [plover-web] add flash middleware ([4513ce7](https://github.com/alibaba/plover/commit/4513ce7))
-* [plover-web] remove deps `koa-redius`. ([2e620a1](https://github.com/alibaba/plover/commit/2e620a1))
 * [plover-xview] finish v3.0 ([6b7c8ed](https://github.com/alibaba/plover/commit/6b7c8ed))
 * [plover] add app#use(middleware, [optioins]) ([ba90407](https://github.com/alibaba/plover/commit/ba90407))
 * [plover] support async function ([8ae21a1](https://github.com/alibaba/plover/commit/8ae21a1))
-* action和filter支持arrow function. ([bb0a023](https://github.com/alibaba/plover/commit/bb0a023))
-* add koa-compress ([f65a2e2](https://github.com/alibaba/plover/commit/f65a2e2))
-* add koa-static to packages plover-web. ([2871ee0](https://github.com/alibaba/plover/commit/2871ee0))
 * add util.isPureFunction() ([d11c4be](https://github.com/alibaba/plover/commit/d11c4be))
-* addMiddleware支持method和match配置。 ([68d9f30](https://github.com/alibaba/plover/commit/68d9f30))
-* filter支持路径过滤 ([ed6c9f9](https://github.com/alibaba/plover/commit/ed6c9f9))
 * finish simple helper ([35612bf](https://github.com/alibaba/plover/commit/35612bf))
 * parse http method from head `x-http-method-override` ([151f015](https://github.com/alibaba/plover/commit/151f015))
-* plover-router namespace with options ([c657a88](https://github.com/alibaba/plover/commit/c657a88))
-* remote whitespace in production env for default. ([0aa34c9](https://github.com/alibaba/plover/commit/0aa34c9))
-* render json with array data. ([d8199f8](https://github.com/alibaba/plover/commit/d8199f8))
 * resouces for singleton ([aad7265](https://github.com/alibaba/plover/commit/aad7265))
 * upgrade koa to 2.0 ([78be25e](https://github.com/alibaba/plover/commit/78be25e))
-* upgrade to koa@2 ([14f5ab6](https://github.com/alibaba/plover/commit/14f5ab6))
 * upgrade to koa@2 ([54c7248](https://github.com/alibaba/plover/commit/54c7248))
+* upgrade to koa@2 ([14f5ab6](https://github.com/alibaba/plover/commit/14f5ab6))
 * upgrade to koa@2 ([58b5add](https://github.com/alibaba/plover/commit/58b5add))
 * v3.0 ([24deb1f](https://github.com/alibaba/plover/commit/24deb1f))
-* 可以通过配置设置默认布局。 ([2410873](https://github.com/alibaba/plover/commit/2410873))
-* 完成app.control的性能优化 ([0a36320](https://github.com/alibaba/plover/commit/0a36320))
 * 添加简单资源帮助方法 ([445eb92](https://github.com/alibaba/plover/commit/445eb92))
 * 迁移plover-assets到主仓库，方便后续统一维护 ([5f68df3](https://github.com/alibaba/plover/commit/5f68df3))
-* 通过POST传递参数_method实现put/patch等请求 ([d000046](https://github.com/alibaba/plover/commit/d000046))
-
-
-### Performance Improvements
-
-* 优化control渲染 ([556882a](https://github.com/alibaba/plover/commit/556882a))
-* 优化filters的初始化 ([15dba47](https://github.com/alibaba/plover/commit/15dba47))
-* 优化include传递空对象数据时不需要产生state。 ([031f12e](https://github.com/alibaba/plover/commit/031f12e))
 
 
 
