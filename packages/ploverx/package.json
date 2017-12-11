@@ -1,6 +1,6 @@
 {
   "name": "ploverx",
-  "version": "4.3.0",
+  "version": "4.3.1",
   "description": "集成常用plover插件，提供全栈nodejs web应用开发环境。",
   "main": "lib/index",
   "bin": {
@@ -18,7 +18,7 @@
     "bluebird": "^3.5.0",
     "commander": "^2.10.0",
     "fs-extra": "^4.0.0",
-    "plover": "^3.0.1",
+    "plover": "^3.3.1",
     "plover-arttemplate": "^3.1.0",
     "plover-assets": "^4.0.0",
     "plover-benchmark": "^1.1.0",
