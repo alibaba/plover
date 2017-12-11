@@ -1,5 +1,5 @@
-<a name="4.2.0"></a>
-# [4.2.0](https://github.com/alibaba/plover/compare/v2.11.0...v4.2.0) (2017-12-11)
+<a name="4.3.0"></a>
+# [4.3.0](https://github.com/alibaba/plover/compare/v2.11.0...v4.3.0) (2017-12-11)
 
 
 ### Bug Fixes
