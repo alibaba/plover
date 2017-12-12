@@ -47,6 +47,10 @@ class Router {
     options = options || {};
 
     const keys = [];
+    if (typeof pattern === 'string') {
+      // 新版本(>=2.0.0)的path-to-regexp不支持*，为了兼容需要做下替换处理
+      pattern = pattern.replace(/\/\*/g, '/(.*)');
+    }
     const regexp = pathToRegexp(pattern, keys);
     const fields = [];
     const queries = [];

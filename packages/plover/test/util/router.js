@@ -145,6 +145,17 @@ describe('util/router', function() {
   });
 
 
+  it('使用*匹配忽略的路径', function() {
+    const router = new Router();
+    router.add('/Template/*', 'template#index');
+    router.route('/Template/123').should.eql({
+      module: 'template',
+      action: 'index',
+      query: {}
+    });
+  });
+
+
   it('restful', function() {
     const router = new Router();
     router.add('/pages', 'pages:index', { method: 'get' });
