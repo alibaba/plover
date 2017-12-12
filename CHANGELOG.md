@@ -1,3 +1,13 @@
+<a name="4.3.2"></a>
+## [4.3.2](https://github.com/alibaba/plover/compare/v4.3.1...v4.3.2) (2017-12-12)
+
+
+### Bug Fixes
+
+* 新版本的path-to-regexp不支持*匹配符 ([735add8](https://github.com/alibaba/plover/commit/735add8)), closes [/github.com/pillarjs/path-to-regexp#compatibility-with-express--4](https://github.com//github.com/pillarjs/path-to-regexp/issues/compatibility-with-express--4)
+
+
+
 <a name="4.3.1"></a>
 ## [4.3.1](https://github.com/alibaba/plover/compare/v4.3.0...v4.3.1) (2017-12-11)
 
