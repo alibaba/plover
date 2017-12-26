@@ -1,4 +1,3 @@
-const lang = require('plover-util/lib/lang');
 const util = require('../util/util');
 
 const logger = require('plover-logger')('plover:components/service');
@@ -117,14 +116,7 @@ function createServiceComponent(self) {
 function startupServices(services, proto) {
   for (const name in services) {
     const service = services[name];
-    if (typeof service.startup === 'function') {
-      logger.info('startup service: %s', name);
-      const defer = service.startup(proto);
-      if (lang.isPromise(defer)) {
-        const done = proto.readyCallback(name);
-        defer.then(done).catch(done);
-      }
-    }
+    util.tryStartupComponent(proto, name, service);
   }
 }
 
