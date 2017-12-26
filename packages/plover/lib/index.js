@@ -52,7 +52,7 @@ class Application extends EventEmitter {
 
     prepareConfig(this, settings);
 
-    const timeout = settings.readyCallbackTimeout;
+    const timeout = settings.readyCallbackTimeout || 10000;
     ready({ timeout }).mixin(this);
 
     this.moduleResolver = createResolver(settings);

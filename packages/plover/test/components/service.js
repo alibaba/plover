@@ -63,5 +63,37 @@ describe('components/service', function() {
       NotUsed.called.should.be.false();
     });
   });
+
+
+  it('需要异步初始化的服务', async function() {
+    const CacheService = {
+      async startup() {
+        await sleep(100);
+        this.cache = {
+          name: 'plover'
+        };
+      },
+
+      async get(name) {
+        return this.cache[name];
+      }
+    };
+
+    const app = plover(settings);
+    app.addService('$cache', CacheService);
+    app.use(async ctx => {
+      ctx.body = await ctx.$cache.get('name');
+    });
+
+    await app.start();
+    await request(app.callback())
+      .get('/').expect('plover');
+  });
 });
 
+
+function sleep(time) {
+  return new Promise(resolve => {
+    setTimeout(resolve, time);
+  });
+}
