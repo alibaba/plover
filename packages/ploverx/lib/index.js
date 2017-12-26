@@ -16,8 +16,9 @@ module.exports = function(options) {
 
   app.run = () => {
     const port = (settings.server || {}).port || 4000;
-    app.listen(port);
-    console.log(`server started: 127.0.0.1:${port}, env: ${settings.env}`);
+    app.listen(port).then(() => {
+      console.log(`server started: 127.0.0.1:${port}, env: ${settings.env}`);
+    });
   };
 
   // for test

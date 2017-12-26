@@ -2,6 +2,9 @@ const util = require('../util/util');
 
 const logger = require('plover-logger')('plover:components/service');
 
+const CTX = Symbol('ctx');
+const CACHE = Symbol('cache');
+
 
 class Service {
   constructor(app) {
@@ -44,13 +47,13 @@ module.exports = Service;
  */
 class ServiceContainer {
   constructor(ctx) {
-    this.$ctx = ctx;
-    this.$cache = new Map();
+    this[CTX] = ctx;
+    this[CACHE] = new Map();
   }
 
 
   $get(name) {
-    const cache = this.$cache;
+    const cache = this[CACHE];
     let service = null;
     if (cache.has(name)) {
       service = cache.get(name);
@@ -59,7 +62,7 @@ class ServiceContainer {
       if (typeof service === 'function') {
         logger.debug('create service object: %s', name);
         const Class = service;
-        service = new Class(this.$ctx);
+        service = new Class(this[CTX]);
       }
       cache.set(name, service);
     }
@@ -113,10 +116,7 @@ function createServiceComponent(self) {
 function startupServices(services, proto) {
   for (const name in services) {
     const service = services[name];
-    if (typeof service.startup === 'function') {
-      logger.info('startup service: %s', name);
-      service.startup(proto);
-    }
+    util.tryStartupComponent(proto, name, service);
   }
 }
 

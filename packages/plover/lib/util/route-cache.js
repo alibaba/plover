@@ -51,7 +51,7 @@ class RouteCache {
    * @param {Object} route  - 路由信息
    * @return {Boolean}      - 是否cache成功
    */
-  /* eslint complexity: [2, 8] */
+  /* eslint complexity: [2, 10] */
   set(path, route) {
     // 不存在的模块不cache，否则大量无效访问(可能是攻击会干扰正常cache逻辑)
     const info = this.moduleResolver.resolve(route.module);

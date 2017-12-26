@@ -69,9 +69,7 @@ class Navigate {
   addHelper(name, helper) {
     const app = this.app;
     app.helpers[name] = helper;
-    if (typeof helper.startup === 'function') {
-      helper.startup(app.proto);
-    }
+    util.tryStartupComponent(app.proto, name, helper);
   }
 
 

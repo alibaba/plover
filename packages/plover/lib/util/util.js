@@ -85,3 +85,14 @@ exports.patternToRe = function(pattern) {
   }
   return pattern || null;
 };
+
+
+exports.tryStartupComponent = function(app, name, obj) {
+  if (typeof obj.startup === 'function') {
+    const defer = obj.startup(app);
+    if (lang.isPromise(defer)) {
+      const done = app.readyCallback(name);
+      defer.then(done).catch(done);
+    }
+  }
+};
