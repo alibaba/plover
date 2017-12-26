@@ -10,7 +10,7 @@ const plover = require('../../');
 
 
 describe('components/core', function() {
-  const settings = { applicationRoot: 'somepath' };
+  const settings = { applicationRoot: 'somepath', readyCallbackTimeout: 200 };
 
   describe('应用启动相关', function() {
     it('可以正常启动plover应用', function() {
@@ -31,6 +31,23 @@ describe('components/core', function() {
       (app.mywork === undefined).should.be.true();
       app.start(() => {
         app.mywork.should.equal('done!');
+        done();
+      });
+    });
+
+
+    it('启动服务失败场景', function(done) {
+      const app = plover(settings);
+
+      const timeoutDone = app.readyCallback('timeout');
+      setTimeout(() => {
+        timeoutDone();
+      }, 300);
+
+      const fn = sinon.spy();
+      app.start(fn).catch(e => {
+        e.message.should.match(/timeout/);
+        fn.args[0][0].should.equal(e);
         done();
       });
     });

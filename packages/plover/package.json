@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha --require should --reporter spec --recursive --check-leaks --timeout 5000 $(find test -name '*.js' ! -path 'test/fixtures/*')",
-    "cov": "istanbul cover _mocha -- --require should --recursive --check-leaks --timeout 5000 $(find test -name '*.js' ! -path 'test/fixtures/*') -R spec"
+    "cov": "istanbul cover _mocha -- --require should --recursive --check-leaks --exit --timeout 5000 $(find test -name '*.js' ! -path 'test/fixtures/*') -R spec"
   },
   "files": [
     "lib"

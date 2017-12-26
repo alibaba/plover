@@ -59,8 +59,24 @@ class Core {
       }
     }
 
-    // app.ready会判断参数个数，因此不能简写
-    return fn ? app.ready(fn) : app.ready();
+    return new Promise((resolve, reject) => {
+      const error = e => {
+        logger.error(e);
+        fn && fn(e);
+        reject(e);
+      };
+
+      app.on('error', error);
+      app.on('ready_timeout', id => {
+        const e = new Error('startup timeout: ' + id);
+        error(e);
+      });
+
+      app.ready(() => {
+        fn && fn();
+        resolve();
+      });
+    });
   }
 
 
