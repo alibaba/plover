@@ -1,3 +1,15 @@
+<a name="4.4.0"></a>
+# [4.4.0](https://github.com/alibaba/plover/compare/v4.3.2...v4.4.0) (2017-12-26)
+
+
+### Features
+
+* helper.startup支持async/await ([badf918](https://github.com/alibaba/plover/commit/badf918))
+* service startup支持async/await ([ab32a82](https://github.com/alibaba/plover/commit/ab32a82))
+* 优化服务等异步模块初始化失败时错误处理 ([056af0c](https://github.com/alibaba/plover/commit/056af0c))
+
+
+
 <a name="4.3.2"></a>
 ## [4.3.2](https://github.com/alibaba/plover/compare/v4.3.1...v4.3.2) (2017-12-12)
 
