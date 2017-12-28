@@ -6,6 +6,8 @@ const util = require('../util/util');
 
 const logger = require('plover-logger')('plover:components/core');
 
+const START = Symbol('start');
+
 
 class Core {
   /**
@@ -45,21 +47,20 @@ class Core {
    * @since 1.0
    */
   start(fn) {
-    const app = this.app;
-
-    if (!this.isStart) {
-      this.isStart = true;
-
-      const items = prepareMiddlewares(app, this.middlewares);
-      // PloverApplication子类可以实现$mountMiddlewres来介入中间件的组装
-      if (app.$mountMiddlewares) {
-        app.$mountMiddlewares(app.server, items);
-      } else {
-        mountMiddlewares(app.server, items);
-      }
+    if (this[START]) {
+      return this[START];
     }
 
-    return new Promise((resolve, reject) => {
+    const app = this.app;
+    const items = prepareMiddlewares(app, this.middlewares);
+    // PloverApplication子类可以实现$mountMiddlewres来介入中间件的组装
+    if (app.$mountMiddlewares) {
+      app.$mountMiddlewares(app.server, items);
+    } else {
+      mountMiddlewares(app.server, items);
+    }
+
+    this[START] = new Promise((resolve, reject) => {
       const error = e => {
         logger.error(e);
         fn && fn(e);
@@ -77,6 +78,8 @@ class Core {
         resolve();
       });
     });
+
+    return this[START];
   }
 
 

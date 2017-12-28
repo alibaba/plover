@@ -5,6 +5,7 @@ const Logger = require('plover-logger');
 
 const LEVEL = { error: 1, warn: 2, info: 3, debug: 4 };
 
+
 module.exports = function(settings) {
   const map = settings.loggers || {};
   const list = [];
@@ -15,23 +16,22 @@ module.exports = function(settings) {
     return function() {};
   }
 
-  const isEnabled = Logger.prototype.isEnabled;
+  // set level to highest level in config
+  Logger.level = list.reduce((last, o) => {
+    const level = o.config.level;
+    return LEVEL[level] > LEVEL[last] ? level : last;
+  }, 'error');
+
   const handler = Logger.prototype.handler;
 
-  Logger.prototype.isEnabled = function(level) {
-    const v = LEVEL[level];
-    return list.some(item => v <= LEVEL[item.config.level]);
-  };
-
   Logger.handler = function(name, level, message) {
-    const item = list.find(o => o.test(name));
+    const item = list.find(o => (o.test ? o.test(name) : true));
     const logger = item && winston.loggers.get(item.name);
     logger && logger[level](message, { name });
   };
 
   // restore
   return function() {
-    Logger.prototype.isEnabled = isEnabled;
     Logger.handler = handler;
   };
 };
@@ -39,10 +39,10 @@ module.exports = function(settings) {
 
 function create(name, config) {
   const match = config.match;
-  const test = !match ? () => true :
+  const test = !match ? null :
     typeof match === 'string' ? n => match === n :
       typeof match.test === 'function' ? n => match.test(n) :
-        typeof match === 'function' ? match : () => true;
+        typeof match === 'function' ? match : null;
 
   const transports = [];
   const File = winston.transports.File;
