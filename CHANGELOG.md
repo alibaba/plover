@@ -1,3 +1,13 @@
+<a name="4.4.1"></a>
+## [4.4.1](https://github.com/alibaba/plover/compare/v4.4.0...v4.4.1) (2017-12-28)
+
+
+### Bug Fixes
+
+* 修复日志级别的设置 ([b750259](https://github.com/alibaba/plover/commit/b750259))
+
+
+
 <a name="4.4.0"></a>
 # [4.4.0](https://github.com/alibaba/plover/compare/v4.3.2...v4.4.0) (2017-12-26)
 
