@@ -1,3 +1,19 @@
+<a name="4.5.0"></a>
+# [4.5.0](https://github.com/alibaba/plover/compare/v4.4.0...v4.5.0) (2018-01-06)
+
+
+### Bug Fixes
+
+* 修复日志级别的设置 ([b750259](https://github.com/alibaba/plover/commit/b750259))
+
+
+### Features
+
+* 优化有DEBUG环境变量的模式下日志的打印 ([5881e3c](https://github.com/alibaba/plover/commit/5881e3c))
+* 支持rotate日志 ([1b34052](https://github.com/alibaba/plover/commit/1b34052))
+
+
+
 <a name="4.4.0"></a>
 # [4.4.0](https://github.com/alibaba/plover/compare/v4.3.2...v4.4.0) (2017-12-26)
 
