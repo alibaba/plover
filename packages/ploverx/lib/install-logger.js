@@ -3,6 +3,8 @@ const fse = require('fs-extra');
 const winston = require('winston');
 const Logger = require('plover-logger');
 
+require('winston-daily-rotate-file');
+
 
 const LEVEL = { error: 1, warn: 2, info: 3, debug: 4 };
 
@@ -50,28 +52,15 @@ function create(name, config) {
         typeof match === 'function' ? match : null;
 
   const transports = [];
-  const File = winston.transports.File;
   const Console = winston.transports.Console;
   const formatter = config.formatter || defaultFormatter;
 
   ensureFileDir(config.file);
   ensureFileDir(config.errorFile);
 
-  config.file && transports.push(new File({
-    name: name,
-    filename: config.file,
-    level: config.level,
-    json: false,
-    formatter
-  }));
+  config.file && transports.push(createTransport(name, config.file, config.level, config));
 
-  config.errorFile && transports.push(new File({
-    name: `${name}-error`,
-    filename: config.errorFile,
-    level: 'error',
-    json: false,
-    formatter
-  }));
+  config.errorFile && transports.push(createTransport(`${name}-error`, config.errorFile, 'error', config));
 
   config.consoleLevel && transports.push(new Console({
     name: `${name}-console`,
@@ -80,9 +69,26 @@ function create(name, config) {
     formatter
   }));
 
+  config.transports && transports.push(...config.transports);
   winston.loggers.add(name, { transports });
 
   return { name, test, config };
+}
+
+
+function createTransport(name, filename, level, config) {
+  const formatter = config.formatter || defaultFormatter;
+  const File = config.rotate ?
+    winston.transports.DailyRotateFile :
+    winston.transports.File;
+  return new File({
+    name,
+    filename,
+    level,
+    json: false,
+    prepend: true,
+    formatter
+  });
 }
 
 
