@@ -3,6 +3,7 @@ const fse = require('fs-extra');
 const winston = require('winston');
 const Logger = require('plover-logger');
 
+
 const LEVEL = { error: 1, warn: 2, info: 3, debug: 4 };
 
 
@@ -16,15 +17,19 @@ module.exports = function(settings) {
     return function() {};
   }
 
-  // set level to highest level in config
-  Logger.level = list.reduce((last, o) => {
-    const level = o.config.level;
-    return LEVEL[level] > LEVEL[last] ? level : last;
-  }, 'error');
+  const isDebug = !!process.env.DEBUG;
 
-  const handler = Logger.prototype.handler;
+  Logger.level = isDebug ? 'debug' :
+    // set level to highest level in config
+    list.reduce((last, o) => {
+      const level = o.config.level;
+      return LEVEL[level] > LEVEL[last] ? level : last;
+    }, 'error');
+
+  const handler = Logger.handler;
 
   Logger.handler = function(name, level, message) {
+    isDebug && handler(name, level, message);
     const item = list.find(o => (o.test ? o.test(name) : true));
     const logger = item && winston.loggers.get(item.name);
     logger && logger[level](message, { name });
