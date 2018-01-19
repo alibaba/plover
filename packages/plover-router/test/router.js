@@ -116,6 +116,12 @@ describe('plover-route/lib/router', () => {
 
       r.namespace('api', { type: 'json' }, () => {
         r.resources('books', { only: ['index', 'show'] });
+        r.get('store', 'store:index');
+      });
+
+      r.namespace('/users/', () => {
+        r.resources('messages', { only: ['index'] });
+        r.post('/config', 'config#update');
       });
     };
 
@@ -145,6 +151,21 @@ describe('plover-route/lib/router', () => {
         match: '/api/books/:id',
         to: { module: 'books', action: 'show', type: 'json' },
         verb: 'get'
+      },
+      {
+        match: '/api/store',
+        to: { module: 'store', action: 'index', type: 'json' },
+        verb: 'get'
+      },
+      {
+        match: '/users/messages',
+        to: { module: 'messages', action: 'index' },
+        verb: 'get'
+      },
+      {
+        match: '/users/config',
+        to: { module: 'config', action: 'update' },
+        verb: 'post'
       }
     ]);
   });
@@ -292,10 +313,10 @@ describe('plover-route/lib/router', () => {
     mws.should.eql([
       { match: '/photos/*', middleware: mw, options: {} },
       { match: '/', middleware: mw, options: {} },
-      { match: undefined, middleware: mw, options: {} },
+      { match: null, middleware: mw, options: {} },
       { match: '/admin/users/*', middleware: mw, options: {} },
       { match: '/admin/', middleware: mw, options: {} },
-      { match: '/admin', middleware: mw, options: {} }
+      { match: '/admin/*', middleware: mw, options: {} }
     ]);
   });
 });
