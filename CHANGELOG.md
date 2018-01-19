@@ -1,3 +1,13 @@
+<a name="4.5.1"></a>
+## [4.5.1](https://github.com/alibaba/plover/compare/v4.5.0...v4.5.1) (2018-01-19)
+
+
+### Bug Fixes
+
+* 修复`use(middleware)`需要匹配路径`${namespace}/*` ([24d5c8d](https://github.com/alibaba/plover/commit/24d5c8d))
+
+
+
 <a name="4.5.0"></a>
 # [4.5.0](https://github.com/alibaba/plover/compare/v4.4.0...v4.5.0) (2018-01-06)
 
