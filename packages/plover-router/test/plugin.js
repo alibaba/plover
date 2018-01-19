@@ -46,7 +46,7 @@ describe('plover-route/lib/plugin', () => {
 
           r.get('config', 'users#config');
         });
-      },
+      }
     });
 
     await app.get('/users/config').expect('users:config');
@@ -56,8 +56,8 @@ describe('plover-route/lib/plugin', () => {
   });
 
 
-  it('routes not config', () => {
-    const app = create({
+  it('routes not config, for coverage', () => {
+    create({
       applicationRoot: __dirname
     });
 
@@ -77,6 +77,12 @@ describe('plover-route/lib/plugin', () => {
 
     app.use(ctx => {
       ctx.body = ctx.method;
+    });
+
+    it('normal post', async() => {
+      await app.agent.post('/save')
+        .send({})
+        .expect('POST');
     });
 
 
