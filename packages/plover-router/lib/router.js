@@ -162,17 +162,13 @@ function popState(states) {
 
 
 function withStateMatch(states, match) {
-  const current = states[0] || {};
-  return match ? join(current.match, match) : current.match;
+  const current = states[0];
+  return current ? join(current.match, match || '/*') : match;
 }
 
 
 function join(parent, name) {
-  parent = parent || '';
-  if (name.startsWith('/')) {
-    return parent + name;
-  }
-  return parent + '/' + name;
+  return ((parent || '') + '/' + name).replace(/\/{2,}/g, '/');
 }
 
 
