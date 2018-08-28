@@ -15,8 +15,7 @@ class Helper {
       (config.urlPrefix || prefix);
 
     this.urlPrefix = urlPrefix.replace(rSlashEnd, '');
-    this.manifest = settings.development ? null :
-      assetsUtil.loadManifest(settings);
+    this.manifest = assetsUtil.loadManifest(settings);
   }
 
 
@@ -95,4 +94,3 @@ function getUrls(self, groups, type) {
     return list ? acc.concat(list) : acc;
   }, []).map(item => item.url);
 }
-

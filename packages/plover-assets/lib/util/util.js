@@ -29,6 +29,7 @@ exports.loadBuildConfig = function* (info) {
 
 
 const rQueryStamp = /\?.*$/;
+const rSlash = /^\//;
 
 /**
  * 取得缓存地址
@@ -50,7 +51,8 @@ exports.getCachePath = function(path, settings) {
 exports.loadManifest = function(settings) {
   const publicDir = exports.getPublicDir(settings);
   const prefix = exports.getAssetsPrefix(settings);
-  const path = pathUtil.join(publicDir, prefix, 'manifest.json');
+  const path = settings.assets.manifest ||
+        pathUtil.join(publicDir, prefix, 'manifest.json');
   if (!fs.existsSync(path)) {
     return null;
   }
@@ -58,7 +60,8 @@ exports.loadManifest = function(settings) {
   const map = new Map();
   const obj = JSON.parse(fs.readFileSync(path, 'utf-8'));
   for (const key in obj) {
-    map.set(key, obj[key]);
+    const url = obj[key].replace(rSlash, '');
+    map.set(key, url);
   }
   return map;
 };
