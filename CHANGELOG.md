@@ -1,3 +1,13 @@
+<a name="4.5.2"></a>
+## [4.5.2](https://github.com/alibaba/plover/compare/v4.5.1...v4.5.2) (2018-08-28)
+
+
+### Bug Fixes
+
+* 修复开发环境下不能加载assets manifest的问题 ([e4db564](https://github.com/alibaba/plover/commit/e4db564))
+
+
+
 <a name="4.5.1"></a>
 ## [4.5.1](https://github.com/alibaba/plover/compare/v4.5.0...v4.5.1) (2018-01-19)
 
