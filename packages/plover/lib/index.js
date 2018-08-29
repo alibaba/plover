@@ -262,4 +262,3 @@ function printModules(self) {
   output = '\n\n' + output + '\n\n';
   global.console.log(output);
 }
-
