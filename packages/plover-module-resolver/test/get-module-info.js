@@ -1,5 +1,3 @@
-
-
 const pathUtil = require('path');
 
 const getModuleInfo = require('../lib/get-module-info');

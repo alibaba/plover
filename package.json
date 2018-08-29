@@ -15,13 +15,12 @@
     "url": "git+https://github.com/alibaba/plover.git"
   },
   "devDependencies": {
-    "conventional-changelog-cli": "^1.3.5",
-    "eslint": "^4.9.0",
-    "eslint-config-bce": "^3.0.0",
-    "eslint-plugin-import": "^2.8.0",
+    "conventional-changelog-cli": "^2.0.5",
+    "eslint": "^5.4.0",
+    "eslint-config-bce": "^5.0.0",
     "istanbul": "^1.1.0-alpha",
-    "mocha": "^4.0.1",
-    "should": "^13.1.2"
+    "mocha": "^5.2.0",
+    "should": "^13.2.3"
   },
   "author": "bencode@163.com",
   "license": "Apache-2.0",

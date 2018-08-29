@@ -1,6 +1,6 @@
+const debug = require('debug')('plover-web:web/csrf');
 const util = require('../util/util');
 
-const debug = require('debug')('plover-web:web/csrf');
 
 /* eslint no-underscore-dangle: 0 */
 
@@ -71,4 +71,3 @@ function nextWithAssert(ctx, next) {
   }
   return next();
 }
-

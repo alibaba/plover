@@ -1,5 +1,3 @@
-
-
 exports.assign = require('./assign');
 exports.Array = require('./array');
 exports.delegate = require('./delegate');

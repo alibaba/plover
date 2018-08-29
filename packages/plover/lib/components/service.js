@@ -1,6 +1,6 @@
+const logger = require('plover-logger')('plover:components/service');
 const util = require('../util/util');
 
-const logger = require('plover-logger')('plover:components/service');
 
 const CTX = Symbol('ctx');
 const CACHE = Symbol('cache');

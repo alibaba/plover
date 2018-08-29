@@ -1,10 +1,8 @@
 const assign = require('plover-util/lib/assign');
+const logger = require('plover-logger')('plover:components/router');
 
 const Router = require('../util/router');
 const RouteCache = require('../util/route-cache');
-
-
-const logger = require('plover-logger')('plover:components/router');
 
 
 class RouterComponent {
@@ -113,4 +111,3 @@ function createDefaultRouter() {
   /* eslint-enable */
   return router;
 }
-

@@ -1,5 +1,3 @@
-
-
 const lang = require('..').Lang;
 
 

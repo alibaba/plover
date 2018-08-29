@@ -1,5 +1,3 @@
-
-
 const pathUtil = require('path');
 const util = require('../lib/util');
 

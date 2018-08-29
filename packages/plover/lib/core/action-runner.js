@@ -1,7 +1,6 @@
 const assert = require('assert');
-const invoker = require('../util/invoker');
-
 const logger = require('plover-logger')('plover:core/action-runner');
+const invoker = require('../util/invoker');
 
 
 class ActionRunner {

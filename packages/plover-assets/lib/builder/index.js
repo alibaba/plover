@@ -1,18 +1,15 @@
 const pathUtil = require('path');
 const fs = require('fs-extra');
 const sortBy = require('lodash/sortBy');
+const debug = require('debug')('plover-assets:builder');
 const lang = require('plover-util/lib/lang');
-
 const Resolver = require('plover-module-resolver');
-
-const getModuleInfo = Resolver.getModuleInfo;
-
 const util = require('../util/util');
 const handler = require('../handler');
 const buildModule = require('./build-module');
 const digestAssets = require('./digest-assets');
 
-const debug = require('debug')('plover-assets:builder');
+const getModuleInfo = Resolver.getModuleInfo;
 
 
 /* eslint no-console: 0 */

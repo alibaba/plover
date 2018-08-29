@@ -1,5 +1,3 @@
-
-
 const SafeString = require('..').SafeString;
 
 

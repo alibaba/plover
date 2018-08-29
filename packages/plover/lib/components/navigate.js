@@ -4,13 +4,12 @@ const antsort = require('antsort');
 const co = require('co');
 
 const RouteInfo = require('plover-util/lib/route-info');
+const logger = require('plover-logger')('plover:components/navigate');
 
 const util = require('../util/util');
 const Navigator = require('../core/navigator');
 const ActionContext = require('../core/action-context');
 const HelperContainer = require('../core/helper-container');
-
-const logger = require('plover-logger')('plover:components/navigate');
 
 
 class Navigate {
@@ -202,4 +201,3 @@ function setJsonResponse(ctx, data) {
 
   ctx.body = jsonp(data, callback);
 }
-

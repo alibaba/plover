@@ -1,14 +1,10 @@
-
-
 const fs = require('fs-extra');
 const pathUtil = require('path');
 const minimatch = require('minimatch');
+const debug = require('debug')('plover-assets:builder/build-module');
 const scanDir = require('../util/scan-dir');
 const util = require('../util/util');
 const handler = require('../handler');
-
-
-const debug = require('debug')('plover-assets:builder/build-module');
 
 
 /* eslint no-console: 0 */
@@ -124,4 +120,3 @@ function writeSourceMap(path, map) {
     console.warn('map file is same as source file, ignore');    // eslint-disable-line
   }
 }
-

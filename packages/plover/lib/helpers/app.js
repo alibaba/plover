@@ -4,10 +4,9 @@ const co = require('co');
 const SafeString = require('plover-util/lib/safe-string');
 const assign = require('plover-util/lib/assign');
 const RouteInfo = require('plover-util/lib/route-info');
+const logger = require('plover-logger')('plover:helpers/app');
 
 const RenderHelper = require('../core/render-helper');
-
-const logger = require('plover-logger')('plover:helpers/app');
 
 
 /**
