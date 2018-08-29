@@ -1,6 +1,5 @@
 {
   "name": "ploverx",
-  "version": "4.5.1",
   "version": "4.6.0-beta1",
   "description": "集成常用plover插件，提供全栈nodejs web应用开发环境。",
   "main": "lib/index",
