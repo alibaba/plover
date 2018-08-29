@@ -1,3 +1,22 @@
+<a name="4.6.0"></a>
+# [4.6.0](https://github.com/alibaba/plover/compare/v4.5.1...v4.6.0) (2018-08-29)
+
+
+### Bug Fixes
+
+* 修复开发环境下不能加载assets manifest的问题 ([e4db564](https://github.com/alibaba/plover/commit/e4db564))
+* 修复绝对地址的资源URL拼接 ([3c5ec00](https://github.com/alibaba/plover/commit/3c5ec00))
+
+
+### Features
+
+* upgrade koa utility middlewares ([e6aad20](https://github.com/alibaba/plover/commit/e6aad20))
+* 优化异常的处理 ([07b7bf5](https://github.com/alibaba/plover/commit/07b7bf5))
+* 优化异常的处理 ([efe3fbe](https://github.com/alibaba/plover/commit/efe3fbe))
+* 升级一些基础库 ([d5faedb](https://github.com/alibaba/plover/commit/d5faedb))
+
+
+
 <a name="4.5.2"></a>
 ## [4.5.2](https://github.com/alibaba/plover/compare/v4.5.1...v4.5.2) (2018-08-28)
 
