@@ -18,12 +18,19 @@ module.exports = function(config) {
       }
 
       logger.error(e);
+      ctx.app.emit('error', e, ctx);
       ctx.status = status;
+
       const message = development ?
         '<pre>' + util.inspect(e) + '\n' + (e.stack || '') + '</pre>' :
         'Internel Server Error';
-      ctx.body = message;
+
+      if (ctx.is('application/json') ||
+          !ctx.accepts('html') && ctx.accepts('application/json')) {
+        ctx.body = { success: false, message };
+      } else {
+        ctx.body = message;
+      }
     });
   };
 };
-

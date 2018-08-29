@@ -14,11 +14,11 @@
   },
   "devDependencies": {
     "istanbul": "^1.1.0-alpha",
-    "mocha": "^4.0.1",
+    "mocha": "^5.2.0",
     "plover-test-mate": "^3.0.0",
     "plover-web": "^3.1.0",
-    "should": "^13.1.2",
-    "sinon": "^4.0.1"
+    "should": "^13.2.3",
+    "sinon": "^6.1.5"
   },
   "plover": {
     "plugin": "lib/plugin.js"
