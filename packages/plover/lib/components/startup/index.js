@@ -1,6 +1,5 @@
-const util = require('../../util/util');
-
 const logger = require('plover-logger')('plover:components/startup');
+const util = require('../../util/util');
 
 
 class Startup {
@@ -84,4 +83,3 @@ function addFilters(app, root, filters) {
     app.addFilter(filter, item);
   }
 }
-

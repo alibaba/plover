@@ -2,9 +2,9 @@ const http = require('http');
 const assert = require('assert');
 const antsort = require('antsort');
 const compose = require('koa-compose');
+const logger = require('plover-logger')('plover:components/core');
 const util = require('../util/util');
 
-const logger = require('plover-logger')('plover:components/core');
 
 const START = Symbol('start');
 
@@ -240,4 +240,3 @@ function match(ctx, method) {
   // for Array
   return method.indexOf(m) !== -1;
 }
-

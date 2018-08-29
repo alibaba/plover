@@ -6,13 +6,11 @@ const lang = require('plover-util/lib/lang');
 const assign = require('plover-util/lib/assign');
 const RouteInfo = require('plover-util/lib/route-info');
 const SafeString = require('plover-util/lib/safe-string');
+const logger = require('plover-logger')('plover:core/view-render');
 
 const invoker = require('../util/invoker');
 const RenderHelper = require('./render-helper');
 const HelperContainer = require('./helper-container');
-
-
-const logger = require('plover-logger')('plover:core/view-render');
 
 
 class ViewRender {

@@ -1,13 +1,11 @@
 const fs = require('fs');
 const pathUtil = require('path');
 const resolveFrom = require('resolve-from');
+const debug = require('debug')('plover-module-resolver');
 
 const util = require('./util');
 const getModuleInfo = require('./get-module-info');
 const vertify = require('./vertify');
-
-
-const debug = require('debug')('plover-module-resolver');
 
 
 /* global setTimeout, clearTimeout */
@@ -288,4 +286,3 @@ function tryPushInfo(map, info) {
   debug('load module: %s -> %s', info.name, info.path);
   map.set(info.name, info);
 }
-

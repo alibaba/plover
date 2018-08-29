@@ -2,12 +2,10 @@ const pathUtil = require('path');
 const co = require('co');
 const fs = require('mz/fs');
 const sendfile = require('koa-sendfile');
+const logger = require('plover-logger')('plover-assets:middleware');
 
 const util = require('./util/util');
 const handler = require('./handler');
-
-
-const logger = require('plover-logger')('plover-assets:middleware');
 
 
 /**
@@ -236,4 +234,3 @@ async function tryWriteToCache(url, settings, body) {
     logger.error(e);
   }
 }
-

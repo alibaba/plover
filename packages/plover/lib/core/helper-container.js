@@ -1,6 +1,5 @@
-const util = require('../util/util');
-
 const logger = require('plover-logger')('plover:core/helper-container');
+const util = require('../util/util');
 
 
 const RD = Symbol('rd');
@@ -72,4 +71,3 @@ HelperContainer.refine = function(app) {
     }
   }
 };
-

@@ -3,13 +3,11 @@ const lang = require('plover-util/lib/lang');
 const assign = require('plover-util/lib/assign');
 const SafeString = require('plover-util/lib/safe-string');
 const RouteInfo = require('plover-util/lib/route-info');
+const logger = require('plover-logger')('plover:core/navigator');
 
 const ActionContext = require('./action-context');
 const ActionRunner = require('./action-runner');
 const ViewRender = require('./view-render');
-
-
-const logger = require('plover-logger')('plover:core/navigator');
 
 
 const LAYOUT = Symbol('layout');
@@ -304,4 +302,3 @@ function* renderLayout(self, contentRoute, layout, result) {
 function isNotEmpty(o) {
   return o !== undefined && o !== null;
 }
-

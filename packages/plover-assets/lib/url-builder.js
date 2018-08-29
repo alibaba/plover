@@ -1,9 +1,7 @@
 const arrayUtil = require('plover-util/lib/array');
+const logger = require('plover-logger')('plover-assets:url-builder');
 const concatUrl = require('./util/concat-url');
 const assetsUtil = require('./util/util');
-
-
-const logger = require('plover-logger')('plover-assets:url-builder');
 
 
 /**
