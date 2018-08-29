@@ -1,6 +1,8 @@
 const createTag = require('create-tag');
 const assetsUtil = require('./util/util');
 
+
+const rAbs = /^(\w+:)?\//;
 const rSlash = /^\//;
 const rSlashEnd = /\/$/;
 
@@ -33,7 +35,7 @@ class Helper {
     if (this.manifest) {
       url = this.manifest.get(url) || url;
     }
-    return this.urlPrefix + '/' + url;
+    return rAbs.test(url) ? url : this.urlPrefix + '/' + url;
   }
 
 
@@ -95,4 +97,3 @@ function getUrls(self, groups, type) {
     return list ? acc.concat(list) : acc;
   }, []).map(item => item.url);
 }
-
