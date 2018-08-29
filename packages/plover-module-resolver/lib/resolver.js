@@ -1,5 +1,3 @@
-
-
 const fs = require('fs');
 const pathUtil = require('path');
 const resolveFrom = require('resolve-from');

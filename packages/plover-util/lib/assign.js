@@ -1,5 +1,3 @@
-
-
 module.exports = function() {
   const args = arguments;
   const des = args[0];

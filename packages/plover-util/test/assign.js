@@ -1,5 +1,3 @@
-
-
 const assign = require('..').assign;
 
 

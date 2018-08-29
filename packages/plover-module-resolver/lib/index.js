@@ -1,5 +1,3 @@
-
-
 exports = module.exports = require('./resolver');
 exports.Resolver = require('./resolver');
 exports.getModuleBaseInfo = require('./get-module-base-info');

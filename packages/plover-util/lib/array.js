@@ -1,5 +1,3 @@
-
-
 /**
  * push src中的所有项到des
  * @param {Array} des   - 目标数组

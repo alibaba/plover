@@ -1,5 +1,3 @@
-
-
 module.exports = function(o, target, methods) {
   for (const name of methods) {
     const fn = target[name];

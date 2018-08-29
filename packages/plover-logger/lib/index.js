@@ -1,5 +1,3 @@
-
-
 const util = require('util');
 const assert = require('assert');
 

@@ -1,5 +1,3 @@
-
-
 const fs = require('fs-extra');
 const pathUtil = require('path');
 const minimatch = require('minimatch');

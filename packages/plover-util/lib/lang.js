@@ -1,5 +1,3 @@
-
-
 exports.isGenerator = function(obj) {
   return obj &&
     typeof obj.next === 'function' &&

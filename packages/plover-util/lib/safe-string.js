@@ -1,5 +1,3 @@
-
-
 class SafeString {
   constructor(string) {
     this.string = typeof string === 'string' ?

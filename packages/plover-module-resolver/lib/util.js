@@ -1,5 +1,3 @@
-
-
 const pathUtil = require('path');
 const fs = require('fs');
 

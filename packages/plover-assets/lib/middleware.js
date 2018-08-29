@@ -1,5 +1,3 @@
-
-
 const pathUtil = require('path');
 const co = require('co');
 const fs = require('mz/fs');
