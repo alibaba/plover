@@ -61,7 +61,7 @@ describe('util/error-handler', () => {
   it('非开发环境不会打印具体错误', async() => {
     const app = new Koa();
     app.use(errorHandler());
-    app.use(ctx => {
+    app.use(() => {
       throw new Error('出现了一个粗心大意的错误');
     });
 
