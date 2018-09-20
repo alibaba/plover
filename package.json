@@ -1,6 +1,6 @@
 {
   "name": "plover-packages",
-  "version": "4.6.0",
+  "version": "4.7.0",
   "description": "专注于模块化的NodeJs Web框架",
   "scripts": {
     "lint": "eslint .",

@@ -1,3 +1,13 @@
+<a name="4.7.0"></a>
+# [4.7.0](https://github.com/alibaba/plover/compare/v4.6.0...v4.7.0) (2018-09-20)
+
+
+### Features
+
+* add cors ([a6c37c8](https://github.com/alibaba/plover/commit/a6c37c8))
+
+
+
 <a name="4.6.0"></a>
 # [4.6.0](https://github.com/alibaba/plover/compare/v4.5.1...v4.6.0) (2018-08-29)
 
