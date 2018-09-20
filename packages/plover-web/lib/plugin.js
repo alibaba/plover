@@ -1,6 +1,6 @@
 const pathUtil = require('path');
-
 const debug = require('debug')('plover-web:plugin');
+const util = require('./util/util');
 
 
 module.exports = function(app) {
@@ -23,6 +23,8 @@ module.exports = function(app) {
   require('./web/query')(app);
   require('./web/params')(app);
   require('./web/csrf')(app, config.csrf);
+
+  installCors(app, config.cors);
 
   require('./security/assert-method')(app);
 };
@@ -57,6 +59,25 @@ function install(app, name, config) {
   const fn = require(name);
   const mw = fn(config);
   mw.$name = name;
+  add(app, mw);
+}
+
+
+function installCors(app, config = {}) {
+  const match = config.match || [];
+  if (!match.length) {
+    return;
+  }
+  const rules = util.regularRules(match);
+  const cors = require('@koa/cors');
+  const origin = ctx => {
+    if (util.testRules(rules, ctx.hostname)) {
+      return ctx.get('Origin');
+    }
+    return null;
+  };
+  const opts = Object.assign({}, config, { origin });
+  const mw = cors(opts);
   add(app, mw);
 }
 

@@ -19,6 +19,10 @@ module.exports = {
     conditional: {},
     etag: {},
 
+    cors: {
+      match: ['*.google.com']
+    },
+
     bodyParser: {},
 
     static: {},
@@ -35,4 +39,3 @@ module.exports = {
     }
   }
 };
-
