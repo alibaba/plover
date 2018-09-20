@@ -16,7 +16,7 @@ describe('plover-web/plugin', function() {
 
   const agent = request.agent(app.callback());
 
-  it('etag and rtime', function() {
+  it('etag and rtime', () => {
     return agent.get('/hello')
       .expect(function(res) {
         res.header.etag.should.not.empty();
@@ -26,23 +26,23 @@ describe('plover-web/plugin', function() {
   });
 
 
-  it('favicon', function() {
+  it('favicon', () => {
     return agent.get('/favicon.ico').expect(200);
   });
 
 
-  it('static', function() {
+  it('static', () => {
     return agent.get('/ok.txt').expect('ok!\n');
   });
 
 
-  it('compress', function() {
+  it('compress', () => {
     return agent.get('/big.txt')
       .expect('Content-Encoding', 'gzip');
   });
 
 
-  it('not setting.web', function() {
+  it('not setting.web', () => {
     const myapp = plover({ applicationRoot: __dirname });
     plugin(myapp);
     hello(myapp);
@@ -51,7 +51,7 @@ describe('plover-web/plugin', function() {
   });
 
 
-  it('security headers', function() {
+  it('security headers', () => {
     return agent.get('/hello')
       .expect('X-XSS-Protection', '1; mode=block')
       .expect('X-Content-Type-Options', 'nosniff')
@@ -59,9 +59,24 @@ describe('plover-web/plugin', function() {
   });
 
 
-  it('session', async function() {
+  it('session', async() => {
     await agent.get('/login').expect('ok');
     await agent.get('/user').expect({ name: 'tester' });
+  });
+
+
+  it('cors', async() => {
+    await agent.get('/hello')
+      .set('Host', 'www.google.com')
+      .set('Origin', 'http://www.google.com:8080')
+      .expect('hello')
+      .expect('access-control-allow-origin', 'http://www.google.com:8080');
+
+    const res = await agent.get('/hello')
+      .set('Origin', 'http://www.google.com:8080');
+
+    res.text.should.equal('hello');
+    (res.headers['access-control-allow-origin'] === undefined).should.ok();
   });
 });
 

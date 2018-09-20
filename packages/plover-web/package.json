@@ -11,7 +11,8 @@
     "lib"
   ],
   "dependencies": {
-    "debug": "^3.1.0",
+    "@koa/cors": "^2.2.2",
+    "debug": "^4.0.1",
     "iconv-lite": "^0.4.13",
     "koa-bodyparser": "^4.2.0",
     "koa-compress": "^3.0.0",
@@ -23,6 +24,7 @@
     "koa-session": "^5.5.0",
     "koa-static": "^5.0.0",
     "minimatch": "^3.0.4",
+    "path-to-regexp": "^2.4.0",
     "plover-logger": "^1.4.4",
     "qs": "^6.5.0"
   },
