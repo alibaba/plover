@@ -63,9 +63,9 @@ function install(app, name, config) {
 }
 
 
-function installCors(app, config) {
-  const { match, ...ext } = config || {};
-  if (!match || !match.length) {
+function installCors(app, config = {}) {
+  const match = config.match || [];
+  if (!match.length) {
     return;
   }
   const rules = util.regularRules(match);
@@ -76,7 +76,8 @@ function installCors(app, config) {
     }
     return null;
   };
-  const mw = cors({ ...ext, origin });
+  const opts = Object.assign({}, config, { origin });
+  const mw = cors(opts);
   add(app, mw);
 }
 
