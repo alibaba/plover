@@ -30,11 +30,14 @@ class Helper {
 
 
   url(url) {
+    if (rAbs.test(url)) {
+      return url;
+    }
     url = url.replace(rSlash, '');
     if (this.manifest) {
       url = this.manifest.get(url) || url;
     }
-    return rAbs.test(url) ? url : this.urlPrefix + '/' + url;
+    return this.urlPrefix + '/' + url;
   }
 
 
