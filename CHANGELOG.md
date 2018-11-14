@@ -1,3 +1,12 @@
+## [4.7.1](https://github.com/alibaba/plover/compare/v4.7.0...v4.7.1) (2018-11-14)
+
+
+### Bug Fixes
+
+* 修复plover-assets不能正确处理无协义绝对路径 ([dd81ef3](https://github.com/alibaba/plover/commit/dd81ef3))
+
+
+
 <a name="4.7.0"></a>
 # [4.7.0](https://github.com/alibaba/plover/compare/v4.6.0...v4.7.0) (2018-09-20)
 
