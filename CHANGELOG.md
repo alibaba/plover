@@ -1,3 +1,12 @@
+## [4.7.2](https://github.com/alibaba/plover/compare/v4.7.1...v4.7.2) (2018-11-15)
+
+
+### Bug Fixes
+
+* 修复manifest返回绝对地址时链接错误 ([d3f4baf](https://github.com/alibaba/plover/commit/d3f4baf))
+
+
+
 ## [4.7.1](https://github.com/alibaba/plover/compare/v4.7.0...v4.7.1) (2018-11-14)
 
 
