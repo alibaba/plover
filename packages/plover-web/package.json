@@ -45,6 +45,9 @@
     "type": "git",
     "url": "git+https://github.com/alibaba/plover.git"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/alibaba/plover/issues"

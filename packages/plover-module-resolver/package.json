@@ -24,6 +24,8 @@
     "type": "git",
     "url": "git+https://github.com/alibaba/plover.git"
   },
+
+
   "author": "bencode@163.com",
   "license": "Apache-2.0",
   "bugs": {
