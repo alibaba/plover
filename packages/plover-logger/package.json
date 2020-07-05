@@ -1,6 +1,6 @@
 {
   "name": "plover-logger",
-  "version": "1.8.0",
+  "version": "1.7.0",
   "description": "【核心模块】提供统一的日志接口，让使用者不用关心日志实现，方便日志实现切换。",
   "main": "lib/index.js",
   "scripts": {
