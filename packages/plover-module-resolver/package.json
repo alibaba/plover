@@ -11,13 +11,13 @@
     "lib"
   ],
   "dependencies": {
-    "debug": "^3.1.0",
-    "resolve-from": "^4.0.0",
-    "semver": "^5.4.1"
+    "debug": "^4.1.1",
+    "resolve-from": "^5.0.0",
+    "semver": "^7.3.2"
   },
   "devDependencies": {
     "istanbul": "^1.1.0-alpha",
-    "mocha": "^5.2.0",
+    "mocha": "^8.0.1",
     "should": "^13.1.2"
   },
   "repository": {

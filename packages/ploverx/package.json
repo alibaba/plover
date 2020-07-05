@@ -16,9 +16,9 @@
   ],
   "dependencies": {
     "bluebird": "^3.5.0",
-    "commander": "^2.17.1",
-    "fs-extra": "^7.0.0",
-    "plover": "^3.5.0",
+    "commander": "^5.1.0",
+    "fs-extra": "^9.0.1",
+    "plover": "^4.0.0-beta",
     "plover-arttemplate": "^3.1.0",
     "plover-assets": "^4.3.5",
     "plover-benchmark": "^1.1.0",
@@ -28,15 +28,15 @@
     "plover-web": "^3.4.0",
     "plover-xview": "^3.0.0",
     "winston": "^3.0.0",
-    "winston-daily-rotate-file": "^3.3.2"
+    "winston-daily-rotate-file": "^4.0.5"
   },
   "devDependencies": {
     "co": "^4.6.0",
     "istanbul": "^1.1.0-alpha",
-    "mocha": "^5.2.0",
+    "mocha": "^8.0.0",
     "should": "^13.2.3",
-    "sinon": "^6.1.5",
-    "supertest": "^3.1.0"
+    "sinon": "^9.0.2",
+    "supertest": "^4.0.2"
   },
   "repository": {
     "type": "git",

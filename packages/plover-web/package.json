@@ -11,20 +11,20 @@
     "lib"
   ],
   "dependencies": {
-    "@koa/cors": "^2.2.2",
+    "@koa/cors": "^3.1.0",
     "debug": "^4.0.1",
-    "iconv-lite": "^0.4.13",
+    "iconv-lite": "^0.6.1",
     "koa-bodyparser": "^4.2.0",
-    "koa-compress": "^3.0.0",
+    "koa-compress": "^4.0.1",
     "koa-conditional-get": "^2.0.0",
     "koa-csrf": "^2.5.0",
     "koa-etag": "^3.0.0",
     "koa-favicon": "^2.0.0",
     "koa-response-time": "^2.0.0",
-    "koa-session": "^5.5.0",
+    "koa-session": "^6.0.0",
     "koa-static": "^5.0.0",
     "minimatch": "^3.0.4",
-    "path-to-regexp": "^2.4.0",
+    "path-to-regexp": "^6.1.0",
     "plover-logger": "^1.4.4",
     "qs": "^6.5.0"
   },
@@ -32,11 +32,11 @@
     "co": "^4.6.0",
     "istanbul": "^1.1.0-alpha",
     "koa": "^2.2.0",
-    "mocha": "^5.0.2",
-    "plover": "^3.0.1",
+    "mocha": "^8.0.1",
+    "plover": "^4.0.0-beta",
     "plover-test-mate": "^3.0.0",
     "should": "^13.1.2",
-    "supertest": "^3.0.0"
+    "supertest": "^4.0.2"
   },
   "plover": {
     "plugin": "lib/plugin.js"

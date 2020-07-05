@@ -11,13 +11,13 @@
     "lib"
   ],
   "dependencies": {
-    "debug": "^3.1.0"
+    "debug": "^4.1.1"
   },
   "devDependencies": {
     "istanbul": "^1.1.0-alpha",
-    "mocha": "^5.2.0",
+    "mocha": "^8.0.1",
     "should": "^13.1.2",
-    "sinon": "^6.1.5"
+    "sinon": "^9.0.2"
   },
   "repository": {
     "type": "git",
