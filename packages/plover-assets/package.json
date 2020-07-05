@@ -13,8 +13,8 @@
   "dependencies": {
     "co": "^4.6.0",
     "create-tag": "^0.2.0",
-    "debug": "^3.1.0",
-    "fs-extra": "^7.0.0",
+    "debug": "^4.1.1",
+    "fs-extra": "^9.0.1",
     "koa-sendfile": "^2.0.0",
     "lodash": "^4.17.4",
     "minimatch": "^3.0.4",
@@ -22,17 +22,17 @@
     "plover-logger": "^1.4.4",
     "plover-module-resolver": "^1.6.7",
     "plover-util": "^1.7.0",
-    "resolve-from": "^4.0.0"
+    "resolve-from": "^5.0.0"
   },
   "devDependencies": {
     "istanbul": "^1.1.0-alpha",
-    "mocha": "^5.2.0",
+    "mocha": "^8.0.1",
     "plover": "^3.0.1",
     "plover-arttemplate": "^3.0.0",
     "plover-ejs": "^1.1.0",
     "plover-test-mate": "^3.0.0",
     "should": "^13.1.2",
-    "supertest": "^3.0.0"
+    "supertest": "^4.0.2"
   },
   "plover": {
     "plugin": "lib/plugin.js"
