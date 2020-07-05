@@ -119,7 +119,6 @@ exports.formatters = {
     return '' + val;
   },
 
-
   o: function(val) {
     if (val instanceof Error) {
       let message = util.inspect(val);

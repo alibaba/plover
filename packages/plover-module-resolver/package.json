@@ -1,6 +1,6 @@
 {
   "name": "plover-module-resolver",
-  "version": "1.8.0",
+  "version": "2.0.0",
   "description": "【核心模块】 plover模块加载和解析器。",
   "main": "lib/index.js",
   "scripts": {
