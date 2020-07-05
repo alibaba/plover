@@ -1,6 +1,6 @@
 {
   "name": "ploverx",
-  "version": "5.0.0-beta",
+  "version": "5.0.0-beta.1",
   "description": "集成常用plover插件，提供全栈nodejs web应用开发环境。",
   "main": "lib/index",
   "bin": {
@@ -20,12 +20,12 @@
     "fs-extra": "^9.0.1",
     "plover": "^4.0.0-beta",
     "plover-arttemplate": "^3.1.0",
-    "plover-assets": "^4.3.5",
+    "plover-assets": "^5.0.0",
     "plover-benchmark": "^1.1.0",
     "plover-ejs": "^1.1.0",
     "plover-logger": "^1.4.4",
     "plover-router": "^3.3.1",
-    "plover-web": "^3.4.0",
+    "plover-web": "^4.0.0",
     "plover-xview": "^3.0.0",
     "winston": "^3.0.0",
     "winston-daily-rotate-file": "^4.0.5"
