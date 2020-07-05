@@ -46,6 +46,9 @@
   "engines": {
     "node": ">=7.6.0"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alibaba/plover.git"
