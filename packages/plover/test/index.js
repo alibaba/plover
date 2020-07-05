@@ -1,9 +1,8 @@
 const pathUtil = require('path');
 const Koa = require('koa');
 const request = require('supertest');
-
-const plover = require('..');
 const Logger = require('plover-logger');
+const plover = require('..');
 
 
 /* eslint no-process-env: 0 */
