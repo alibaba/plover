@@ -2,7 +2,7 @@ const pathUtil = require('path');
 const resolveFrom = require('resolve-from');
 const convert = require('koa-convert');
 const lang = require('plover-util/lib/lang');
-const pathToRegexp = require('path-to-regexp');
+const { pathToRegexp } = require('path-to-regexp');
 
 const depd = require('depd')('plover');
 

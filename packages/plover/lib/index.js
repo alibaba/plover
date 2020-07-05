@@ -230,15 +230,7 @@ function initComponents(self, components) {
  * 打印出模块列表
  */
 function printModules(self) {
-  const settings = self.settings;
-  // 非开发环境不打印
-  if (!settings.development) {
-    return;
-  }
-
-  // 单元测试环境也不打印
-  // `__testPrintModules`配置是用来专门测试这个方法的
-  if (process.env.LOADED_MOCHA_OPTS && !settings.__testPrintModules) { // eslint-disable-line
+  if (!self.settings.printModules) {
     return;
   }
 
