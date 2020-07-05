@@ -1,5 +1,5 @@
 const parseQuery = require('querystring').parse;
-const pathToRegexp = require('path-to-regexp');
+const { pathToRegexp } = require('path-to-regexp');
 
 
 const logger = require('plover-logger')('plover:util/router');

@@ -1,8 +1,8 @@
 language: node_js
 node_js:
   - stable
-  - 8
-  - 7.6
+  - 12.18
+  - 14.5
 script:
   - ./ci.sh
 after_script:

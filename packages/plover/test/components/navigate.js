@@ -96,7 +96,7 @@ describe('components/navigate', function() {
     app.filters[3].should.eql({
       name: 'XViewFilter',
       filter: XViewFilter,
-      match: /^\/api(?:\/)?$/i,
+      match: /^\/api[\/#\?]?$/i,  // eslint-disable-line
       options: {
         match: '/api'
       }

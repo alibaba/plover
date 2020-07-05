@@ -14,12 +14,12 @@
   },
   "devDependencies": {
     "istanbul": "^1.1.0-alpha",
-    "mocha": "^5.2.0",
-    "plover": "^3.4.1",
+    "mocha": "^8.0.1",
+    "plover": "^4.0.0-beta",
     "plover-test-mate": "^3.1.0",
     "plover-web": "^3.1.0",
     "should": "^13.2.3",
-    "sinon": "^6.1.5"
+    "sinon": "^9.0.2"
   },
   "plover": {
     "plugin": "lib/plugin.js"
@@ -27,6 +27,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alibaba/plover.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "author": "bencode@163.com",
   "license": "Apache-2.0",

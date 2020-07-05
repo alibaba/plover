@@ -13,12 +13,15 @@
   "dependencies": {},
   "devDependencies": {
     "istanbul": "^1.1.0-alpha",
-    "mocha": "^5.2.0",
+    "mocha": "^8.0.1",
     "should": "^13.1.2"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alibaba/plover.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "author": "bencode@163.com",
   "license": "Apache-2.0",
