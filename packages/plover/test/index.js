@@ -177,7 +177,7 @@ describe('application', function() {
   it('application启动后会输出模块列表日志(for coverage)', function(done) {
     const path = pathUtil.join(__dirname, 'fixtures/index-mods');
     plover({ applicationRoot: path, env: 'test' });  // 测试环境不打印
-    plover({ applicationRoot: path, __testPrintModules: true }); // 会打印出模块列表
+    plover({ applicationRoot: path, printModules: true }); // 会打印出模块列表
     setTimeout(done, 10);
   });
 });
